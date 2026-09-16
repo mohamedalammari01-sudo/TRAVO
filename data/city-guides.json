@@ -1,0 +1,54 @@
+{
+  "updatedAt": "2026-09-16T11:50:00+03:00",
+  "schemaVersion": 1,
+  "cities": {
+    "riyadh": {
+      "cityAr": "الرياض",
+      "cityEn": "Riyadh",
+      "breakfast": [
+        {"name":"Chorisia Lounge","rating":5.0,"reviews":1059,"area":"Al Hada","reviewSummaryAr":"يحصل على تقييمات مرتفعة جدًا ويُعرف بأجوائه الهادئة وخيارات الإفطار والـAfternoon Tea.","reviewSummaryEn":"Very highly rated, known for calm surroundings plus breakfast and afternoon tea.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Vidro","rating":4.9,"reviews":88,"area":"Prince Muhammad bin Abdulaziz Rd","reviewSummaryAr":"الزوار يقيّمونه مرتفعًا، ويخدم الإفطار والغداء والعشاء طوال اليوم.","reviewSummaryEn":"Highly rated and open around the clock for breakfast, lunch and dinner.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Piatto","rating":4.6,"reviews":9,"area":"Riyadh","reviewSummaryAr":"خيار إيطالي معروف في الرياض مع خدمة تبدأ من الصباح ومناسب لإفطار متأخر.","reviewSummaryEn":"A familiar Italian option in Riyadh, open from the morning and suitable for a late breakfast.","sourceLabel":"Indexed traveler reviews"}
+      ],
+      "lunch": [
+        {"name":"Vidro","rating":4.9,"reviews":88,"area":"Prince Muhammad bin Abdulaziz Rd","reviewSummaryAr":"تقييم مرتفع وخيار مرن للغداء مع قائمة تعمل طوال اليوم.","reviewSummaryEn":"Highly rated with an all-day menu that works well for lunch.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Piatto","rating":4.6,"reviews":9,"area":"Riyadh","reviewSummaryAr":"أطباق إيطالية وحصص كبيرة وأجواء مناسبة للعائلات.","reviewSummaryEn":"Italian food, generous portions and a family-friendly setting.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Terrace Grill","rating":4.4,"reviews":105,"area":"Riyadh Marriott Hotel","reviewSummaryAr":"ستيك ومأكولات بحرية وخيار مناسب لغداء مرتب أو اجتماع عمل.","reviewSummaryEn":"Steak and seafood, suited to a polished lunch or business meal.","sourceLabel":"Indexed traveler reviews"}
+      ],
+      "dinner": [
+        {"name":"Vidro","rating":4.9,"reviews":88,"area":"Prince Muhammad bin Abdulaziz Rd","reviewSummaryAr":"من أعلى الخيارات تقييمًا في بياناتنا الحالية ويعمل حتى وقت متأخر.","reviewSummaryEn":"One of the highest-rated options in the current dataset and open late.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Piatto","rating":4.6,"reviews":9,"area":"Riyadh","reviewSummaryAr":"خيار إيطالي معروف مع أجواء مريحة للعشاء.","reviewSummaryEn":"A well-known Italian option with a relaxed dinner setting.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Terrace Grill","rating":4.4,"reviews":105,"area":"Riyadh Marriott Hotel","reviewSummaryAr":"مناسب لعشاء ستيك أو مأكولات بحرية في أجواء رسمية أكثر.","reviewSummaryEn":"Suitable for a steak or seafood dinner in a more formal setting.","sourceLabel":"Indexed traveler reviews"}
+      ],
+      "coffee": [
+        {"name":"NORVI","rating":4.3,"reviews":269,"area":"Riyadh","reviewSummaryAr":"تصدّر تحليل حديث لذكر القهوة المختصة في تقييمات الرياض، مع 48 إشارة مباشرة للقهوة المختصة.","reviewSummaryEn":"Led a recent review analysis for specialty-coffee mentions in Riyadh, with 48 direct specialty-coffee mentions.","sourceLabel":"Raddod — Sep 2026","sourceUrl":"https://raddod.com/blog/best-specialty-coffee-riyadh-2026?lang=en"},
+        {"name":"NAD Coffee","rating":4.0,"reviews":189,"area":"Riyadh","reviewSummaryAr":"ظهر بقوة في تقييمات القهوة المختصة مع 31 إشارة مباشرة بحسب تحليل سبتمبر 2026.","reviewSummaryEn":"Strong specialty-coffee review signal, with 31 direct mentions in a September 2026 analysis.","sourceLabel":"Raddod — Sep 2026","sourceUrl":"https://raddod.com/blog/best-specialty-coffee-riyadh-2026?lang=en"},
+        {"name":"Chorisia Lounge","rating":5.0,"reviews":1059,"area":"Al Hada","reviewSummaryAr":"خيار مرتفع التقييم للقهوة والجلوس الهادئ، خصوصًا لمن يفضّل أجواء فندقية فاخرة.","reviewSummaryEn":"A very highly rated coffee stop for a calm, upscale hotel-lounge atmosphere.","sourceLabel":"Indexed traveler reviews"}
+      ]
+    },
+    "dubai": {
+      "cityAr": "دبي",
+      "cityEn": "Dubai",
+      "breakfast": [
+        {"name":"Risen Café & Artisanal Bakery","rating":5.0,"reviews":33,"area":"Jumeirah Village Circle","reviewSummaryAr":"مخبز ومقهى يقدم إفطارًا صحيًا وقهوة، ومناسب لبداية يوم هادئة.","reviewSummaryEn":"An artisanal bakery and café with healthy breakfast options and coffee.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Roasters Specialty Coffee House","rating":4.9,"reviews":2496,"area":"Downtown Dubai","reviewSummaryAr":"من أكثر خيارات الإفطار والقهوة شعبية في البيانات الحديثة، والناس يمدحون جودة القهوة والإطلالة.","reviewSummaryEn":"A very popular breakfast-and-coffee option, with reviewers often praising coffee quality and the setting.","sourceLabel":"2026 review roundup","sourceUrl":"https://www.bestinhood.com/dubai/food-specialty/best-bagel-shops-in-dubai/"},
+        {"name":"Zou Zou","rating":4.6,"reviews":116,"area":"Dubai Hills Mall","reviewSummaryAr":"فطور تركي-لبناني معروف، وفاز بفئة الإفطار المفضل في جوائز What's On Dubai 2026.","reviewSummaryEn":"Known for Turkish-Lebanese breakfast and named Favourite Breakfast at the What's On Dubai Awards 2026.","sourceLabel":"What's On Dubai 2026","sourceUrl":"https://whatson.ae/2026/06/whats-on-dubai-awards-2026-winners-announced/"}
+      ],
+      "lunch": [
+        {"name":"Tutto Passa Restaurant","rating":5.0,"reviews":26,"area":"Bluewaters Island","reviewSummaryAr":"خيار إيطالي بإطلالة وأجواء مستوحاة من ساحل أمالفي ويعمل من الإفطار حتى العصر.","reviewSummaryEn":"Italian, Amalfi-inspired setting on Bluewaters, serving from breakfast into the afternoon.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Zou Zou Turkish & Lebanese Restaurant","rating":4.7,"reviews":264,"area":"JBR","reviewSummaryAr":"خيار تركي ولبناني مناسب للغداء والعائلات مع تقييم قوي وعدد مراجعات جيد.","reviewSummaryEn":"Turkish-Lebanese lunch option with a strong rating and solid review volume.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"Risen Café & Artisanal Bakery","rating":5.0,"reviews":33,"area":"JVC","reviewSummaryAr":"مناسب لغداء خفيف أو صحي مع مخبوزات وقهوة.","reviewSummaryEn":"Good for a lighter or healthier lunch with bakery items and coffee.","sourceLabel":"Indexed traveler reviews"}
+      ],
+      "dinner": [
+        {"name":"Zou Zou Turkish & Lebanese Restaurant","rating":4.7,"reviews":264,"area":"JBR","reviewSummaryAr":"من الخيارات المرنة للعشاء مع أجواء حيوية وقائمة تركية-لبنانية.","reviewSummaryEn":"A flexible dinner choice with a lively atmosphere and Turkish-Lebanese menu.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"The Garden Grille & Bar","rating":5.0,"reviews":1,"area":"Port Rashid","reviewSummaryAr":"قائمة دولية للغداء والعشاء، لكن عدد المراجعات في البيانات الحالية قليل لذا لا نرفعه كخيار أول.","reviewSummaryEn":"International lunch and dinner menu, but current indexed review volume is low, so TRAVO does not rank it first.","sourceLabel":"Indexed traveler reviews"},
+        {"name":"ISMA Restaurant Dubai Marina","rating":5.0,"reviews":275,"area":"Dubai Marina","reviewSummaryAr":"تقييم مرتفع جدًا مع مئات المراجعات، ويُذكر كخيار عائلي جيد في المراجعات.","reviewSummaryEn":"Very highly rated with hundreds of reviews and frequently described as family-friendly.","sourceLabel":"Tripadvisor 2026","sourceUrl":"https://www.tripadvisor.com/Restaurants-g295424-zfp2-Dubai_Emirate_of_Dubai.html"}
+      ],
+      "coffee": [
+        {"name":"Roasters Specialty Coffee House","rating":4.9,"reviews":6398,"area":"Dubai Mall / Downtown","reviewSummaryAr":"القهوة القوية والمميزة تتكرر في انطباعات الزوار، مع حجم مراجعات كبير جدًا.","reviewSummaryEn":"Visitors repeatedly mention distinctive coffee quality, backed by a very large review volume.","sourceLabel":"Yalah — Sep 2026","sourceUrl":"https://yalah.ae/cafes?sort=reviews"},
+        {"name":"The Grey Al Wasl","rating":4.8,"reviews":7351,"area":"Al Wasl","reviewSummaryAr":"الزوار يكررون الإشادة بالأجواء والطاقم، وهو من أكثر المقاهي مراجعة في القائمة الحالية.","reviewSummaryEn":"Reviewers repeatedly praise the atmosphere and staff, with one of the largest review volumes in the current list.","sourceLabel":"Yalah — Sep 2026","sourceUrl":"https://yalah.ae/cafes?sort=reviews"},
+        {"name":"Mokha 1450 Coffee Boutique","rating":4.5,"reviews":19,"area":"Al Wasl","reviewSummaryAr":"متخصص بالقهوة المختصة ويقدم تجربة أكثر هدوءًا وتركيزًا على الحبوب والمصدر.","reviewSummaryEn":"A specialty-focused coffee boutique with an emphasis on sourcing and a quieter tasting experience.","sourceLabel":"Indexed traveler reviews"}
+      ]
+    }
+  }
+}
