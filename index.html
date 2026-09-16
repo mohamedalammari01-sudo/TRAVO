@@ -17,7 +17,6 @@
     <div class="brand"><div class="logo">T</div><div><b>TRAVO</b><span data-t="tagline">ذكاء السفر، الآن</span></div></div>
     <nav>
       <a class="active" href="#discover">✦ <span data-t="discover">اكتشف</span></a>
-      <a href="#destinationIntel">◈ <span data-t="intel">دليل الوجهة</span></a>
       <a href="#trends">🔥 <span data-t="trends">الترندات الحية</span></a>
       <a href="#planner">🗓 <span data-t="planner">مخطط الرحلة</span></a>
       <a href="#near">📍 <span data-t="near">بالقرب منك</span></a>
@@ -30,7 +29,6 @@
   <main>
     <header class="topbar">
       <div class="mobile-brand"><div class="logo">T</div><b>TRAVO</b></div>
-      <div class="destination-mini" id="destinationMini"><span id="miniFlag">🇸🇦</span><span><b id="miniCity">الرياض</b><small id="miniCountry">السعودية</small></span></div>
       <div class="top-actions">
         <button id="langBtn" class="ghost">EN</button>
         <button class="ghost" data-t="saved">المحفوظات</button>
@@ -40,35 +38,16 @@
 
     <section id="discover" class="hero">
       <div class="hero-overlay"></div>
-      <div class="destination-watermark" id="destinationWatermark">RIYADH</div>
       <div class="hero-content">
-        <div class="kicker" id="heroKicker">TRAVO LIVE • RIYADH</div>
-        <h1 id="heroHeadline" data-t="headline">اعرف أين تذهب<br>قبل الجميع.</h1>
-        <p id="heroSub" data-t="sub">أماكن رائجة، فعاليات اليوم، تجارب جديدة وخطة رحلة ذكية تتغير مع مدينتك ووقتك.</p>
-        <div class="searchbar"><span>⌕</span><input id="citySearch" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><button id="exploreBtn" class="primary" data-t="explore">استكشف</button></div>
-        <div id="quickDestinations" class="quick-destinations"></div>
-      </div>
-    </section>
-
-    <section id="destinationIntel" class="section destination-intel">
-      <div class="destination-title-row">
-        <div>
-          <p class="eyebrow">DESTINATION INTELLIGENCE</p>
-          <h2><span id="destinationFlag">🇸🇦</span> <span id="destinationName">الرياض</span></h2>
-          <p id="destinationSummary" class="muted"></p>
-        </div>
-        <div class="freshness"><span class="live-dot"></span><span data-t="adaptiveTheme">الواجهة متكيفة مع الوجهة</span></div>
-      </div>
-      <div class="intel-grid" id="intelGrid"></div>
-      <div class="intel-columns">
-        <div class="panel intel-panel"><p class="eyebrow" data-t="areas">AREAS</p><h3 data-t="whereGo">أين تذهب؟</h3><div id="areaList" class="pill-list"></div></div>
-        <div class="panel intel-panel"><p class="eyebrow" data-t="localIntel">LOCAL INTELLIGENCE</p><h3 data-t="knowBefore">اعرف قبل أن تذهب</h3><div id="localTips" class="tips-list"></div></div>
-        <div class="panel intel-panel"><p class="eyebrow" data-t="apps">USEFUL APPS</p><h3 data-t="appsTitle">تطبيقات مفيدة</h3><div id="appList" class="pill-list"></div></div>
+        <div class="kicker">TRAVO LIVE • Travel Intelligence</div>
+        <h1 data-t="headline">اعرف أين تذهب<br>قبل الجميع.</h1>
+        <p data-t="sub">أماكن رائجة، فعاليات اليوم، تجارب جديدة وخطة رحلة ذكية تتغير مع مدينتك ووقتك.</p>
+        <div class="searchbar"><span>⌕</span><input id="citySearch" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><button class="primary" data-t="explore">استكشف</button></div>
       </div>
     </section>
 
     <section id="trends" class="section">
-      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p id="trendSubText" data-t="trendSub">نرتب الترندات حسب الوجهة والوقت وحالة الفعالية.</p></div><div class="filters"><button class="chip active" data-filter="Now">🔥 Now</button><button class="chip" data-filter="Tonight">🌙 Tonight</button><button class="chip" data-filter="New">🆕 New</button><button class="chip" data-filter="Rising">📈 Rising</button><button class="chip" data-filter="Last Chance">⏳ Last Chance</button></div></div>
+      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p data-t="trendSub">المحتوى أدناه تجريبي حتى يتم ربط التحديث اليومي بقاعدة البيانات.</p></div><div class="filters"><button class="chip active">🔥 Now</button><button class="chip">🌙 Tonight</button><button class="chip">🆕 New</button><button class="chip">📈 Rising</button><button class="chip">⏳ Last Chance</button></div></div>
       <div id="trendCards" class="cards"></div>
     </section>
 
@@ -97,7 +76,6 @@
       <div class="panel ai-panel">
         <div class="ai-head"><div><p class="eyebrow">AI ASSISTANT</p><h2>TRAVO AI</h2><p class="muted" data-t="aiSub">مساعد سفر عملي يفهم المدينة والخطة.</p></div><span id="aiChip" class="status-pill pending" data-t="aiUnavailable">غير متصل</span></div>
         <div id="aiThread" class="ai-thread"><div class="bubble" data-t="aiMsg">اسألني عن جدول يوم، اختيار حي، ترتيب التنقل أو خطة سفر كاملة.</div></div>
-        <div class="suggested-prompts" id="suggestedPrompts"></div>
         <div class="ai-input"><input id="aiInput" data-ph="aiPh" placeholder="مثال: خطط لي ليلة في الرياض"><button id="aiSend" class="primary" data-t="send">إرسال</button></div>
       </div>
 
@@ -116,7 +94,7 @@
   </main>
 </div>
 
-<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#destinationIntel">◈<small data-t="intel">الدليل</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="#planner">🗓<small data-t="planner">الخطة</small></a><a href="#ai">✧<small>AI</small></a></nav>
+<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="#planner">🗓<small data-t="planner">الخطة</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
 <script src="app.js"></script>
 </body>
 </html>
