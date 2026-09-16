@@ -1,0 +1,188 @@
+{
+  "updatedAt": "2026-09-16T11:50:00+03:00",
+  "schemaVersion": 1,
+  "cities": {
+    "riyadh": [
+      {
+        "id": "riyadh-3a-ka3ba-2026-09-17",
+        "status": "Soon",
+        "category": "Event",
+        "titleAr": "ع كعبا — ليلة ارتجال وكوميديا",
+        "titleEn": "3a Ka3ba — Improv comedy night",
+        "whyAr": "فعالية قريبة جدًا من موعدها ومناسبة لمن سيكون في الرياض غدًا.",
+        "whyEn": "A time-sensitive event happening tomorrow in Riyadh.",
+        "start": "2026-09-17",
+        "end": "2026-09-17",
+        "price": "From SAR 195",
+        "locationAr": "الرياض",
+        "locationEn": "Riyadh",
+        "image": "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Saudi",
+        "sourceUrl": "https://www.visitsaudi.com/ar/riyadh/events/3a-ka3ba"
+      },
+      {
+        "id": "riyadh-arabic-language-exhibition-28",
+        "status": "Now",
+        "category": "Culture",
+        "titleAr": "معرض اللغة العربية 28",
+        "titleEn": "Arabic Language Exhibition 28",
+        "whyAr": "معرض ثقافي مدرج ضمن تقويم السعودية ويستمر خلال 2026.",
+        "whyEn": "A culture-focused exhibition listed on the official Saudi calendar through 2026.",
+        "start": "2026-01-01",
+        "end": "2026-12-31",
+        "price": "Check source",
+        "locationAr": "الرياض",
+        "locationEn": "Riyadh",
+        "image": "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Saudi",
+        "sourceUrl": "https://www.visitsaudi.com/en/riyadh/riyadh-season"
+      }
+    ],
+    "jeddah": [
+      {
+        "id": "jeddah-galu-beach-2026",
+        "status": "Now",
+        "category": "Experience",
+        "titleAr": "تجربة شاطئ GALU",
+        "titleEn": "GALU Beach Experience",
+        "whyAr": "تجربة شاطئية مستمرة حاليًا في جدة حتى نهاية أكتوبر.",
+        "whyEn": "A beach experience currently running in Jeddah through the end of October.",
+        "start": "2026-08-24",
+        "end": "2026-10-30",
+        "price": "From SAR 100",
+        "locationAr": "جدة",
+        "locationEn": "Jeddah",
+        "image": "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Saudi",
+        "sourceUrl": "https://www.visitsaudi.com/ar/see-do/destinations/jeddah"
+      },
+      {
+        "id": "jeddah-gulf-cup-27-2026",
+        "status": "Soon",
+        "category": "Sports",
+        "titleAr": "خليجي 27 في جدة",
+        "titleEn": "Gulf Cup 27 in Jeddah",
+        "whyAr": "بطولة خليجية كبيرة تبدأ 23 سبتمبر وتستمر حتى 6 أكتوبر.",
+        "whyEn": "A major Gulf football tournament starting 23 September and running to 6 October.",
+        "start": "2026-09-23",
+        "end": "2026-10-06",
+        "price": "Check official tickets",
+        "locationAr": "جدة",
+        "locationEn": "Jeddah",
+        "image": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Saudi",
+        "sourceUrl": "https://www.visitsaudi.com/ar/campaigns/gulf-cup-27"
+      }
+    ],
+    "dubai": [
+      {
+        "id": "dubai-gisec-global-2026",
+        "status": "Now",
+        "category": "Event",
+        "titleAr": "GISEC Global",
+        "titleEn": "GISEC Global",
+        "whyAr": "أحد أكبر أحداث الأمن السيبراني في المنطقة ويقام الآن في Expo City Dubai.",
+        "whyEn": "A major cybersecurity event taking place now at Expo City Dubai.",
+        "start": "2026-09-16",
+        "end": "2026-09-18",
+        "price": "Check source",
+        "locationAr": "Dubai Exhibition Centre — Expo City",
+        "locationEn": "Dubai Exhibition Centre — Expo City",
+        "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Dubai",
+        "sourceUrl": "https://www.visitdubai.com/en/mice/events-calendar/gisec-global"
+      }
+    ],
+    "london": [
+      {
+        "id": "london-open-house-2026",
+        "status": "Now",
+        "category": "Culture",
+        "titleAr": "Open House Festival",
+        "titleEn": "Open House Festival",
+        "whyAr": "مئات المباني والمساحات المعمارية تفتح أبوابها ضمن مهرجان يستمر حتى 20 سبتمبر.",
+        "whyEn": "Hundreds of buildings and architecture spaces open to visitors through 20 September.",
+        "start": "2026-09-12",
+        "end": "2026-09-20",
+        "price": "Many activities are free",
+        "locationAr": "مواقع متعددة — لندن",
+        "locationEn": "Various locations — London",
+        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit London",
+        "sourceUrl": "https://www.visitlondon.com/things-to-do/london-by-month/september"
+      },
+      {
+        "id": "london-design-festival-2026",
+        "status": "Now",
+        "category": "Event",
+        "titleAr": "London Design Festival",
+        "titleEn": "London Design Festival",
+        "whyAr": "فعاليات ومعارض تصميم موزعة في المدينة حتى 20 سبتمبر.",
+        "whyEn": "Design installations and events across London through 20 September.",
+        "start": "2026-09-12",
+        "end": "2026-09-20",
+        "price": "Varies",
+        "locationAr": "مواقع متعددة — لندن",
+        "locationEn": "Various locations — London",
+        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit London",
+        "sourceUrl": "https://www.visitlondon.com/things-to-do/london-by-month/september"
+      },
+      {
+        "id": "london-fashion-week-2026",
+        "status": "Soon",
+        "category": "Event",
+        "titleAr": "London Fashion Week",
+        "titleEn": "London Fashion Week",
+        "whyAr": "تنطلق غدًا وتستمر حتى 21 سبتمبر مع عروض وفعاليات مرتبطة بالموضة.",
+        "whyEn": "Starts tomorrow and runs to 21 September with fashion shows and related events.",
+        "start": "2026-09-17",
+        "end": "2026-09-21",
+        "price": "Varies",
+        "locationAr": "لندن",
+        "locationEn": "London",
+        "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit London",
+        "sourceUrl": "https://www.visitlondon.com/things-to-do/london-by-month/september"
+      }
+    ],
+    "tokyo": [
+      {
+        "id": "tokyo-gransta-renewal-2026-09-16",
+        "status": "New",
+        "category": "New",
+        "titleAr": "افتتاح المنطقة المجددة في Gransta Tokyo",
+        "titleEn": "Gransta Tokyo Marunouchi underground area renewal",
+        "whyAr": "افتتاح اليوم داخل محطة طوكيو مع 26 متجرًا، بينها 10 علامات جديدة ومساحات للحلويات والفن والتسوق.",
+        "whyEn": "Opened today inside Tokyo Station with 26 shops, including 10 new brands plus food, art and shopping spaces.",
+        "start": "2026-09-16",
+        "end": null,
+        "price": "Free to browse",
+        "locationAr": "Tokyo Station — B1 Marunouchi gates",
+        "locationEn": "Tokyo Station — B1 Marunouchi gates",
+        "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Gransta Tokyo Official",
+        "sourceUrl": "https://www.gransta.jp/news/info/marunouchi_kaisatsunairn/"
+      }
+    ],
+    "alula": [
+      {
+        "id": "alula-skies-festival-2026",
+        "status": "Soon",
+        "category": "Experience",
+        "titleAr": "مهرجان سماء العلا",
+        "titleEn": "AlUla Skies Festival",
+        "whyAr": "فعالية موسمية قادمة تستحق التخطيط المبكر لرحلات نوفمبر.",
+        "whyEn": "A seasonal experience worth planning ahead for November trips.",
+        "start": "2026-11-05",
+        "end": "2026-11-14",
+        "price": "Check source",
+        "locationAr": "العلا",
+        "locationEn": "AlUla",
+        "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        "sourceName": "Visit Saudi",
+        "sourceUrl": "https://www.visitsaudi.com/ar/campaigns/winter-v1"
+      }
+    ]
+  }
+}
