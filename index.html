@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#6d28d9" />
+<meta name="description" content="TRAVO — live travel intelligence and smart trip planning" />
+<title>TRAVO — Live Travel Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar glass">
+    <div class="brand"><div class="logo">T</div><div><b>TRAVO</b><span data-t="tagline">ذكاء السفر، الآن</span></div></div>
+    <nav>
+      <a class="active" href="#discover">✦ <span data-t="discover">اكتشف</span></a>
+      <a href="#trends">🔥 <span data-t="trends">الترندات الحية</span></a>
+      <a href="#planner">🗓 <span data-t="planner">مخطط الرحلة</span></a>
+      <a href="#near">📍 <span data-t="near">بالقرب منك</span></a>
+      <a href="#ai">✧ <span>TRAVO AI</span></a>
+      <a href="#status">◉ <span data-t="status">حالة النظام</span></a>
+    </nav>
+    <div class="side-note"><span class="live-dot"></span><span data-t="daily">تحديثات يومية مفعلة</span></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div class="mobile-brand"><div class="logo">T</div><b>TRAVO</b></div>
+      <div class="top-actions">
+        <button id="langBtn" class="ghost">EN</button>
+        <button class="ghost" data-t="saved">المحفوظات</button>
+        <button class="primary" data-t="signin">تسجيل الدخول</button>
+      </div>
+    </header>
+
+    <section id="discover" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="kicker">TRAVO LIVE • Travel Intelligence</div>
+        <h1 data-t="headline">اعرف أين تذهب<br>قبل الجميع.</h1>
+        <p data-t="sub">أماكن رائجة، فعاليات اليوم، تجارب جديدة وخطة رحلة ذكية تتغير مع مدينتك ووقتك.</p>
+        <div class="searchbar"><span>⌕</span><input id="citySearch" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><button class="primary" data-t="explore">استكشف</button></div>
+      </div>
+    </section>
+
+    <section id="trends" class="section">
+      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p data-t="trendSub">المحتوى أدناه تجريبي حتى يتم ربط التحديث اليومي بقاعدة البيانات.</p></div><div class="filters"><button class="chip active">🔥 Now</button><button class="chip">🌙 Tonight</button><button class="chip">🆕 New</button><button class="chip">📈 Rising</button><button class="chip">⏳ Last Chance</button></div></div>
+      <div id="trendCards" class="cards"></div>
+    </section>
+
+    <section id="planner" class="section split">
+      <div class="panel">
+        <p class="eyebrow">SMART PLANNER</p>
+        <h2 data-t="plannerTitle">خطط رحلتك بذكاء</h2>
+        <p class="muted" data-t="plannerSub">اختر الوجهة والمدة وطريقة التخطيط، وTRAVO يبني لك الهيكل اليومي.</p>
+        <div class="form-grid">
+          <label><span data-t="destination">الوجهة</span><input id="planCity" data-ph="destinationPh" placeholder="مثال: دبي"></label>
+          <label><span data-t="days">عدد الأيام</span><input id="planDays" type="number" min="1" max="30" value="4"></label>
+          <label><span data-t="planMode">أسلوب الخطة</span><select id="planMode"><option value="near" data-t="modeNear">الأماكن القريبة</option><option value="trend" data-t="modeTrend">الأكثر رواجًا</option><option value="dynamic" data-t="modeDynamic">ديناميكية حسب موقعي</option></select></label>
+        </div>
+        <button id="planBtn" class="primary wide" data-t="buildPlan">أنشئ الخطة</button>
+        <div id="itinerary" class="itinerary"></div>
+      </div>
+
+      <div id="near" class="panel near-panel">
+        <div><p class="eyebrow">NEAR YOU</p><h2 data-t="nearTitle">ماذا يوجد حولك؟</h2><p class="muted" data-t="nearSub">اسمح بالموقع لنرتب الاقتراحات حسب القرب. لا يتم حفظ موقعك في هذه النسخة.</p></div>
+        <button id="nearBtn" class="primary" data-t="useLocation">استخدم موقعي</button>
+        <div id="nearResult" class="near-result"></div>
+      </div>
+    </section>
+
+    <section id="ai" class="section split">
+      <div class="panel ai-panel">
+        <div class="ai-head"><div><p class="eyebrow">AI ASSISTANT</p><h2>TRAVO AI</h2><p class="muted" data-t="aiSub">مساعد سفر عملي يفهم المدينة والخطة.</p></div><span id="aiChip" class="status-pill pending" data-t="aiUnavailable">غير متصل</span></div>
+        <div id="aiThread" class="ai-thread"><div class="bubble" data-t="aiMsg">اسألني عن جدول يوم، اختيار حي، ترتيب التنقل أو خطة سفر كاملة.</div></div>
+        <div class="ai-input"><input id="aiInput" data-ph="aiPh" placeholder="مثال: خطط لي ليلة في الرياض"><button id="aiSend" class="primary" data-t="send">إرسال</button></div>
+      </div>
+
+      <div id="status" class="panel">
+        <p class="eyebrow">SYSTEM</p><h2 data-t="status">حالة النظام</h2><p class="muted" data-t="statusSub">نعرض بوضوح ما هو متصل فعليًا وما يزال قيد الربط.</p>
+        <div class="status-list">
+          <div class="status-row"><span><i class="dot good"></i>TRAVO Web</span><b data-t="active">مفعّل</b></div>
+          <div class="status-row"><span><i id="aiDot" class="dot warn"></i>TRAVO AI</span><b id="aiState" data-t="pending">قيد الربط</b></div>
+          <div class="status-row"><span><i class="dot good"></i><span data-t="daily">البحث اليومي عن الترندات</span></span><b data-t="active">مفعّل</b></div>
+          <div class="status-row"><span><i class="dot warn"></i><span data-t="livePipeline">ربط البحث اليومي ببيانات الموقع</span></span><b data-t="pending">قيد الربط</b></div>
+          <div class="status-row"><span><i class="dot warn"></i><span data-t="auth">تسجيل الجوال / WhatsApp OTP</span></span><b data-t="pending">قيد الربط</b></div>
+          <div class="status-row"><span><i class="dot warn"></i><span data-t="pay">الدفع والاشتراكات</span></span><b data-t="pending">قيد الربط</b></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="#planner">🗓<small data-t="planner">الخطة</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
+<script src="app.js"></script>
+</body>
+</html>
