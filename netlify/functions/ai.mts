@@ -2,10 +2,10 @@ import type { Config, Context } from "@netlify/functions";
 import OpenAI from "openai";
 
 type TripData = {
-  origin?: string; destination?: string; departureDate?: string; departureTime?: string;
-  arrivalDate?: string; arrivalTime?: string; returnDate?: string; flightNumber?: string;
-  hotel?: string; checkIn?: string; checkOut?: string; tripType?: string; interests?: string[];
-  pace?: string; budget?: string; planStyle?: string;
+  origin?: string; originCode?: string; destination?: string; destinationCode?: string; destinationKey?: string;
+  departureDate?: string; departureTime?: string; arrivalDate?: string; arrivalTime?: string;
+  returnDate?: string; returnTime?: string; flightNumber?: string; hotel?: string;
+  tripType?: string; interests?: string[]; pace?: string; budget?: string; planStyle?: string;
 };
 type Body = {
   action?: "chat" | "scanTicket" | "generateTrip";
@@ -39,7 +39,7 @@ export default async (req: Request, _context: Context) => {
         messages: [{
           role: "user",
           content: [
-            { type: "text", text: `Read this flight ticket or boarding pass image. Extract only information that is visibly supported. ${languageInstruction} Return ONLY valid JSON with these keys: origin, destination, destinationCity, departureDate, departureTime, arrivalDate, arrivalTime, returnDate, flightNumber, airline. Dates must be YYYY-MM-DD when present, times HH:MM when present. Use empty strings for unknown values. Never guess.` },
+            { type: "text", text: `Read this flight ticket, itinerary, e-ticket, or boarding pass image. Extract only information visibly supported by the image. ${languageInstruction} If the image contains outbound and return flight segments, use the outbound departure for departureDate/departureTime and the inbound departure for returnDate/returnTime. Return ONLY valid JSON with these keys: origin, destination, destinationCity, departureDate, departureTime, arrivalDate, arrivalTime, returnDate, returnTime, flightNumber, airline. Dates must be YYYY-MM-DD when present and times HH:MM when present. Use empty strings for unknown values. Never guess.` },
             { type: "image_url", image_url: { url: body.imageDataUrl, detail: "high" } }
           ] as any
         }],
@@ -53,7 +53,7 @@ export default async (req: Request, _context: Context) => {
       const trip = body.trip || {};
       if (!trip.destination) return Response.json({ error: "DESTINATION_REQUIRED" }, { status: 400 });
       const lang = body.language === "en" ? "English" : "Arabic";
-      const prompt = `Create a practical full travel itinerary in ${lang} from the supplied trip data. Respect arrival/departure times, trip type, interests, pace, budget and planning style. Do not invent live event dates, prices, opening hours, sold-out status, or currently trending claims. If exact current places are not verified in the supplied data, use useful category-level suggestions such as 'local breakfast near the hotel' rather than fabricating a named venue. On arrival and departure days keep the plan realistic. Return ONLY valid JSON: {"summary":"...","days":[{"day":1,"date":"YYYY-MM-DD","title":"...","morning":"...","afternoon":"...","evening":"...","note":"..."}]}. Generate every day from arrival/departure through return/check-out, maximum 30 days. Trip data: ${JSON.stringify(trip)}`;
+      const prompt = `Create a practical full travel itinerary in ${lang} from the supplied trip data. Respect departure/return dates and times, any ticket-derived arrival time, trip type, interests, pace, budget and planning style. TRAVO will inject verified breakfast, lunch, dinner and specialty-coffee venue choices separately, so DO NOT invent restaurant or cafe names. Focus each day on activities, neighborhoods, attractions, rest windows and logical movement. Do not invent live event dates, prices, opening hours, sold-out status, or currently trending claims. If live facts are not supplied, write useful category-level suggestions. Keep arrival and departure days realistic. Return ONLY valid JSON: {"summary":"...","days":[{"day":1,"date":"YYYY-MM-DD","title":"...","morning":"...","afternoon":"...","evening":"...","note":"..."}]}. Generate every day from arrival/departure through return, maximum 30 days. Trip data: ${JSON.stringify(trip)}`;
       const completion = await client.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
