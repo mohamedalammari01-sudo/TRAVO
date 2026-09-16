@@ -46,14 +46,14 @@
       <a class="service-card" href="trip.html"><span>✈</span><div><b data-h="sTrip">رحلة ذكية كاملة</b><p data-h="sTripSub">ارفع تذكرتك أو أدخل الرحلة يدويًا، اختر أهدافك، وخذ جدولًا يوميًا كاملًا.</p></div></a>
       <a class="service-card" href="discover.html"><span>✦</span><div><b data-h="sDiscover">اكتشف ماذا يحدث</b><p data-h="sDiscoverSub">فعاليات، مؤتمرات، حفلات، تجارب وأماكن جديدة من مصادر المدينة الأساسية.</p></div></a>
       <a class="service-card" href="#near"><span>📍</span><div><b data-h="sNear">وش حولك الآن؟</b><p data-h="sNearSub">مو لازم تكون مسافر. ابحث عن أي احتياج أو مكان قريب منك من موقعك الحالي.</p></div></a>
-      <a class="service-card" href="ai.html"><span>✧</span><div><b>TRAVO AI</b><p data-h="sAiSub">صفحة محادثة مستقلة تسأل فيها عن السفر والمدن والخطط والتنقل.</p></div></a>
+      <a class="service-card" href="ai.html"><span>✧</span><div><b>TRAVO AI</b><p data-h="sAiSub">مساعد ذكي مستقل للحياة والسفر؛ يسأل ويبحث معك ويكمل نفس المحادثة.</p></div></a>
     </div>
   </section>
 
   <section id="near" class="home-section near-home">
-    <div class="near-copy"><p class="eyebrow">NEAR YOU</p><h2 data-h="nearTitle">وش موجود حولك؟</h2><p data-h="nearSub">ابحث عن قهوة، مطعم، صيدلية، سوبرماركت، بنزين، مستشفى، صراف، مسجد، نادي أو أي شيء تحتاجه. موقعك يستخدم أثناء البحث فقط.</p></div>
+    <div class="near-copy"><p class="eyebrow">NEAR YOU</p><h2 data-h="nearTitle">وش موجود حولك؟</h2><p data-h="nearSub">ابحث عن قهوة، مطعم، صيدلية، سوبرماركت، بنزين، مستشفى، صراف، مسجد، نادي أو أي شيء تحتاجه. النتائج تظهر داخل TRAVO.</p></div>
     <div class="near-box panel">
-      <div class="near-input-row"><input id="nearQuery" data-h-ph="nearPh" placeholder="مثال: قهوة مختصة أو صيدلية"><button id="locateBtn" class="ghost" data-h="locate">استخدم موقعي</button><button id="nearSearchBtn" class="primary" data-h="search">بحث قريب مني</button></div>
+      <div class="near-input-row"><input id="nearQuery" data-h-ph="nearPh" placeholder="مثال: قهوة مختصة أو صيدلية"><button id="locateBtn" class="ghost" data-h="locate">استخدم موقعي</button><button id="nearSearchBtn" class="primary" data-h="search">اعرض الأقرب</button></div>
       <div class="near-chips" id="nearChips">
         <button data-q="قهوة مختصة">☕ <span data-h="coffee">قهوة</span></button>
         <button data-q="مطاعم">🍽 <span data-h="restaurants">مطاعم</span></button>
@@ -64,7 +64,9 @@
         <button data-q="ATM صراف">▣ <span data-h="atm">صراف</span></button>
         <button data-q="مسجد">◈ <span data-h="mosque">مسجد</span></button>
       </div>
-      <div id="nearState" class="near-state" data-h="nearState">اختر احتياجك أو اكتب أي شيء، ثم اسمح بالموقع للحصول على بحث أدق.</div>
+      <div id="nearState" class="near-state" data-h="nearState">حدد موقعك ثم اختر احتياجك؛ TRAVO يعرض لك أقرب 5 أماكن هنا.</div>
+      <div id="nearResults" class="near-results"></div>
+      <div id="nearProvider" class="near-provider"></div>
     </div>
   </section>
 
