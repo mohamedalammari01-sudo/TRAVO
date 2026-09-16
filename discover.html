@@ -1,74 +1,35 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#6d28d9" />
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" /><meta name="theme-color" content="#6d28d9" />
 <title>TRAVO Discover — اكتشف</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="discover.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="discover.css" />
 </head>
 <body>
 <div class="app-shell discover-shell">
-  <aside class="sidebar glass">
-    <a class="brand brand-link" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span>Discover</span></div></a>
-    <nav>
-      <a href="index.html">⌂ <span>الرئيسية</span></a>
-      <a class="active" href="discover.html">✦ <span>اكتشف</span></a>
-      <a href="trip.html">✈ <span>رحلتي</span></a>
-      <a href="plans.html">◇ <span>الباقات</span></a>
-      <a href="index.html#ai">✧ <span>TRAVO AI</span></a>
-    </nav>
-    <div class="side-note"><span class="live-dot"></span><span id="dataFreshness">بيانات TRAVO الحية</span></div>
-  </aside>
+<aside class="sidebar glass"><a class="brand brand-link" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span>Discover</span></div></a><nav><a href="index.html">⌂ <span>الرئيسية</span></a><a class="active" href="discover.html">✦ <span>اكتشف</span></a><a href="trip.html">✈ <span>رحلتي</span></a><a href="ai.html">✧ <span>TRAVO AI</span></a><a href="plans.html">◇ <span>الباقات</span></a></nav><div class="side-note"><span class="live-dot"></span><span id="dataFreshness">بيانات TRAVO الحية</span></div></aside>
+<main>
+<header class="topbar discover-topbar"><div class="mobile-brand"><div class="logo">T</div><b>TRAVO</b></div><div class="top-actions"><a class="ghost link-btn" href="trip.html">✈ رحلتي</a><button id="discoverLang" class="ghost">EN</button></div></header>
+<section class="discover-hero" id="discoverHero"><div class="discover-overlay"></div><div class="discover-copy"><p class="eyebrow">TRAVO DISCOVER</p><h1><span id="cityTitle">الرياض</span><br><span id="discoverPrompt">اختر وش تبغى تكتشف.</span></h1><p id="discoverLead">اختر المدينة أولًا، وبعدها اختر النوع. TRAVO يعرض المعلومات المؤكدة من المصادر الأساسية للوجهة.</p><div class="discover-city-search"><input id="discoverCity" list="discoverCities" placeholder="اكتب مدينة أو رمز مطار..."><datalist id="discoverCities"></datalist><button id="changeCityBtn" class="primary">اختيار الوجهة</button></div></div></section>
 
-  <main>
-    <header class="topbar discover-topbar">
-      <div class="mobile-brand"><div class="logo">T</div><b>TRAVO</b></div>
-      <div class="top-actions"><a class="ghost link-btn" href="trip.html">✈ رحلتي</a><button id="discoverLang" class="ghost">EN</button></div>
-    </header>
+<section class="category-section"><div class="category-head"><div><p class="eyebrow">CHOOSE CATEGORY</p><h2 id="categoryQuestion">وش ودك تشوف في الرياض؟</h2><p>كل قسم منفصل عشان توصل للمعلومة بسرعة.</p></div><span class="fresh-badge"><span class="live-dot"></span><span id="updatedLabel">آخر تحديث</span></span></div>
+<div class="category-grid" id="categoryGrid">
+<button class="category-card active" data-view="events"><span>🎟</span><b>فعاليات</b><small>فعاليات اليوم والقادم</small></button>
+<button class="category-card" data-view="conferences"><span>◫</span><b>مؤتمرات ومعارض</b><small>أعمال، معارض ومؤتمرات</small></button>
+<button class="category-card" data-view="activities"><span>⚡</span><b>أنشطة</b><small>أشياء تسويها في المدينة</small></button>
+<button class="category-card" data-view="entertainment"><span>🎭</span><b>ترفيه</b><small>كوميديا وعروض وترفيه</small></button>
+<button class="category-card" data-view="concerts"><span>♫</span><b>حفلات</b><small>موسيقى وعروض مباشرة</small></button>
+<button class="category-card" data-view="experiences"><span>✦</span><b>تجارب</b><small>تجارب مميزة وموسمية</small></button>
+<button class="category-card" data-view="awardRestaurants"><span>★</span><b>مطاعم فائزة هذا العام</b><small>جوائز موثقة لسنة 2026</small></button>
+<button class="category-card" data-view="awardCoffee"><span>☕</span><b>مقاهي فائزة هذا العام</b><small>جوائز موثقة لسنة 2026</small></button>
+</div></section>
 
-    <section class="discover-hero" id="discoverHero">
-      <div class="discover-overlay"></div>
-      <div class="discover-copy">
-        <p class="eyebrow">TRAVO DISCOVER</p>
-        <h1 id="discoverTitle">وش يصير الآن في <span id="cityTitle">الرياض</span>؟</h1>
-        <p>بدون قوائم مزدحمة: اختر القسم وشاهد فقط الأشياء التي تهمك الآن.</p>
-        <div class="discover-city-search">
-          <input id="discoverCity" list="discoverCities" placeholder="اكتب مدينة...">
-          <datalist id="discoverCities"></datalist>
-          <button id="changeCityBtn" class="primary">تغيير الوجهة</button>
-        </div>
-      </div>
-    </section>
+<section class="discover-content"><div class="discover-content-head"><div><p class="eyebrow" id="viewKicker">EVENTS</p><h2 id="viewTitle">الفعاليات</h2><p id="viewDescription" class="muted">السعر والتاريخ والمكان والمصدر الرسمي في مكان واحد.</p></div></div><div id="discoverResults" class="discover-results"></div><div id="emptyState" class="empty-state hidden"><b id="emptyTitle">لا توجد بيانات مؤكدة لهذا القسم الآن.</b><span id="emptyText">TRAVO لن يعرض معلومة غير موثقة.</span></div></section>
 
-    <nav class="discover-tabs" id="discoverTabs">
-      <button class="active" data-view="now">🔥 الآن</button>
-      <button data-view="events">🎟 الفعاليات</button>
-      <button data-view="restaurants">🍽 المطاعم</button>
-      <button data-view="coffee">☕ القهوة المختصة</button>
-      <button data-view="experiences">✦ التجارب</button>
-      <button data-view="upcoming">🔮 القادم</button>
-    </nav>
-
-    <section class="discover-content">
-      <div class="discover-content-head">
-        <div><p class="eyebrow" id="viewKicker">HAPPENING NOW</p><h2 id="viewTitle">ماذا يحدث الآن؟</h2><p id="viewDescription" class="muted">عناصر موثقة ومحدثة من مصادر TRAVO اليومية.</p></div>
-        <span class="fresh-badge"><span class="live-dot"></span><span id="updatedLabel">آخر تحديث</span></span>
-      </div>
-      <div id="discoverResults" class="discover-results"></div>
-      <div id="emptyState" class="empty-state hidden"><b>لا توجد بيانات مؤكدة لهذا القسم الآن.</b><span>TRAVO لن يعرض بطاقة تجريبية أو معلومة غير موثقة.</span></div>
-    </section>
-  </main>
-</div>
-
-<nav class="bottom-nav glass discover-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a class="active" href="discover.html">✦<small>اكتشف</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="plans.html">◇<small>الباقات</small></a><a href="index.html#ai">✧<small>AI</small></a></nav>
-
+<section class="source-section"><div><p class="eyebrow">OFFICIAL SOURCES</p><h2>مصادر <span id="sourceCityName">المدينة</span></h2><p class="muted">هذه المواقع تُستخدم كأولوية في التحديثات شبه اليومية، إلى جانب المصدر الرسمي لكل فعالية.</p></div><div id="officialSources" class="source-pills"></div></section>
+</main></div>
+<nav class="bottom-nav glass discover-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a class="active" href="discover.html">✦<small>اكتشف</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="plans.html">◇<small>الباقات</small></a></nav>
 <dialog id="discoverDialog" class="discover-dialog"><div id="discoverDialogBody"></div></dialog>
-<script src="airports.js"></script>
-<script src="discover.js"></script>
-</body>
-</html>
+<script src="airports.js"></script><script src="discover.js"></script>
+</body></html>
