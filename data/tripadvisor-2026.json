@@ -1,0 +1,335 @@
+{
+  "updatedAt": "2026-09-16T15:05:00+03:00",
+  "year": 2026,
+  "note": "Current 2026 Tripadvisor city-list snapshots. Rankings can change; do not label as an annual award unless awardName is present.",
+  "cities": {
+    "riyadh": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g293995-Riyadh_Riyadh_Province.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g293995-c8-Riyadh_Riyadh_Province.html",
+      "restaurants": [
+        {"rank":1,"name":"The Globe","rating":4.5,"reviews":1432,"type":"European, Contemporary"},
+        {"rank":2,"name":"Avril Resto Cafe","rating":5.0,"reviews":90,"type":"Pizza, Cafe"},
+        {"rank":3,"name":"Najd Village","rating":4.3,"reviews":437,"type":"Middle Eastern"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Avril Resto Cafe","rating":5.0,"reviews":90,"type":"Cafe"},
+        {"rank":2,"name":"The Capital Lounge","rating":5.0,"reviews":112,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"Chorisia Lounge","rating":5.0,"reviews":1059,"type":"Coffee & Tea, Cafe"}
+      ]
+    },
+    "jeddah": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g295419-Jeddah_Makkah_Province.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g295419-c8-Jeddah_Makkah_Province.html",
+      "restaurants": [
+        {"name":"Sakura Japanese Restaurant","type":"Japanese"},
+        {"name":"Twenty Four Restaurant","type":"International"},
+        {"name":"Nando's","type":"Grill"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Il Caffe","rating":5.0,"reviews":91,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Hadiqat Laila","rating":4.8,"reviews":24,"type":"Cafe, European"},
+        {"rank":3,"name":"Medd Café and Roastery","rating":4.3,"reviews":62,"type":"Coffee & Tea, Cafe"}
+      ]
+    },
+    "alula": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g1802184-AlUla_Al_Madinah_Province.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g1802184-c8-AlUla_Al_Madinah_Province.html",
+      "restaurants": [
+        {"rank":1,"name":"Harrat","rating":4.9,"reviews":61,"type":"Healthy, Middle Eastern"},
+        {"rank":2,"name":"Entrecôte Café de Paris","rating":4.8,"reviews":54,"type":"Steakhouse, Swiss"},
+        {"rank":3,"name":"Joontos Restaurant at Dar Tantora The House Hotel","rating":5.0,"reviews":13,"type":"Spanish, Arabic"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Barzan Rural Resort","rating":4.8,"reviews":4,"type":"Cafe, Arabic"},
+        {"rank":2,"name":"Wacafe","rating":4.1,"reviews":7,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"Being","rating":4.3,"reviews":3,"type":"Cafe"}
+      ]
+    },
+    "dubai": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g295424-Dubai_Emirate_of_Dubai.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g295424-c8-Dubai_Emirate_of_Dubai.html",
+      "restaurants": [
+        {"rank":1,"name":"Hurricane's Grill Dubai Mall","rating":4.9,"reviews":5118,"type":"American, Steakhouse"},
+        {"rank":2,"name":"Al Khayma Heritage Restaurant & Cafe","rating":4.9,"reviews":1730,"type":"Barbecue, Grill"},
+        {"rank":3,"name":"Saffron","rating":4.7,"reviews":6514,"type":"International"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Caffeine and Culture Cafe","rating":5.0,"reviews":152,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Risen Cafe And Artisanal Bakery - The First Collection at JVC","rating":5.0,"reviews":365,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"Americano Café & Lounge","rating":5.0,"reviews":109,"type":"Coffee & Tea, Cafe"}
+      ]
+    },
+    "abudhabi": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g294013-Abu_Dhabi_Emirate_of_Abu_Dhabi.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g294013-c8-Abu_Dhabi_Emirate_of_Abu_Dhabi.html",
+      "restaurants": [
+        {"rank":1,"name":"Mosaic Restaurant - Al Najda","rating":5.0,"reviews":1437,"type":"Lebanese, Mediterranean"},
+        {"rank":2,"name":"Ba:TE","rating":5.0,"reviews":645,"type":"Japanese, Peruvian"},
+        {"name":"Catch at St. Regis","rating":5.0,"reviews":1772,"type":"Japanese, Seafood"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Culto","rating":5.0,"reviews":104,"type":"Cafe, Deli"},
+        {"rank":2,"name":"90 Centigrade","rating":4.9,"reviews":187,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"Eggcellent cafe - Alzeina","rating":4.9,"reviews":191,"type":"Cafe"}
+      ]
+    },
+    "doha": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g294009-Doha.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g294009-c8-Doha.html",
+      "restaurants": [
+        {"name":"Jamavar Doha","rating":4.9,"reviews":795,"type":"Indian, Asian"},
+        {"name":"Ipanema","rating":4.8,"reviews":2564,"type":"Brazilian, Latin"},
+        {"name":"Yasmine Palace","rating":4.8,"reviews":880,"type":"Mediterranean, Middle Eastern"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Terrace By Lobby Cafe","rating":5.0,"reviews":242,"type":"Coffee & Tea, French"},
+        {"rank":2,"name":"W Cafe","rating":4.9,"reviews":1293,"type":"Cafe, European"},
+        {"rank":3,"name":"Atrium Lounge","rating":4.9,"reviews":1079,"type":"Cafe, Healthy"}
+      ]
+    },
+    "istanbul": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g293974-Istanbul.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g293974-c8-Istanbul.html",
+      "restaurants": [
+        {"rank":1,"name":"Hanzade Bosphorus Restaurant","rating":4.9,"reviews":2549,"type":"Seafood, Barbecue"},
+        {"rank":2,"name":"Ali Ocakbaşı Karaköy","rating":4.4,"reviews":596,"type":"Turkish"},
+        {"rank":3,"name":"Roof Mezze 360","rating":4.9,"reviews":4406,"type":"Turkish, Mediterranean"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Harab'be Cafe & Hookah Lounge","rating":4.9,"reviews":1238,"type":"Bar, Cafe"},
+        {"rank":2,"name":"Istanbul Baking Company","rating":4.8,"reviews":216,"type":"Cafe, Healthy"},
+        {"rank":3,"name":"Dukkan Galata","rating":4.8,"reviews":456,"type":"Cafe, International"}
+      ]
+    },
+    "cairo": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g294201-Cairo_Cairo_Governorate.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g294201-c8-Cairo_Cairo_Governorate.html",
+      "restaurants": [
+        {"rank":1,"name":"Solis","rating":4.9,"reviews":2887,"type":"Bar, Mediterranean"},
+        {"rank":2,"name":"Zeeyara Moez","rating":4.8,"reviews":225,"type":"Egyptian"},
+        {"rank":3,"name":"Koshary Abou Tarek","rating":4.6,"reviews":2622,"type":"Fast Food, Street Food"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Oasis Lounge","rating":4.9,"reviews":175,"type":"Cafe, International"},
+        {"rank":2,"name":"ZEN Cafe & Lounge","rating":4.9,"reviews":1165,"type":"Cafe, Grill"},
+        {"rank":3,"name":"Breeze","rating":5.0,"reviews":465,"type":"Bar, Cafe"}
+      ]
+    },
+    "london": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g186338-London_England.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g186338-c8-London_England.html",
+      "restaurants": [
+        {"rank":1,"name":"Smokestak","rating":4.3,"reviews":943,"type":"Barbecue"},
+        {"rank":2,"name":"Leicester Square Kitchen","rating":4.8,"reviews":3042,"type":"Mexican, Peruvian"},
+        {"rank":3,"name":"Sky Pod Bar","rating":4.6,"reviews":2865,"type":"Bar"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Tattle Coffee House","rating":4.9,"reviews":117,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Urban Social","rating":4.9,"reviews":753,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"Cafe Saffron","rating":5.0,"reviews":87,"type":"Cafe, British"}
+      ]
+    },
+    "paris": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g187147-Paris_Ile_de_France.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g187147-c8-Paris_Ile_de_France.html",
+      "restaurants": [
+        {"rank":1,"name":"Bistrot Instinct","rating":4.9,"reviews":756,"type":"French, European"},
+        {"name":"Pizzeria Arrivederci","type":"Pizza"},
+        {"name":"Il était un square - Burger PARIS","type":"Burger"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Jozi cafe","rating":4.7,"reviews":264,"type":"Coffee & Tea, French"},
+        {"rank":2,"name":"Café Pli - Parmentier","rating":4.7,"reviews":138,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"A. Lacroix Patissier","rating":4.7,"reviews":384,"type":"Coffee & Tea, French"}
+      ]
+    },
+    "rome": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g187791-Rome_Lazio.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g187791-c8-Rome_Lazio.html",
+      "restaurants": [
+        {"name":"Porcadella","rating":4.9,"reviews":225,"type":"Quick Bites, Italian"},
+        {"name":"Mama Eat","rating":4.8,"reviews":1746,"type":"Italian, Pizza"},
+        {"name":"Rinomato Pizzeria Cucina E Sapori","rating":4.8,"reviews":327,"type":"Italian, Pizza"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Bar Palomba","rating":4.9,"reviews":2254,"type":"Italian, Bar"},
+        {"rank":2,"name":"Trecaffè Leone IV","rating":4.9,"reviews":331,"type":"Italian, Bar"},
+        {"rank":3,"name":"Trecaffè - Due Macelli","rating":4.7,"reviews":680,"type":"Coffee & Tea, Italian"}
+      ]
+    },
+    "milan": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g187849-Milan_Lombardy.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g187849-c8-Milan_Lombardy.html",
+      "restaurants": [
+        {"rank":1,"name":"Come 'na Vorta - Pasta E Vino Milano","rating":4.7,"reviews":1332,"type":"Italian, Romana"},
+        {"rank":2,"name":"Piz","rating":4.6,"reviews":7216,"type":"Italian, Pizza"},
+        {"rank":3,"name":"Cantine Milano","rating":4.8,"reviews":3415,"type":"Italian, Mediterranean"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"L'angolo fiorito café","rating":5.0,"reviews":93,"type":"Italian, Bar"},
+        {"rank":2,"name":"Pasticceria Castelnuovo","rating":4.6,"reviews":1733,"type":"Bakeries, Cafe"},
+        {"rank":3,"name":"G.B. Bar","rating":4.5,"reviews":1124,"type":"Italian, Bar"}
+      ]
+    },
+    "barcelona": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g187497-Barcelona_Catalonia.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g187497-c8-Barcelona_Catalonia.html",
+      "restaurants": [
+        {"name":"Restaurant La Tavernicola","type":"Steakhouse"},
+        {"name":"Tapa Tapa Passeig de Gràcia","type":"Spanish, Tapas"},
+        {"name":"Desoriente Eixample","type":"Asian, Fusion"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"The Coffee House Barcelona","rating":4.8,"reviews":211,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Corgi Cafe","rating":4.9,"reviews":132,"type":"American, Cafe"},
+        {"rank":3,"name":"Jansana","rating":4.7,"reviews":411,"type":"Bakeries, Cafe"}
+      ]
+    },
+    "madrid": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g187514-Madrid.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g187514-c8-Madrid.html",
+      "restaurants": [
+        {"name":"Restaurante Jumbo","rating":4.9,"reviews":170,"type":"Peruvian, Spanish"},
+        {"name":"Nepali Kathmandu Tandoori House","rating":5.0,"reviews":116,"type":"Indian, Asian"},
+        {"name":"Kathmandu Tandoori House","rating":4.9,"reviews":2802,"type":"Indian, Asian"}
+      ],
+      "cafes": []
+    },
+    "amsterdam": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g188590-Amsterdam_North_Holland_Province.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g188590-c8-Amsterdam_North_Holland_Province.html",
+      "restaurants": [
+        {"name":"Guru Restaurant","rating":4.8,"reviews":196,"type":"Indian, Asian"},
+        {"name":"Amstertram - Taste The City","rating":4.8,"reviews":43,"type":"Dutch, European"},
+        {"name":"Le Due Sicilie","rating":4.7,"reviews":230,"type":"Italian, Seafood"}
+      ],
+      "cafes": []
+    },
+    "zurich": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g188113-Zurich.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g188113-c8-Zurich.html",
+      "restaurants": [
+        {"name":"Sablier - Rooftop Restaurant & Bar","rating":4.4,"reviews":297,"type":"French, European"},
+        {"name":"Red Lion Kloten","rating":4.9,"reviews":154,"type":"Chinese"}
+      ],
+      "cafes": []
+    },
+    "vienna": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g190454-Vienna.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g190454-c8-Vienna.html",
+      "restaurants": [
+        {"rank":1,"name":"Wiener Wiaz Haus","rating":4.8,"reviews":2170,"type":"Austrian, European"},
+        {"rank":2,"name":"Schachtelwirt","rating":4.6,"reviews":1039,"type":"Austrian, Fast Food"},
+        {"name":"ef16 Restaurant","rating":4.7,"type":"European"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Vollpension","rating":4.8,"reviews":450,"type":"Coffee & Tea, Austrian"},
+        {"rank":2,"name":"Vollpension Schleifmühlgasse","rating":4.4,"reviews":1216,"type":"Coffee & Tea, Austrian"},
+        {"rank":3,"name":"Vanillas Wien","rating":4.8,"reviews":217,"type":"Coffee & Tea, Cafe"}
+      ]
+    },
+    "prague": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g274707-Prague_Bohemia.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g274707-c8-Prague_Bohemia.html",
+      "restaurants": [
+        {"rank":1,"name":"BEEF BAR Prague","rating":4.6,"reviews":1448,"type":"Steakhouse, Barbecue"},
+        {"rank":2,"name":"Sad Man's Tongue Bar & Bistro","rating":4.8,"reviews":7772,"type":"American"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Donuterie","rating":4.9,"reviews":405,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Liberica Cafe","rating":4.8,"reviews":177,"type":"Cafe, Contemporary"},
+        {"rank":3,"name":"Cafe No 3","rating":4.7,"reviews":637,"type":"Coffee & Tea, French"}
+      ]
+    },
+    "athens": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g189400-Athens_Attica.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g189400-c8-Athens_Attica.html",
+      "restaurants": [
+        {"rank":1,"name":"Abibayio","rating":4.8,"reviews":1500,"type":"Mediterranean, Greek"},
+        {"rank":2,"name":"Victory Cafe","rating":4.9,"type":"Greek, Cafe"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Coffee Joint","rating":4.9,"reviews":430,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"BiteBox","rating":4.9,"reviews":243,"type":"Cafe, Mediterranean"},
+        {"rank":3,"name":"Picky Brunch & Specialty Coffee","rating":4.8,"reviews":774,"type":"Cafe, Mediterranean"}
+      ]
+    },
+    "tokyo": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g298184-Tokyo_Tokyo_Prefecture_Kanto.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g298184-c8-Tokyo_Tokyo_Prefecture_Kanto.html",
+      "restaurants": [
+        {"name":"Seafood Buffet Dining Ginza Happo","rating":4.3,"reviews":390,"type":"Seafood, Buffet"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"MAID MADE Akihabara Ekimae","rating":4.9,"reviews":364,"type":"Cafe"},
+        {"rank":2,"name":"Queens Court Akihabara Concafe","rating":4.9,"reviews":194,"type":"Bar, Cafe"},
+        {"rank":3,"name":"Maidreamin Shibuya","rating":4.8,"reviews":609,"type":"Cafe"}
+      ]
+    },
+    "bangkok": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g293916-Bangkok.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g293916-c8-Bangkok.html",
+      "restaurants": [
+        {"rank":1,"name":"SEEN Restaurant & Bar Bangkok","rating":4.9,"reviews":3856,"type":"Bar"},
+        {"rank":2,"name":"Spectrum Lounge & Bar","rating":4.9,"reviews":3565,"type":"Bar, European"},
+        {"rank":3,"name":"Blue Sky Rooftop Bar","rating":4.9,"reviews":2506,"type":"Bar, International"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Baan Saen Saep Cafe'","rating":5.0,"reviews":137,"type":"Coffee & Tea, Cafe"},
+        {"rank":2,"name":"Steps","rating":4.9,"reviews":304,"type":"Coffee & Tea, Cafe"},
+        {"rank":3,"name":"The Little Prince Cafe - Art Gallery & Homemade Desserts","rating":4.9,"reviews":79,"type":"Coffee & Tea, Bar"}
+      ]
+    },
+    "singapore": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g294262-Singapore.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g294262-c8-Singapore.html",
+      "restaurants": [
+        {"rank":1,"name":"KOMA Singapore","rating":4.8,"reviews":4038,"type":"Japanese, Sushi"},
+        {"rank":2,"name":"Waterfall Ristorante Italiano","rating":4.8,"reviews":1991,"type":"Italian, Mediterranean"},
+        {"rank":3,"name":"Mr. Stork","rating":4.7,"reviews":1150,"type":"Bar"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"The Mind Cafe - Mega Outlet","rating":4.9,"reviews":1213,"type":"Bar, Cafe"},
+        {"rank":2,"name":"My Awesome Cafe","rating":4.7,"reviews":1545,"type":"French, Bar"},
+        {"rank":3,"name":"MEMO Cafè","rating":4.9,"reviews":212,"type":"Cafe, International"}
+      ]
+    },
+    "kualalumpur": {
+      "restaurantsSource": "https://www.tripadvisor.com.my/Restaurants-g298570-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g298570-c8-Kuala_Lumpur_Wilayah_Persekutuan.html",
+      "restaurants": [
+        {"rank":1,"name":"Positano Risto @ Publika","rating":4.9,"reviews":1859,"type":"Italian, Pizza"},
+        {"rank":2,"name":"Canopy Rooftop Bar","rating":4.9,"reviews":3194,"type":"Bar, International"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Cafe:in House","rating":4.8,"reviews":485,"type":"Quick Bites, Italian"},
+        {"rank":2,"name":"Sausage KL Cafe & Deli","rating":4.9,"reviews":331,"type":"Cafe, European"},
+        {"rank":3,"name":"Oga Tea & Dessert","rating":4.8,"reviews":286,"type":"Coffee & Tea, Japanese"}
+      ]
+    },
+    "bali": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g294226-Bali.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g297694-c8-Denpasar_Bali.html",
+      "restaurants": [
+        {"rank":1,"name":"Koral Restaurant","rating":4.8,"reviews":1606,"type":"International, Asian"},
+        {"rank":2,"name":"Warung Nia","rating":4.7,"reviews":3268,"type":"Indonesian"},
+        {"rank":3,"name":"Boy'N'Cow","rating":4.9,"type":"Steakhouse"}
+      ],
+      "cafes": [
+        {"rank":1,"name":"Canvas Cafe Bali","rating":4.9,"reviews":618,"type":"Cafe, European"},
+        {"rank":2,"name":"Vegan Deli Nusa Dua","rating":5.0,"reviews":137,"type":"Cafe, Deli"},
+        {"rank":3,"name":"The Bare Bottle Sanur","rating":4.8,"reviews":107,"type":"Cafe, Contemporary"}
+      ]
+    },
+    "newyork": {
+      "restaurantsSource": "https://www.tripadvisor.com/Restaurants-g60763-New_York_City_New_York.html",
+      "cafesSource": "https://www.tripadvisor.com/Restaurants-g60763-c8-New_York_City_New_York.html",
+      "restaurants": [],
+      "cafes": [
+        {"rank":1,"name":"Complete Cafe","rating":4.9,"reviews":119,"type":"American, Cafe"},
+        {"rank":2,"name":"Angelina Bakery Times Square NYC","rating":4.8,"reviews":892,"type":"Bakeries, Italian"},
+        {"rank":3,"name":"Angelina Bakery","rating":4.8,"reviews":1021,"type":"Bakeries, Cafe"}
+      ]
+    }
+  }
+}
