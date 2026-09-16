@@ -28,6 +28,7 @@
     <header class="topbar trip-topbar">
       <a class="mobile-brand" href="index.html"><div class="logo">T</div><b>TRAVO</b></a>
       <div class="top-actions">
+        <a class="ghost link-btn" href="discover.html" data-i="discover">اكتشف</a>
         <a class="ghost link-btn" href="index.html" data-i="back">العودة للرئيسية</a>
         <button id="tripLang" class="ghost">EN</button>
       </div>
@@ -59,28 +60,37 @@
     </section>
 
     <section class="wizard panel hidden" data-pane="2">
-      <div class="wizard-head"><div><p class="eyebrow">STEP 02</p><h2 data-i="detailsTitle">راجع تفاصيل رحلتك</h2><p class="muted" data-i="detailsSub">عدّل أي معلومة لم تُقرأ بشكل صحيح وأضف بيانات السكن.</p></div><span class="status-pill ready" data-i="editable">قابل للتعديل</span></div>
+      <div class="wizard-head"><div><p class="eyebrow">STEP 02</p><h2 data-i="detailsTitle">راجع تفاصيل رحلتك</h2><p class="muted" data-i="detailsSub">في الإدخال اليدوي نحتاج فقط المغادرة والعودة. الفندق اختياري، والوصول يظهر تلقائيًا إذا قرأناه من التذكرة.</p></div><span class="status-pill ready" data-i="editable">قابل للتعديل</span></div>
+      <datalist id="airportOptions"></datalist>
       <div class="flight-card">
-        <div><span data-i="from">من</span><input id="origin" placeholder="RUH"></div>
+        <div><span data-i="from">من</span><input id="origin" list="airportOptions" autocomplete="off" placeholder="RUH أو الرياض"><small class="airport-help" data-i="airportHelp">ابدأ بالمدينة أو رمز المطار وستظهر اقتراحات تلقائيًا.</small></div>
         <div class="flight-line"><span>✈</span></div>
-        <div><span data-i="to">إلى</span><input id="destination" placeholder="DXB"></div>
+        <div><span data-i="to">إلى</span><input id="destination" list="airportOptions" autocomplete="off" placeholder="DXB أو دبي"><small class="airport-help" data-i="airportHelp">ابدأ بالمدينة أو رمز المطار وستظهر اقتراحات تلقائيًا.</small></div>
       </div>
       <div class="details-grid">
         <label><span data-i="departDate">تاريخ المغادرة</span><input id="departDate" type="date"></label>
         <label><span data-i="departTime">وقت المغادرة</span><input id="departTime" type="time"></label>
-        <label><span data-i="arrivalDate">تاريخ الوصول</span><input id="arrivalDate" type="date"></label>
-        <label><span data-i="arrivalTime">وقت الوصول</span><input id="arrivalTime" type="time"></label>
         <label><span data-i="returnDate">تاريخ العودة</span><input id="returnDate" type="date"></label>
-        <label><span data-i="flightNo">رقم الرحلة</span><input id="flightNo" placeholder="SV / EK / QR..."></label>
-        <label class="wide-field"><span data-i="hotel">الفندق / السكن</span><input id="hotel" data-ph="hotelPh" placeholder="اسم الفندق أو العنوان"></label>
-        <label><span data-i="checkIn">تسجيل الدخول</span><input id="checkIn" type="date"></label>
-        <label><span data-i="checkOut">تسجيل الخروج</span><input id="checkOut" type="date"></label>
+        <label><span data-i="returnTime">وقت العودة</span><input id="returnTime" type="time"></label>
+        <label><span><span data-i="flightNo">رقم الرحلة</span> <em data-i="optional">اختياري</em></span><input id="flightNo" placeholder="SV / EK / QR..."></label>
+        <label class="wide-field"><span><span data-i="hotel">الفندق / السكن</span> <em data-i="optional">اختياري</em></span><input id="hotel" data-ph="hotelPh" placeholder="اسم الفندق أو المنطقة — اختياري"></label>
+      </div>
+      <div id="detectedArrival" class="detected-arrival hidden">
+        <div><p class="eyebrow">FROM TICKET</p><h3 data-i="arrivalDetected">بيانات الوصول المقروءة من التذكرة</h3></div>
+        <label><span data-i="arrivalDate">تاريخ الوصول</span><input id="arrivalDate" type="date" readonly></label>
+        <label><span data-i="arrivalTime">وقت الوصول</span><input id="arrivalTime" type="time" readonly></label>
       </div>
       <div class="actions-row"><button class="ghost prevBtn" data-prev="1" data-i="previous">السابق</button><button class="primary nextBtn" data-next="3" data-i="continue">متابعة</button></div>
     </section>
 
     <section class="wizard panel hidden" data-pane="3">
-      <div class="wizard-head"><div><p class="eyebrow">STEP 03</p><h2 data-i="goalsTitle">وش تبغى من الرحلة؟</h2><p class="muted" data-i="goalsSub">اختياراتك تغيّر ترتيب الأيام والأماكن والوقت المقترح لكل تجربة.</p></div></div>
+      <div class="wizard-head"><div><p class="eyebrow">STEP 03</p><h2 data-i="goalsTitle">وش تبغى من الرحلة؟</h2><p class="muted" data-i="goalsSub">ابدأ بأسلوب التخطيط؛ بعدها TRAVO يرتب الأيام والمطاعم والمقاهي على نفس الأسلوب.</p></div></div>
+
+      <div class="choice-block plan-style-block"><h3 data-i="planStyle">أسلوب التخطيط</h3><div class="choice-grid plan-style-grid" data-single="planStyle">
+        <button class="choice active" data-value="trending">🔥 <span data-i="trending">الأكثر رواجًا وتقييمًا</span><small data-i="trendingHint">يرفع الأماكن الرائجة والأعلى تقييمًا.</small></button>
+        <button class="choice" data-value="nearby">📍 <span data-i="nearby">الأقرب والأقل تنقلًا</span><small data-i="nearbyHint">يقلل التنقل ويستخدم الفندق أو موقعك عند توفره.</small></button>
+        <button class="choice" data-value="dynamic">✦ <span data-i="dynamic">يتكيف مع موقعي</span><small data-i="dynamicHint">يعيد ترتيب الاقتراحات أثناء الرحلة حسب موقعك.</small></button>
+      </div></div>
 
       <div class="choice-block"><h3 data-i="tripType">نوع الرحلة</h3><div class="choice-grid" data-single="tripType">
         <button class="choice active" data-value="leisure">🌴 <span data-i="leisure">سياحة واستجمام</span></button>
@@ -104,24 +114,25 @@
         <button class="choice" data-value="nature">🌿 <span data-i="nature">طبيعة</span></button>
       </div></div>
 
-      <div class="preference-grid">
+      <div class="preference-grid two-cols">
         <label><span data-i="pace">وتيرة الرحلة</span><select id="pace"><option value="relaxed" data-i="relaxed">هادئة</option><option value="balanced" selected data-i="balanced">متوازنة</option><option value="packed" data-i="packed">مليانة تجارب</option></select></label>
         <label><span data-i="budget">الميزانية اليومية التقريبية</span><select id="budget"><option value="smart" data-i="smartBudget">اقتصادية / ذكية</option><option value="mid" selected data-i="midBudget">متوسطة</option><option value="premium" data-i="premiumBudget">فاخرة</option></select></label>
-        <label><span data-i="planStyle">أسلوب التخطيط</span><select id="planStyle"><option value="nearby" data-i="nearby">الأقرب والأقل تنقلًا</option><option value="trending" data-i="trending">الأكثر رواجًا</option><option value="dynamic" data-i="dynamic">يتكيف مع موقعي</option></select></label>
       </div>
       <div class="actions-row"><button class="ghost prevBtn" data-prev="2" data-i="previous">السابق</button><button id="generateTripBtn" class="primary" data-i="generate">رتّب رحلتي كاملة</button></div>
       <div id="generateState" class="inline-note hidden"></div>
     </section>
 
     <section class="wizard panel hidden" data-pane="4">
-      <div class="wizard-head"><div><p class="eyebrow">STEP 04</p><h2 data-i="itineraryTitle">جدول رحلتك اليومي</h2><p class="muted" id="tripSummary" data-i="itinerarySub">TRAVO يرتب كل يوم حسب وقت الوصول والمغادرة وأهدافك.</p></div><button id="saveTripBtn" class="ghost" data-i="saveTrip">♡ حفظ الرحلة</button></div>
+      <div class="wizard-head"><div><p class="eyebrow">STEP 04</p><h2 data-i="itineraryTitle">جدول رحلتك اليومي</h2><p class="muted" id="tripSummary" data-i="itinerarySub">كل يوم يحتوي أنشطة + 3 خيارات للفطور والغداء والعشاء والقهوة عندما تتوفر بيانات موثقة للمدينة.</p></div><button id="saveTripBtn" class="ghost" data-i="saveTrip">♡ حفظ الرحلة</button></div>
+      <div id="locationModeState" class="inline-note location-note hidden"></div>
       <div id="tripOverview" class="trip-overview"></div>
       <div id="fullItinerary" class="full-itinerary"></div>
       <div class="actions-row"><button class="ghost prevBtn" data-prev="3" data-i="editPreferences">تعديل الاختيارات</button><button id="newTripBtn" class="primary" data-i="newTrip">رحلة جديدة</button></div>
     </section>
   </main>
 </div>
-<nav class="bottom-nav glass trip-bottom"><a href="index.html">✦<small data-i="discover">اكتشف</small></a><a href="index.html#trends">🔥<small data-i="trends">الترندات</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="plans.html">◇<small data-i="plans">الباقات</small></a><a href="index.html#ai">✧<small>AI</small></a></nav>
+<nav class="bottom-nav glass trip-bottom"><a href="discover.html">✦<small data-i="discover">اكتشف</small></a><a href="discover.html">🔥<small data-i="trends">الترندات</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="plans.html">◇<small data-i="plans">الباقات</small></a><a href="index.html#ai">✧<small>AI</small></a></nav>
+<script src="airports.js"></script>
 <script src="trip.js"></script>
 </body>
 </html>
