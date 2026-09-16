@@ -7,3 +7,4 @@ document.getElementById('startTicketBtn')?.addEventListener('click',()=>{showSte
 document.getElementById('tripLang')?.addEventListener('click',()=>setTimeout(applyEntryCopy,0));
 applyEntryCopy();
 if(!localStorage.getItem('travo-trip-draft'))showStep(0);
+const smartTripScript=document.createElement('script');smartTripScript.src='trip-smart.js';smartTripScript.onload=()=>{try{const d=JSON.parse(localStorage.getItem('travo-trip-draft')||'null');if(d?.itinerary&&d?.payload&&typeof renderItinerary==='function')renderItinerary(d.itinerary,d.payload,false)}catch{}};document.body.appendChild(smartTripScript);
