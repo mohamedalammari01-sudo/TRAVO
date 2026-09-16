@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2026-09-16T13:20:00+03:00",
+  "cities": {
+    "riyadh": [{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"},{"name":"Riyadh Front Exhibition & Conference Center","url":"https://rfecc.sa/whats-on/","type":"conferences"},{"name":"Saudi Conventions & Exhibitions General Authority","url":"https://www.scega.gov.sa/","type":"conferences"}],
+    "jeddah": [{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
+    "alula": [{"name":"Experience AlUla","url":"https://www.experiencealula.com/","type":"official-tourism"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
+    "dubai": [{"name":"Dubai Calendar — Visit Dubai","url":"https://www.visitdubai.com/en/festivals-and-events/dubai-events-calendar","type":"official-tourism"},{"name":"Dubai Business Events","url":"https://www.visitdubai.com/en/mice/events-calendar","type":"conferences"}],
+    "abudhabi": [{"name":"Experience Abu Dhabi Events","url":"https://visitabudhabi.ae/en/events","type":"official-tourism"}],
+    "doha": [{"name":"Visit Qatar","url":"https://visitqatar.com/","type":"official-tourism"}],
+    "istanbul": [{"name":"GoTürkiye — İstanbul","url":"https://istanbul.goturkiye.com/","type":"official-tourism"}],
+    "cairo": [{"name":"Experience Egypt","url":"https://www.experienceegypt.eg/","type":"official-tourism"}],
+    "london": [{"name":"Visit London — What's On","url":"https://www.visitlondon.com/things-to-do/whats-on","type":"official-tourism"}],
+    "paris": [{"name":"Paris je t’aime Agenda","url":"https://agenda.parisjetaime.com/en/","type":"official-tourism"}],
+    "rome": [{"name":"Turismo Roma","url":"https://www.turismoroma.it/en/events","type":"official-tourism"}],
+    "milan": [{"name":"YesMilano","url":"https://www.yesmilano.it/en/whats-on","type":"official-tourism"}],
+    "barcelona": [{"name":"Barcelona Turisme","url":"https://www.barcelonaturisme.com/wv3/en/agenda/page/1.html","type":"official-tourism"}],
+    "madrid": [{"name":"Madrid Official Tourism — What's On","url":"https://www.esmadrid.com/en/whats-on-madrid","type":"official-tourism"}],
+    "amsterdam": [{"name":"I amsterdam — What's On","url":"https://www.iamsterdam.com/en/whats-on","type":"official-tourism"}],
+    "zurich": [{"name":"Zürich Tourism Events","url":"https://www.zuerich.com/en/events-nightlife/event-calendar","type":"official-tourism"}],
+    "vienna": [{"name":"Vienna Tourist Board Events","url":"https://www.wien.info/en/now-on/events","type":"official-tourism"}],
+    "prague": [{"name":"Prague City Tourism","url":"https://prague.eu/en/events/","type":"official-tourism"}],
+    "athens": [{"name":"This is Athens","url":"https://www.thisisathens.org/events","type":"official-tourism"}],
+    "tokyo": [{"name":"GO TOKYO Calendar","url":"https://www.gotokyo.org/en/calendar/index.html","type":"official-tourism"}],
+    "bangkok": [{"name":"Tourism Authority of Thailand","url":"https://www.tourismthailand.org/Events-and-Festivals","type":"official-tourism"}],
+    "singapore": [{"name":"Visit Singapore","url":"https://www.visitsingapore.com/whats-happening/all-happenings/","type":"official-tourism"}],
+    "kualalumpur": [{"name":"Malaysia Truly Asia","url":"https://www.malaysia.travel/","type":"official-tourism"}],
+    "bali": [{"name":"Indonesia Travel","url":"https://www.indonesia.travel/","type":"official-tourism"}],
+    "newyork": [{"name":"New York City Tourism + Conventions","url":"https://www.nyctourism.com/events/","type":"official-tourism"}]
+  }
+}
