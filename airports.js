@@ -1,0 +1,28 @@
+window.TRAVO_AIRPORTS=[
+{cityKey:'riyadh',cityAr:'الرياض',cityEn:'Riyadh',countryAr:'السعودية',countryEn:'Saudi Arabia',code:'RUH',airportAr:'مطار الملك خالد الدولي',airportEn:'King Khalid International Airport'},
+{cityKey:'jeddah',cityAr:'جدة',cityEn:'Jeddah',countryAr:'السعودية',countryEn:'Saudi Arabia',code:'JED',airportAr:'مطار الملك عبدالعزيز الدولي',airportEn:'King Abdulaziz International Airport'},
+{cityKey:'alula',cityAr:'العلا',cityEn:'AlUla',countryAr:'السعودية',countryEn:'Saudi Arabia',code:'ULH',airportAr:'مطار العلا الدولي',airportEn:'AlUla International Airport'},
+{cityKey:'dubai',cityAr:'دبي',cityEn:'Dubai',countryAr:'الإمارات',countryEn:'UAE',code:'DXB',airportAr:'مطار دبي الدولي',airportEn:'Dubai International Airport'},
+{cityKey:'abudhabi',cityAr:'أبوظبي',cityEn:'Abu Dhabi',countryAr:'الإمارات',countryEn:'UAE',code:'AUH',airportAr:'مطار زايد الدولي',airportEn:'Zayed International Airport'},
+{cityKey:'doha',cityAr:'الدوحة',cityEn:'Doha',countryAr:'قطر',countryEn:'Qatar',code:'DOH',airportAr:'مطار حمد الدولي',airportEn:'Hamad International Airport'},
+{cityKey:'istanbul',cityAr:'إسطنبول',cityEn:'Istanbul',countryAr:'تركيا',countryEn:'Türkiye',code:'IST',airportAr:'مطار إسطنبول',airportEn:'Istanbul Airport'},
+{cityKey:'cairo',cityAr:'القاهرة',cityEn:'Cairo',countryAr:'مصر',countryEn:'Egypt',code:'CAI',airportAr:'مطار القاهرة الدولي',airportEn:'Cairo International Airport'},
+{cityKey:'london',cityAr:'لندن',cityEn:'London',countryAr:'بريطانيا',countryEn:'United Kingdom',code:'LHR',airportAr:'مطار هيثرو',airportEn:'Heathrow Airport'},
+{cityKey:'paris',cityAr:'باريس',cityEn:'Paris',countryAr:'فرنسا',countryEn:'France',code:'CDG',airportAr:'مطار شارل ديغول',airportEn:'Charles de Gaulle Airport'},
+{cityKey:'rome',cityAr:'روما',cityEn:'Rome',countryAr:'إيطاليا',countryEn:'Italy',code:'FCO',airportAr:'مطار فيوميتشينو',airportEn:'Leonardo da Vinci–Fiumicino Airport'},
+{cityKey:'milan',cityAr:'ميلان',cityEn:'Milan',countryAr:'إيطاليا',countryEn:'Italy',code:'MXP',airportAr:'مطار مالبينسا',airportEn:'Milan Malpensa Airport'},
+{cityKey:'barcelona',cityAr:'برشلونة',cityEn:'Barcelona',countryAr:'إسبانيا',countryEn:'Spain',code:'BCN',airportAr:'مطار برشلونة إل برات',airportEn:'Barcelona–El Prat Airport'},
+{cityKey:'madrid',cityAr:'مدريد',cityEn:'Madrid',countryAr:'إسبانيا',countryEn:'Spain',code:'MAD',airportAr:'مطار أدولفو سواريز مدريد باراخاس',airportEn:'Adolfo Suárez Madrid–Barajas Airport'},
+{cityKey:'amsterdam',cityAr:'أمستردام',cityEn:'Amsterdam',countryAr:'هولندا',countryEn:'Netherlands',code:'AMS',airportAr:'مطار سخيبول',airportEn:'Amsterdam Airport Schiphol'},
+{cityKey:'zurich',cityAr:'زيورخ',cityEn:'Zurich',countryAr:'سويسرا',countryEn:'Switzerland',code:'ZRH',airportAr:'مطار زيورخ',airportEn:'Zurich Airport'},
+{cityKey:'vienna',cityAr:'فيينا',cityEn:'Vienna',countryAr:'النمسا',countryEn:'Austria',code:'VIE',airportAr:'مطار فيينا الدولي',airportEn:'Vienna International Airport'},
+{cityKey:'prague',cityAr:'براغ',cityEn:'Prague',countryAr:'التشيك',countryEn:'Czechia',code:'PRG',airportAr:'مطار فاتسلاف هافيل',airportEn:'Václav Havel Airport Prague'},
+{cityKey:'athens',cityAr:'أثينا',cityEn:'Athens',countryAr:'اليونان',countryEn:'Greece',code:'ATH',airportAr:'مطار أثينا الدولي',airportEn:'Athens International Airport'},
+{cityKey:'tokyo',cityAr:'طوكيو',cityEn:'Tokyo',countryAr:'اليابان',countryEn:'Japan',code:'HND',airportAr:'مطار هانيدا',airportEn:'Haneda Airport'},
+{cityKey:'bangkok',cityAr:'بانكوك',cityEn:'Bangkok',countryAr:'تايلاند',countryEn:'Thailand',code:'BKK',airportAr:'مطار سوفارنابومي',airportEn:'Suvarnabhumi Airport'},
+{cityKey:'singapore',cityAr:'سنغافورة',cityEn:'Singapore',countryAr:'سنغافورة',countryEn:'Singapore',code:'SIN',airportAr:'مطار شانغي',airportEn:'Singapore Changi Airport'},
+{cityKey:'kualalumpur',cityAr:'كوالالمبور',cityEn:'Kuala Lumpur',countryAr:'ماليزيا',countryEn:'Malaysia',code:'KUL',airportAr:'مطار كوالالمبور الدولي',airportEn:'Kuala Lumpur International Airport'},
+{cityKey:'bali',cityAr:'بالي',cityEn:'Bali',countryAr:'إندونيسيا',countryEn:'Indonesia',code:'DPS',airportAr:'مطار نغوراه راي الدولي',airportEn:'I Gusti Ngurah Rai International Airport'},
+{cityKey:'newyork',cityAr:'نيويورك',cityEn:'New York',countryAr:'الولايات المتحدة',countryEn:'United States',code:'JFK',airportAr:'مطار جون إف كينيدي الدولي',airportEn:'John F. Kennedy International Airport'}
+];
+window.TRAVO_FIND_CITY=function(value){const q=(value||'').trim().toLowerCase();return window.TRAVO_AIRPORTS.find(a=>[a.cityKey,a.cityAr,a.cityEn,a.code,a.airportAr,a.airportEn].some(v=>(v||'').toLowerCase().includes(q)||q.includes((v||'').toLowerCase())))||null};
