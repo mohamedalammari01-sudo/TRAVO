@@ -1,0 +1,9 @@
+{
+  "name": "travo-web",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/functions": "latest",
+    "openai": "latest"
+  }
+}
