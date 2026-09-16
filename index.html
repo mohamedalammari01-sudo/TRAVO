@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#6d28d9" />
+<meta name="theme-color" content="#5f8f63" />
 <meta name="description" content="TRAVO — smart trip planning, live discovery and nearby search" />
 <title>TRAVO — سافر بذكاء</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +19,10 @@
   <nav class="desktop-links">
     <a class="active" href="index.html" data-h="home">الرئيسية</a>
     <a href="discover.html" data-h="discover">اكتشف</a>
-    <a href="trip.html" data-h="trip">رحلتي</a>
+    <a href="auth.html?next=trip.html" data-h="trip">رحلتي</a>
     <a href="ai.html">TRAVO AI</a>
     <a href="plans.html" data-h="plans">الباقات</a>
+    <a href="profile.html">بياناتي</a>
   </nav>
   <button id="homeLang" class="ghost">EN</button>
 </header>
@@ -30,11 +31,11 @@
   <section class="home-hero">
     <div class="home-hero-overlay"></div>
     <div class="home-copy">
-      <p class="eyebrow">TRAVO • TRAVEL INTELLIGENCE</p>
+      <p class="eyebrow">TRAVO • SAUDI-BORN TRAVEL INTELLIGENCE 🇸🇦</p>
       <h1 data-h="hero">من فكرة السفر<br>إلى يومك الأخير.</h1>
       <p data-h="heroSub">TRAVO يرتب رحلتك من تذكرة الطيران، يساعدك تكتشف الفعاليات والأماكن الجديدة، ويعطيك اقتراحات تتكيف مع اهتماماتك وموقعك.</p>
       <div class="hero-actions">
-        <a class="primary big-action" href="trip.html" data-h="start">ابدأ رحلتك مع TRAVO ✈</a>
+        <a class="primary big-action" href="auth.html?next=trip.html" data-h="start">ابدأ رحلتك مع TRAVO ✈</a>
         <a class="ghost big-action" href="discover.html" data-h="openDiscover">اكتشف مدينة ✦</a>
       </div>
     </div>
@@ -43,7 +44,7 @@
   <section class="home-section intro-section">
     <div class="section-copy"><p class="eyebrow">WHAT TRAVO DOES</p><h2 data-h="whatTitle">وش يخدمك TRAVO؟</h2><p data-h="whatSub">كل وظيفة لها مكان واضح داخل التطبيق، بدون ازدحام الصفحة الرئيسية.</p></div>
     <div class="service-grid">
-      <a class="service-card" href="trip.html"><span>✈</span><div><b data-h="sTrip">رحلة ذكية كاملة</b><p data-h="sTripSub">ارفع تذكرتك أو أدخل الرحلة يدويًا، اختر أهدافك، وخذ جدولًا يوميًا كاملًا.</p></div></a>
+      <a class="service-card" href="auth.html?next=trip.html"><span>✈</span><div><b data-h="sTrip">رحلة ذكية كاملة</b><p data-h="sTripSub">ارفع تذكرتك أو أدخل الرحلة يدويًا، اختر أهدافك، وخذ جدولًا يوميًا كاملًا.</p></div></a>
       <a class="service-card" href="discover.html"><span>✦</span><div><b data-h="sDiscover">اكتشف ماذا يحدث</b><p data-h="sDiscoverSub">فعاليات، مؤتمرات، حفلات، تجارب وأماكن جديدة من مصادر المدينة الأساسية.</p></div></a>
       <a class="service-card" href="#near"><span>📍</span><div><b data-h="sNear">وش حولك الآن؟</b><p data-h="sNearSub">مو لازم تكون مسافر. ابحث عن أي احتياج أو مكان قريب منك من موقعك الحالي.</p></div></a>
       <a class="service-card" href="ai.html"><span>✧</span><div><b>TRAVO AI</b><p data-h="sAiSub">مساعد ذكي مستقل للحياة والسفر؛ يسأل ويبحث معك ويكمل نفس المحادثة.</p></div></a>
@@ -72,12 +73,12 @@
 
   <section class="home-section home-cta">
     <div><p class="eyebrow">READY?</p><h2 data-h="ctaTitle">TRAVO يبدأ من رحلتك أنت.</h2><p data-h="ctaSub">اختر طريقة التخطيط، عبّئ بياناتك أو ارفع تذاكرك، وبعدها خلّ الباقي علينا.</p></div>
-    <a class="primary big-action" href="trip.html" data-h="startNow">خطط رحلتي الآن</a>
+    <a class="primary big-action" href="auth.html?next=trip.html" data-h="startNow">خطط رحلتي الآن</a>
   </section>
 </main>
 </div>
 
-<nav class="bottom-nav glass home-bottom"><a class="active" href="index.html">⌂<small data-h="home">الرئيسية</small></a><a href="discover.html">✦<small data-h="discover">اكتشف</small></a><a href="trip.html">✈<small data-h="trip">رحلتي</small></a><a href="#near">📍<small data-h="nearShort">بالقرب</small></a><a href="ai.html">✧<small>AI</small></a></nav>
-<script src="home.js"></script>
+<nav class="bottom-nav glass home-bottom"><a class="active" href="index.html">⌂<small data-h="home">الرئيسية</small></a><a href="discover.html">✦<small data-h="discover">اكتشف</small></a><a href="auth.html?next=trip.html">✈<small data-h="trip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="profile.html">◎<small>بياناتي</small></a></nav>
+<script src="destination-themes.js"></script><script>window.TRAVO_APPLY_DESTINATION_THEME?.('riyadh');document.querySelector('.home-hero').style.backgroundImage=`url('${window.TRAVO_DEFAULT_SAUDI_IMAGE}')`;</script><script src="home.js"></script>
 </body>
 </html>
