@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#5f8f63"><title>TRAVO — بياناتي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="profile.css">
+</head>
+<body>
+<div class="profile-page">
+<header class="profile-nav glass"><a class="brand profile-brand" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span data-p="myData">بياناتي</span></div></a><div><a class="ghost" href="trip.html" data-p="trip">رحلتي</a> <button id="profileLang" class="ghost">EN</button></div></header>
+<main class="profile-shell">
+<aside class="profile-side">
+<section class="panel profile-card"><div class="profile-avatar" id="avatar">T</div><p class="eyebrow">TRAVO MEMBER</p><h1 id="profileName">—</h1><p id="profileContact">—</p></section>
+<section class="panel profile-card plan-card"><p class="eyebrow">MEMBERSHIP</p><span data-p="currentPlan">الباقة الحالية</span><b id="planName">—</b><p id="planStatus">—</p><div class="account-meta"><div><span data-p="trialEnd">نهاية التجربة</span><b id="trialEnd">—</b></div><div><span data-p="memberId">رقم العميل</span><b id="memberId">—</b></div></div></section>
+</aside>
+<section class="panel profile-main"><div class="profile-head"><div><p class="eyebrow">PROFILE</p><h2 data-p="title">بيانات حسابك</h2><p class="muted" data-p="sub">عدّل اسمك وبريدك ومدينتك. رقم الجوال مرتبط بالتحقق عبر واتساب.</p></div><a class="ghost" href="plans.html" data-p="plans">الباقات</a></div>
+<div class="profile-grid"><label class="profile-field"><span data-p="name">الاسم</span><input id="pfName"></label><label class="profile-field"><span data-p="email">البريد الإلكتروني</span><input id="pfEmail" type="email"></label><label class="profile-field"><span data-p="phone">رقم الجوال</span><input id="pfPhone" readonly></label><label class="profile-field"><span data-p="location">موقعك / مدينتك</span><input id="pfLocation"></label></div>
+<div id="profileState" class="profile-state" data-p="ready">بياناتك محفوظة في حساب TRAVO.</div><div class="profile-actions"><button id="saveProfile" class="primary" data-p="save">حفظ التعديلات</button><button id="logoutBtn" class="ghost" data-p="logout">تسجيل الخروج</button></div>
+</section>
+</main>
+</div>
+<nav class="bottom-nav glass profile-bottom"><a href="index.html">⌂<small data-p="home">الرئيسية</small></a><a href="discover.html">✦<small data-p="discover">اكتشف</small></a><a href="trip.html">✈<small data-p="trip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a class="active" href="profile.html">◎<small data-p="myData">بياناتي</small></a></nav>
+<script src="profile.js"></script>
+</body></html>
