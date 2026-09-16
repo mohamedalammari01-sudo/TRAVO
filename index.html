@@ -4,105 +4,78 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="theme-color" content="#6d28d9" />
-<meta name="description" content="TRAVO — live travel intelligence and smart trip planning" />
-<title>TRAVO — Live Travel Intelligence</title>
+<meta name="description" content="TRAVO — smart trip planning, live discovery and nearby search" />
+<title>TRAVO — سافر بذكاء</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="home.css" />
 </head>
 <body>
-<div class="app-shell">
-  <aside class="sidebar glass">
-    <div class="brand"><div class="logo">T</div><div><b>TRAVO</b><span data-t="tagline">ذكاء السفر، الآن</span></div></div>
-    <nav>
-      <a class="active" href="#discover">⌂ <span data-t="home">الرئيسية</span></a>
-      <a href="discover.html">✦ <span data-t="discover">اكتشف</span></a>
-      <a href="trip.html">✈ <span>TRAVO Trip</span></a>
-      <a href="#near">📍 <span data-t="near">بالقرب منك</span></a>
-      <a href="#ai">✧ <span>TRAVO AI</span></a>
-      <a href="plans.html">◇ <span>Premium</span></a>
-    </nav>
-    <div class="side-note"><span class="live-dot"></span><span id="dailyStatus" data-t="daily">تحديثات يومية مفعلة</span></div>
-  </aside>
+<div class="home-shell">
+<header class="home-nav glass">
+  <a class="brand home-brand" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span data-h="tagline">رفيقك الذكي للسفر والاكتشاف</span></div></a>
+  <nav class="desktop-links">
+    <a class="active" href="index.html" data-h="home">الرئيسية</a>
+    <a href="discover.html" data-h="discover">اكتشف</a>
+    <a href="trip.html" data-h="trip">رحلتي</a>
+    <a href="ai.html">TRAVO AI</a>
+    <a href="plans.html" data-h="plans">الباقات</a>
+  </nav>
+  <button id="homeLang" class="ghost">EN</button>
+</header>
 
-  <main>
-    <header class="topbar">
-      <div class="mobile-brand"><div class="logo">T</div><b>TRAVO</b></div>
-      <div class="top-actions">
-        <button id="langBtn" class="ghost">EN</button>
-        <button class="ghost" data-t="saved">المحفوظات</button>
-        <button class="primary" data-t="signin">تسجيل الدخول</button>
+<main class="home-main">
+  <section class="home-hero">
+    <div class="home-hero-overlay"></div>
+    <div class="home-copy">
+      <p class="eyebrow">TRAVO • TRAVEL INTELLIGENCE</p>
+      <h1 data-h="hero">من فكرة السفر<br>إلى يومك الأخير.</h1>
+      <p data-h="heroSub">TRAVO يرتب رحلتك من تذكرة الطيران، يساعدك تكتشف الفعاليات والأماكن الجديدة، ويعطيك اقتراحات تتكيف مع اهتماماتك وموقعك.</p>
+      <div class="hero-actions">
+        <a class="primary big-action" href="trip.html" data-h="start">ابدأ رحلتك مع TRAVO ✈</a>
+        <a class="ghost big-action" href="discover.html" data-h="openDiscover">اكتشف مدينة ✦</a>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section id="discover" class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="kicker" id="heroKicker">TRAVO LIVE • Travel Intelligence</div>
-        <h1 data-t="headline">اعرف أين تذهب<br>قبل الجميع.</h1>
-        <p data-t="sub">أماكن رائجة، فعاليات اليوم، تجارب جديدة وخطة رحلة ذكية تتغير مع مدينتك ووقتك.</p>
-        <div class="searchbar"><span>⌕</span><input id="citySearch" list="homeCityOptions" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><datalist id="homeCityOptions"></datalist><button id="exploreBtn" class="primary" data-t="explore">استكشف</button></div>
+  <section class="home-section intro-section">
+    <div class="section-copy"><p class="eyebrow">WHAT TRAVO DOES</p><h2 data-h="whatTitle">وش يخدمك TRAVO؟</h2><p data-h="whatSub">كل وظيفة لها مكان واضح داخل التطبيق، بدون ازدحام الصفحة الرئيسية.</p></div>
+    <div class="service-grid">
+      <a class="service-card" href="trip.html"><span>✈</span><div><b data-h="sTrip">رحلة ذكية كاملة</b><p data-h="sTripSub">ارفع تذكرتك أو أدخل الرحلة يدويًا، اختر أهدافك، وخذ جدولًا يوميًا كاملًا.</p></div></a>
+      <a class="service-card" href="discover.html"><span>✦</span><div><b data-h="sDiscover">اكتشف ماذا يحدث</b><p data-h="sDiscoverSub">فعاليات، مؤتمرات، حفلات، تجارب وأماكن جديدة من مصادر المدينة الأساسية.</p></div></a>
+      <a class="service-card" href="#near"><span>📍</span><div><b data-h="sNear">وش حولك الآن؟</b><p data-h="sNearSub">مو لازم تكون مسافر. ابحث عن أي احتياج أو مكان قريب منك من موقعك الحالي.</p></div></a>
+      <a class="service-card" href="ai.html"><span>✧</span><div><b>TRAVO AI</b><p data-h="sAiSub">صفحة محادثة مستقلة تسأل فيها عن السفر والمدن والخطط والتنقل.</p></div></a>
+    </div>
+  </section>
+
+  <section id="near" class="home-section near-home">
+    <div class="near-copy"><p class="eyebrow">NEAR YOU</p><h2 data-h="nearTitle">وش موجود حولك؟</h2><p data-h="nearSub">ابحث عن قهوة، مطعم، صيدلية، سوبرماركت، بنزين، مستشفى، صراف، مسجد، نادي أو أي شيء تحتاجه. موقعك يستخدم أثناء البحث فقط.</p></div>
+    <div class="near-box panel">
+      <div class="near-input-row"><input id="nearQuery" data-h-ph="nearPh" placeholder="مثال: قهوة مختصة أو صيدلية"><button id="locateBtn" class="ghost" data-h="locate">استخدم موقعي</button><button id="nearSearchBtn" class="primary" data-h="search">بحث قريب مني</button></div>
+      <div class="near-chips" id="nearChips">
+        <button data-q="قهوة مختصة">☕ <span data-h="coffee">قهوة</span></button>
+        <button data-q="مطاعم">🍽 <span data-h="restaurants">مطاعم</span></button>
+        <button data-q="صيدلية">✚ <span data-h="pharmacy">صيدلية</span></button>
+        <button data-q="سوبرماركت">🛒 <span data-h="market">سوبرماركت</span></button>
+        <button data-q="محطة بنزين">⛽ <span data-h="fuel">بنزين</span></button>
+        <button data-q="مستشفى">🏥 <span data-h="hospital">مستشفى</span></button>
+        <button data-q="ATM صراف">▣ <span data-h="atm">صراف</span></button>
+        <button data-q="مسجد">◈ <span data-h="mosque">مسجد</span></button>
       </div>
-    </section>
+      <div id="nearState" class="near-state" data-h="nearState">اختر احتياجك أو اكتب أي شيء، ثم اسمح بالموقع للحصول على بحث أدق.</div>
+    </div>
+  </section>
 
-    <section class="smart-trip-banner">
-      <div><p class="eyebrow">TRAVO SMART TRIP</p><h2>من صورة التذكرة إلى جدول الرحلة كاملًا</h2><p>صوّر تذكرة الطيران، اختر أهدافك واهتماماتك، وTRAVO يرتب لك كل يوم من الوصول إلى العودة.</p></div>
-      <a class="primary trip-link" href="trip.html">✈ ابدأ رحلتي</a>
-    </section>
-
-    <section id="trends" class="section">
-      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p id="trendSub" data-t="trendSub">بيانات موثقة من تحديث TRAVO اليومي — بدون بطاقات تجريبية.</p></div><div class="filters"><button class="chip active" data-filter="Now">🔥 Now</button><button class="chip" data-filter="Tonight">🌙 Tonight</button><button class="chip" data-filter="New">🆕 New</button><button class="chip" data-filter="Soon">🔮 Soon</button><button class="chip" data-filter="Last Chance">⏳ Last Chance</button></div></div>
-      <div id="trendCards" class="cards"></div>
-      <div id="trendEmpty" class="trend-empty hidden"></div>
-      <a class="ghost discover-more" href="discover.html">فتح قسم اكتشف كاملًا ✦</a>
-    </section>
-
-    <section id="planner" class="section split">
-      <div class="panel">
-        <p class="eyebrow">QUICK PLANNER</p>
-        <h2 data-t="plannerTitle">خطط رحلتك بذكاء</h2>
-        <p class="muted">هذا تخطيط سريع. للتخطيط الكامل من التذكرة إلى كل أيام الرحلة استخدم TRAVO Trip.</p>
-        <div class="form-grid">
-          <label><span data-t="destination">الوجهة</span><input id="planCity" data-ph="destinationPh" placeholder="مثال: دبي"></label>
-          <label><span data-t="days">عدد الأيام</span><input id="planDays" type="number" min="1" max="30" value="4"></label>
-          <label><span data-t="planMode">أسلوب الخطة</span><select id="planMode"><option value="near" data-t="modeNear">الأماكن القريبة</option><option value="trend" data-t="modeTrend">الأكثر رواجًا</option><option value="dynamic" data-t="modeDynamic">ديناميكية حسب موقعي</option></select></label>
-        </div>
-        <button id="planBtn" class="primary wide" data-t="buildPlan">أنشئ الخطة</button>
-        <a class="ghost full-trip-link" href="trip.html">فتح مخطط TRAVO الكامل ✈</a>
-        <div id="itinerary" class="itinerary"></div>
-      </div>
-
-      <div id="near" class="panel near-panel">
-        <div><p class="eyebrow">NEAR YOU</p><h2 data-t="nearTitle">ماذا يوجد حولك؟</h2><p class="muted" data-t="nearSub">اسمح بالموقع لنرتب الاقتراحات حسب القرب. لا يتم حفظ موقعك في هذه النسخة.</p></div>
-        <button id="nearBtn" class="primary" data-t="useLocation">استخدم موقعي</button>
-        <div id="nearResult" class="near-result"></div>
-      </div>
-    </section>
-
-    <section id="ai" class="section split">
-      <div class="panel ai-panel">
-        <div class="ai-head"><div><p class="eyebrow">AI ASSISTANT</p><h2>TRAVO AI</h2><p class="muted" data-t="aiSub">مساعد سفر عملي يفهم المدينة والخطة.</p></div><span id="aiChip" class="status-pill pending" data-t="aiUnavailable">غير متصل</span></div>
-        <div id="aiThread" class="ai-thread"><div class="bubble" data-t="aiMsg">اسألني عن جدول يوم، اختيار حي، ترتيب التنقل أو خطة سفر كاملة.</div></div>
-        <div class="ai-input"><input id="aiInput" data-ph="aiPh" placeholder="مثال: خطط لي ليلة في الرياض"><button id="aiSend" class="primary" data-t="send">إرسال</button></div>
-      </div>
-
-      <div id="status" class="panel">
-        <p class="eyebrow">SYSTEM</p><h2 data-t="status">حالة النظام</h2><p class="muted" data-t="statusSub">نعرض بوضوح ما هو متصل فعليًا وما يزال قيد الربط.</p>
-        <div class="status-list">
-          <div class="status-row"><span><i class="dot good"></i>TRAVO Web</span><b data-t="active">مفعّل</b></div>
-          <div class="status-row"><span><i id="aiDot" class="dot warn"></i>TRAVO AI</span><b id="aiState" data-t="pending">قيد الربط</b></div>
-          <div class="status-row"><span><i id="trendDot" class="dot warn"></i><span data-t="daily">البحث اليومي عن الترندات</span></span><b id="trendState" data-t="pending">قيد الربط</b></div>
-          <div class="status-row"><span><i class="dot warn"></i><span data-t="auth">تسجيل الجوال / WhatsApp OTP</span></span><b data-t="pending">قيد الربط</b></div>
-          <div class="status-row"><span><i class="dot warn"></i><span data-t="pay">الدفع والاشتراكات</span></span><b data-t="pending">قيد الربط</b></div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section class="home-section home-cta">
+    <div><p class="eyebrow">READY?</p><h2 data-h="ctaTitle">TRAVO يبدأ من رحلتك أنت.</h2><p data-h="ctaSub">اختر طريقة التخطيط، عبّئ بياناتك أو ارفع تذاكرك، وبعدها خلّ الباقي علينا.</p></div>
+    <a class="primary big-action" href="trip.html" data-h="startNow">خطط رحلتي الآن</a>
+  </section>
+</main>
 </div>
 
-<nav class="bottom-nav glass"><a href="#discover">⌂<small data-t="home">الرئيسية</small></a><a href="discover.html">✦<small data-t="discover">اكتشف</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
-<script src="airports.js"></script>
-<script src="app.js"></script>
+<nav class="bottom-nav glass home-bottom"><a class="active" href="index.html">⌂<small data-h="home">الرئيسية</small></a><a href="discover.html">✦<small data-h="discover">اكتشف</small></a><a href="trip.html">✈<small data-h="trip">رحلتي</small></a><a href="#near">📍<small data-h="nearShort">بالقرب</small></a><a href="ai.html">✧<small>AI</small></a></nav>
+<script src="home.js"></script>
 </body>
 </html>
