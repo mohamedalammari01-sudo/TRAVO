@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#6d28d9" />
+<meta name="theme-color" content="#5f8f63" />
 <title>TRAVO — Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,47 +14,29 @@
 <div class="shell">
   <aside class="side">
     <a class="brand" href="/"><span class="logo">T</span><span><b>TRAVO</b><small>Owner Console</small></span></a>
-    <nav>
-      <a class="active" href="#overview" data-t="overview">نظرة عامة</a>
-      <a href="#customers" data-t="customers">العملاء</a>
-      <a href="#plans" data-t="plans">الباقات</a>
-      <a href="#activity" data-t="activity">النشاط</a>
-    </nav>
-    <div class="demo-note"><b data-t="demoTitle">وضع تجريبي</b><span data-t="demoText">لا توجد بيانات عملاء حقيقية في هذه النسخة.</span></div>
+    <nav><a class="active" href="#overview" data-t="overview">نظرة عامة</a><a href="#customers" data-t="customers">العملاء</a><a href="#plans" data-t="plans">الباقات</a><a href="#activity" data-t="activity">النشاط</a></nav>
+    <div class="demo-note"><b data-t="demoTitle">بيانات حية</b><span data-t="demoText">الحسابات المسجلة عبر TRAVO تظهر هنا تلقائيًا.</span></div>
   </aside>
 
   <main>
-    <header class="top">
-      <div><p class="eyebrow">TRAVO ADMIN</p><h1 data-t="dashboard">لوحة التحكم</h1><p class="muted" data-t="subtitle">مراقبة العملاء والاشتراكات والتجارب والباقات.</p></div>
-      <div class="top-actions"><button id="langBtn" class="ghost">EN</button><a class="ghost" href="/" data-t="site">الموقع</a></div>
-    </header>
+    <header class="top"><div><p class="eyebrow">TRAVO ADMIN</p><h1 data-t="dashboard">لوحة التحكم</h1><p class="muted" data-t="subtitle">مراقبة العملاء والاشتراكات والتجارب والباقات.</p></div><div class="top-actions"><button id="langBtn" class="ghost">EN</button><a class="ghost" href="/" data-t="site">الموقع</a></div></header>
 
     <section id="overview" class="metrics">
-      <article><span data-t="totalUsers">إجمالي العملاء</span><b id="mUsers">128</b><small>+12%</small></article>
-      <article><span data-t="premium">Premium نشط</span><b id="mPremium">46</b><small>36%</small></article>
-      <article><span data-t="trials">تجارب مجانية</span><b id="mTrials">21</b><small data-t="trial7">7 أيام</small></article>
-      <article><span data-t="expiring">تنتهي قريبًا</span><b id="mExpiring">8</b><small data-t="next7">خلال 7 أيام</small></article>
-      <article><span data-t="mrr">دخل شهري تقديري</span><b>1,379</b><small data-t="sar">ر.س</small></article>
+      <article><span data-t="totalUsers">إجمالي العملاء</span><b id="mUsers">0</b><small>Live</small></article>
+      <article><span data-t="premium">Premium نشط</span><b id="mPremium">0</b><small>Live</small></article>
+      <article><span data-t="trials">تجارب مجانية</span><b id="mTrials">0</b><small data-t="trial7">7 أيام</small></article>
+      <article><span data-t="expiring">تنتهي قريبًا</span><b id="mExpiring">0</b><small data-t="next7">خلال 7 أيام</small></article>
+      <article><span data-t="mrr">دخل شهري تقديري</span><b id="mMrr">0</b><small data-t="sar">ر.س</small></article>
     </section>
 
     <section id="customers" class="panel">
-      <div class="section-head"><div><p class="eyebrow">CUSTOMERS</p><h2 data-t="customers">العملاء</h2><p class="muted" data-t="customerHint">البيانات أدناه تجريبية ومخفية جزئيًا حتى يتم ربط قاعدة البيانات.</p></div><div class="tools"><input id="search" data-ph="search" placeholder="ابحث عن عميل"><select id="statusFilter"><option value="all" data-t="all">الكل</option><option value="active" data-t="active">نشط</option><option value="trial" data-t="trial">تجربة</option><option value="expired" data-t="expired">منتهي</option></select></div></div>
+      <div class="section-head"><div><p class="eyebrow">CUSTOMERS</p><h2 data-t="customers">العملاء</h2><p class="muted" data-t="customerHint">العملاء الذين أكملوا التحقق عبر واتساب يظهرون تلقائيًا في هذه القائمة.</p></div><div class="tools"><input id="search" data-ph="search" placeholder="ابحث عن عميل"><select id="statusFilter"><option value="all" data-t="all">الكل</option><option value="active" data-t="active">نشط</option><option value="trial" data-t="trial">تجربة</option><option value="expired" data-t="expired">منتهي</option></select></div></div>
       <div class="table-wrap"><table><thead><tr><th data-t="client">العميل</th><th data-t="contact">التواصل</th><th data-t="plan">الباقة</th><th data-t="state">الحالة</th><th data-t="trialEnd">نهاية التجربة</th><th data-t="renewal">التجديد</th></tr></thead><tbody id="customerRows"></tbody></table></div>
     </section>
 
-    <section id="plans" class="panel">
-      <div class="section-head"><div><p class="eyebrow">SUBSCRIPTIONS</p><h2 data-t="plans">الباقات</h2><p class="muted" data-t="planHint">الأسعار مبدئية ويمكن تعديلها قبل الإطلاق.</p></div><a class="ghost" href="/plans.html" data-t="viewPlans">معاينة صفحة الباقات</a></div>
-      <div class="plan-grid">
-        <article><span data-t="trial">تجربة</span><b>7 <small data-t="days">أيام</small></b><p data-t="trialPlan">وصول Premium كامل خلال فترة التجربة.</p></article>
-        <article class="accent"><span>Premium</span><b>29.99 <small data-t="month">ر.س / شهر</small></b><p data-t="monthlyPlan">الاشتراك الشهري المقترح.</p></article>
-        <article><span>Premium</span><b>249 <small data-t="year">ر.س / سنة</small></b><p data-t="annualPlan">الاشتراك السنوي المقترح.</p></article>
-      </div>
-    </section>
+    <section id="plans" class="panel"><div class="section-head"><div><p class="eyebrow">SUBSCRIPTIONS</p><h2 data-t="plans">الباقات</h2><p class="muted" data-t="planHint">الأسعار مبدئية ويمكن تعديلها قبل الإطلاق.</p></div><a class="ghost" href="/plans.html" data-t="viewPlans">معاينة صفحة الباقات</a></div><div class="plan-grid"><article><span data-t="trial">تجربة</span><b>7 <small data-t="days">أيام</small></b><p data-t="trialPlan">وصول Premium كامل خلال فترة التجربة.</p></article><article class="accent"><span>Premium</span><b>29.99 <small data-t="month">ر.س / شهر</small></b><p data-t="monthlyPlan">الاشتراك الشهري المقترح.</p></article><article><span>Premium</span><b>249 <small data-t="year">ر.س / سنة</small></b><p data-t="annualPlan">الاشتراك السنوي المقترح.</p></article></div></section>
 
-    <section id="activity" class="panel">
-      <p class="eyebrow">ACTIVITY</p><h2 data-t="activity">النشاط</h2>
-      <div class="activity" id="activityList"></div>
-    </section>
+    <section id="activity" class="panel"><p class="eyebrow">ACTIVITY</p><h2 data-t="activity">النشاط</h2><div class="activity" id="activityList"></div></section>
   </main>
 </div>
 <script src="dashboard.js"></script>
