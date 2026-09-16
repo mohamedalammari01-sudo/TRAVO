@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#6d28d9" />
+<title>TRAVO — Plans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="plans.css" />
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="/"><span class="logo">T</span><span><b>TRAVO</b><small data-t="tagline">ذكاء السفر، الآن</small></span></a>
+  <div class="actions"><button id="langBtn" class="ghost">EN</button><a class="ghost" href="/" data-t="back">العودة للموقع</a></div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="eyebrow">TRAVO PREMIUM</span>
+    <h1 data-t="title">سافر بذكاء أكثر.</h1>
+    <p data-t="sub">ابدأ بتجربة مجانية لمدة 7 أيام، ثم اختر الباقة المناسبة لك. الأسعار المعروضة مبدئية ويمكن تعديلها قبل الإطلاق.</p>
+    <span class="draft" data-t="draft">أسعار مبدئية — لا يوجد دفع فعلي متصل حتى الآن</span>
+  </section>
+
+  <section class="plans">
+    <article class="plan">
+      <div><span class="plan-tag" data-t="trial">تجربة مجانية</span><h2 data-t="trialTitle">7 أيام مجانًا</h2><p data-t="trialSub">جرّب مزايا TRAVO Premium قبل الاشتراك.</p></div>
+      <div class="price"><b>0</b><span data-t="sar">ر.س</span></div>
+      <ul><li data-t="f1">الترندات الحية</li><li data-t="f2">مخطط الرحلة الذكي</li><li data-t="f3">TRAVO AI</li><li data-t="f4">الحفظ والتنبيهات</li></ul>
+      <button class="primary choose" data-plan="trial" data-t="startTrial">ابدأ التجربة</button>
+    </article>
+
+    <article class="plan featured">
+      <div class="popular" data-t="popular">الأكثر اختيارًا</div>
+      <div><span class="plan-tag">Premium</span><h2 data-t="monthly">شهري</h2><p data-t="monthlySub">مرونة كاملة بدون التزام سنوي.</p></div>
+      <div class="price"><b>29.99</b><span data-t="sarMonth">ر.س / شهر</span></div>
+      <ul><li data-t="f1">الترندات الحية</li><li data-t="f2">مخطط الرحلة الذكي</li><li data-t="f3">TRAVO AI</li><li data-t="f5">Near You وتوصيات الموقع</li><li data-t="f6">تنبيهات وتحديثات الوجهة</li></ul>
+      <button class="primary choose" data-plan="monthly" data-t="subscribe">اشترك</button>
+    </article>
+
+    <article class="plan">
+      <div><span class="plan-tag">Premium</span><h2 data-t="annual">سنوي</h2><p data-t="annualSub">أفضل قيمة للمسافر المتكرر.</p></div>
+      <div class="price"><b>249</b><span data-t="sarYear">ر.س / سنة</span></div>
+      <div class="saving" data-t="saving">أوفر من الاشتراك الشهري</div>
+      <ul><li data-t="f1">الترندات الحية</li><li data-t="f2">مخطط الرحلة الذكي</li><li data-t="f3">TRAVO AI</li><li data-t="f5">Near You وتوصيات الموقع</li><li data-t="f6">تنبيهات وتحديثات الوجهة</li></ul>
+      <button class="primary choose" data-plan="annual" data-t="subscribe">اشترك</button>
+    </article>
+  </section>
+
+  <section class="compare">
+    <div><span>✓</span><b data-t="cancel">إلغاء مرن</b><small data-t="cancelSub">عند ربط بوابة الدفع سيتم توضيح سياسة التجديد والإلغاء.</small></div>
+    <div><span>◎</span><b data-t="secure">دفع آمن</b><small data-t="secureSub">لن نخزن بيانات البطاقة داخل TRAVO.</small></div>
+    <div><span>✦</span><b data-t="premiumAi">TRAVO AI</b><small data-t="premiumAiSub">مزايا المساعد المتقدمة ضمن Premium.</small></div>
+  </section>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="plans.js"></script>
+</body>
+</html>
