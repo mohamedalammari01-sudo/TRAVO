@@ -40,4 +40,10 @@ window.TRAVO_APPLY_DESTINATION_THEME=function(cityKey,opts={}){
  if(opts.target==='discover')root.style.setProperty('--discover-image',visual);else root.style.setProperty('--trip-hero',visual);
  return t;
 };
+(()=>{const s=document.createElement('style');s.textContent=`
+.home-hero-overlay{background:linear-gradient(90deg,rgba(20,11,38,.96) 0%,rgba(74,40,112,.62) 48%,rgba(139,92,246,.18) 100%)!important}
+html[dir=rtl] .home-hero-overlay{background:linear-gradient(270deg,rgba(20,11,38,.96) 0%,rgba(74,40,112,.62) 48%,rgba(139,92,246,.18) 100%)!important}
+.discover-overlay{background:linear-gradient(90deg,rgba(20,11,38,.94),rgba(100,62,150,.30))!important}
+.trip-hero-shade{background:linear-gradient(90deg,rgba(20,11,38,.94),rgba(100,62,150,.20))!important}
+`;document.head.appendChild(s)})();
 window.TRAVO_RESET_BRAND_THEME();
