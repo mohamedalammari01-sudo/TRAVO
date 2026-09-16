@@ -18,10 +18,11 @@
     <nav>
       <a class="active" href="#discover">✦ <span data-t="discover">اكتشف</span></a>
       <a href="#trends">🔥 <span data-t="trends">الترندات الحية</span></a>
+      <a href="trip.html">✈ <span>TRAVO Trip</span></a>
       <a href="#planner">🗓 <span data-t="planner">مخطط الرحلة</span></a>
       <a href="#near">📍 <span data-t="near">بالقرب منك</span></a>
       <a href="#ai">✧ <span>TRAVO AI</span></a>
-      <a href="#status">◉ <span data-t="status">حالة النظام</span></a>
+      <a href="plans.html">◇ <span>Premium</span></a>
     </nav>
     <div class="side-note"><span class="live-dot"></span><span data-t="daily">تحديثات يومية مفعلة</span></div>
   </aside>
@@ -46,6 +47,11 @@
       </div>
     </section>
 
+    <section class="smart-trip-banner">
+      <div><p class="eyebrow">TRAVO SMART TRIP</p><h2>من صورة التذكرة إلى جدول الرحلة كاملًا</h2><p>صوّر تذكرة الطيران، اختر أهدافك واهتماماتك، وTRAVO يرتب لك كل يوم من الوصول إلى العودة.</p></div>
+      <a class="primary trip-link" href="trip.html">✈ ابدأ رحلتي</a>
+    </section>
+
     <section id="trends" class="section">
       <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p data-t="trendSub">المحتوى أدناه تجريبي حتى يتم ربط التحديث اليومي بقاعدة البيانات.</p></div><div class="filters"><button class="chip active">🔥 Now</button><button class="chip">🌙 Tonight</button><button class="chip">🆕 New</button><button class="chip">📈 Rising</button><button class="chip">⏳ Last Chance</button></div></div>
       <div id="trendCards" class="cards"></div>
@@ -53,15 +59,16 @@
 
     <section id="planner" class="section split">
       <div class="panel">
-        <p class="eyebrow">SMART PLANNER</p>
+        <p class="eyebrow">QUICK PLANNER</p>
         <h2 data-t="plannerTitle">خطط رحلتك بذكاء</h2>
-        <p class="muted" data-t="plannerSub">اختر الوجهة والمدة وطريقة التخطيط، وTRAVO يبني لك الهيكل اليومي.</p>
+        <p class="muted">هذا تخطيط سريع. للتخطيط الكامل من التذكرة إلى كل أيام الرحلة استخدم TRAVO Trip.</p>
         <div class="form-grid">
           <label><span data-t="destination">الوجهة</span><input id="planCity" data-ph="destinationPh" placeholder="مثال: دبي"></label>
           <label><span data-t="days">عدد الأيام</span><input id="planDays" type="number" min="1" max="30" value="4"></label>
           <label><span data-t="planMode">أسلوب الخطة</span><select id="planMode"><option value="near" data-t="modeNear">الأماكن القريبة</option><option value="trend" data-t="modeTrend">الأكثر رواجًا</option><option value="dynamic" data-t="modeDynamic">ديناميكية حسب موقعي</option></select></label>
         </div>
         <button id="planBtn" class="primary wide" data-t="buildPlan">أنشئ الخطة</button>
+        <a class="ghost full-trip-link" href="trip.html">فتح مخطط TRAVO الكامل ✈</a>
         <div id="itinerary" class="itinerary"></div>
       </div>
 
@@ -94,7 +101,7 @@
   </main>
 </div>
 
-<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="#planner">🗓<small data-t="planner">الخطة</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
+<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
 <script src="app.js"></script>
 </body>
 </html>
