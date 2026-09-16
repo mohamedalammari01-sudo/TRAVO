@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-16T13:20:00+03:00",
+  "updatedAt": "2026-09-16T14:40:00+03:00",
   "cities": {
-    "riyadh": [{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"},{"name":"Riyadh Front Exhibition & Conference Center","url":"https://rfecc.sa/whats-on/","type":"conferences"},{"name":"Saudi Conventions & Exhibitions General Authority","url":"https://www.scega.gov.sa/","type":"conferences"}],
-    "jeddah": [{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
-    "alula": [{"name":"Experience AlUla","url":"https://www.experiencealula.com/","type":"official-tourism"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
+    "riyadh": [{"name":"UTD Exhibitions — جديد المعارض","url":"https://utdexhibitions.com/","type":"saudi-exhibitions"},{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"},{"name":"Riyadh Front Exhibition & Conference Center","url":"https://rfecc.sa/whats-on/","type":"conferences"},{"name":"Saudi Conventions & Exhibitions General Authority","url":"https://www.scega.gov.sa/","type":"conferences"}],
+    "jeddah": [{"name":"UTD Exhibitions — جديد المعارض","url":"https://utdexhibitions.com/","type":"saudi-exhibitions"},{"name":"webook.com","url":"https://webook.com/ar","type":"tickets"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
+    "alula": [{"name":"UTD Exhibitions — جديد المعارض","url":"https://utdexhibitions.com/","type":"saudi-exhibitions"},{"name":"Experience AlUla","url":"https://www.experiencealula.com/","type":"official-tourism"},{"name":"Visit Saudi Calendar","url":"https://www.visitsaudi.com/en/saudi-calendar/saudi-calendar","type":"official-tourism"}],
     "dubai": [{"name":"Dubai Calendar — Visit Dubai","url":"https://www.visitdubai.com/en/festivals-and-events/dubai-events-calendar","type":"official-tourism"},{"name":"Dubai Business Events","url":"https://www.visitdubai.com/en/mice/events-calendar","type":"conferences"}],
     "abudhabi": [{"name":"Experience Abu Dhabi Events","url":"https://visitabudhabi.ae/en/events","type":"official-tourism"}],
     "doha": [{"name":"Visit Qatar","url":"https://visitqatar.com/","type":"official-tourism"}],
