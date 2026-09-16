@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#6d28d9" />
+<meta name="theme-color" content="#5f8f63" />
 <title>TRAVO — رحلتي الذكية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="trip.css" />
 </head>
 <body>
+<script src="auth-guard.js"></script>
 <div class="trip-shell">
   <aside class="trip-side glass">
     <a class="brand trip-brand" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span data-i="tagline">رحلتك من التذكرة إلى آخر يوم</span></div></a>
@@ -31,6 +32,7 @@
       <div class="top-actions">
         <a class="ghost link-btn" href="discover.html" data-i="discover">اكتشف</a>
         <a class="ghost link-btn" href="ai.html">TRAVO AI</a>
+        <a class="ghost link-btn" href="profile.html">بياناتي</a>
         <a class="ghost link-btn" href="index.html" data-i="back">العودة للرئيسية</a>
         <button id="tripLang" class="ghost">EN</button>
       </div>
@@ -101,7 +103,7 @@
     </section>
   </main>
 </div>
-<nav class="bottom-nav glass trip-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a href="discover.html">✦<small data-i="discover">اكتشف</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="plans.html">◇<small data-i="plans">الباقات</small></a></nav>
-<script src="airports.js"></script><script src="trip.js"></script><script src="trip-entry.js"></script>
+<nav class="bottom-nav glass trip-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a href="discover.html">✦<small data-i="discover">اكتشف</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="profile.html">◎<small>بياناتي</small></a></nav>
+<script src="airports.js"></script><script src="destination-themes.js"></script><script src="trip.js"></script><script src="trip-entry.js"></script><script src="trip-apps.js"></script>
 </body>
 </html>
