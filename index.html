@@ -16,15 +16,14 @@
   <aside class="sidebar glass">
     <div class="brand"><div class="logo">T</div><div><b>TRAVO</b><span data-t="tagline">ذكاء السفر، الآن</span></div></div>
     <nav>
-      <a class="active" href="#discover">✦ <span data-t="discover">اكتشف</span></a>
-      <a href="#trends">🔥 <span data-t="trends">الترندات الحية</span></a>
+      <a class="active" href="#discover">⌂ <span data-t="home">الرئيسية</span></a>
+      <a href="discover.html">✦ <span data-t="discover">اكتشف</span></a>
       <a href="trip.html">✈ <span>TRAVO Trip</span></a>
-      <a href="#planner">🗓 <span data-t="planner">مخطط الرحلة</span></a>
       <a href="#near">📍 <span data-t="near">بالقرب منك</span></a>
       <a href="#ai">✧ <span>TRAVO AI</span></a>
       <a href="plans.html">◇ <span>Premium</span></a>
     </nav>
-    <div class="side-note"><span class="live-dot"></span><span data-t="daily">تحديثات يومية مفعلة</span></div>
+    <div class="side-note"><span class="live-dot"></span><span id="dailyStatus" data-t="daily">تحديثات يومية مفعلة</span></div>
   </aside>
 
   <main>
@@ -40,10 +39,10 @@
     <section id="discover" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <div class="kicker">TRAVO LIVE • Travel Intelligence</div>
+        <div class="kicker" id="heroKicker">TRAVO LIVE • Travel Intelligence</div>
         <h1 data-t="headline">اعرف أين تذهب<br>قبل الجميع.</h1>
         <p data-t="sub">أماكن رائجة، فعاليات اليوم، تجارب جديدة وخطة رحلة ذكية تتغير مع مدينتك ووقتك.</p>
-        <div class="searchbar"><span>⌕</span><input id="citySearch" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><button class="primary" data-t="explore">استكشف</button></div>
+        <div class="searchbar"><span>⌕</span><input id="citySearch" list="homeCityOptions" data-ph="search" placeholder="ابحث عن مدينة أو وجهة"><datalist id="homeCityOptions"></datalist><button id="exploreBtn" class="primary" data-t="explore">استكشف</button></div>
       </div>
     </section>
 
@@ -53,8 +52,10 @@
     </section>
 
     <section id="trends" class="section">
-      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p data-t="trendSub">المحتوى أدناه تجريبي حتى يتم ربط التحديث اليومي بقاعدة البيانات.</p></div><div class="filters"><button class="chip active">🔥 Now</button><button class="chip">🌙 Tonight</button><button class="chip">🆕 New</button><button class="chip">📈 Rising</button><button class="chip">⏳ Last Chance</button></div></div>
+      <div class="section-head"><div><p class="eyebrow">LIVE TRENDS</p><h2 data-t="trendTitle">ماذا يحدث الآن؟</h2><p id="trendSub" data-t="trendSub">بيانات موثقة من تحديث TRAVO اليومي — بدون بطاقات تجريبية.</p></div><div class="filters"><button class="chip active" data-filter="Now">🔥 Now</button><button class="chip" data-filter="Tonight">🌙 Tonight</button><button class="chip" data-filter="New">🆕 New</button><button class="chip" data-filter="Soon">🔮 Soon</button><button class="chip" data-filter="Last Chance">⏳ Last Chance</button></div></div>
       <div id="trendCards" class="cards"></div>
+      <div id="trendEmpty" class="trend-empty hidden"></div>
+      <a class="ghost discover-more" href="discover.html">فتح قسم اكتشف كاملًا ✦</a>
     </section>
 
     <section id="planner" class="section split">
@@ -91,8 +92,7 @@
         <div class="status-list">
           <div class="status-row"><span><i class="dot good"></i>TRAVO Web</span><b data-t="active">مفعّل</b></div>
           <div class="status-row"><span><i id="aiDot" class="dot warn"></i>TRAVO AI</span><b id="aiState" data-t="pending">قيد الربط</b></div>
-          <div class="status-row"><span><i class="dot good"></i><span data-t="daily">البحث اليومي عن الترندات</span></span><b data-t="active">مفعّل</b></div>
-          <div class="status-row"><span><i class="dot warn"></i><span data-t="livePipeline">ربط البحث اليومي ببيانات الموقع</span></span><b data-t="pending">قيد الربط</b></div>
+          <div class="status-row"><span><i id="trendDot" class="dot warn"></i><span data-t="daily">البحث اليومي عن الترندات</span></span><b id="trendState" data-t="pending">قيد الربط</b></div>
           <div class="status-row"><span><i class="dot warn"></i><span data-t="auth">تسجيل الجوال / WhatsApp OTP</span></span><b data-t="pending">قيد الربط</b></div>
           <div class="status-row"><span><i class="dot warn"></i><span data-t="pay">الدفع والاشتراكات</span></span><b data-t="pending">قيد الربط</b></div>
         </div>
@@ -101,7 +101,8 @@
   </main>
 </div>
 
-<nav class="bottom-nav glass"><a href="#discover">✦<small data-t="discover">اكتشف</small></a><a href="#trends">🔥<small data-t="trends">الترندات</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
+<nav class="bottom-nav glass"><a href="#discover">⌂<small data-t="home">الرئيسية</small></a><a href="discover.html">✦<small data-t="discover">اكتشف</small></a><a href="trip.html">✈<small>رحلتي</small></a><a href="#near">📍<small data-t="near">بالقرب</small></a><a href="#ai">✧<small>AI</small></a></nav>
+<script src="airports.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
