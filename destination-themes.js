@@ -1,8 +1,14 @@
-window.TRAVO_DEFAULT_SAUDI_IMAGE='https://images.unsplash.com/photo-1766135657062-c297dee9a9fd?auto=format&fit=crop&w=1800&q=88';
+window.TRAVO_SAUDI_GALLERY=[
+  {key:'riyadh',labelAr:'الرياض',labelEn:'Riyadh',image:'https://images.unsplash.com/photo-1674822858255-fcc093a1ef43?auto=format&fit=crop&w=1800&q=88'},
+  {key:'jeddah',labelAr:'جدة',labelEn:'Jeddah',image:'https://book.txsaudi.com/Images2/eXchange/3cd49b18-7500-4f31-881a-06cccb9d842a.jpg'},
+  {key:'alula',labelAr:'العلا',labelEn:'AlUla',image:'https://images.unsplash.com/photo-1738006996209-40401cbd3664?auto=format&fit=crop&w=1800&q=88'},
+  {key:'riyadh-heritage',labelAr:'التراث النجدي',labelEn:'Najdi heritage',image:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1800&q=88'}
+];
+window.TRAVO_DEFAULT_SAUDI_IMAGE=window.TRAVO_SAUDI_GALLERY[0].image;
 window.TRAVO_DESTINATION_THEMES={
-riyadh:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#5f8f63',c2:'#c9a96e',image:window.TRAVO_DEFAULT_SAUDI_IMAGE},
-jeddah:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#148ea8',c2:'#d7b56d',image:'https://images.unsplash.com/photo-1622274421175-87b87bde7fca?auto=format&fit=crop&w=1800&q=88'},
-alula:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#b26f43',c2:'#d7b56d',image:window.TRAVO_DEFAULT_SAUDI_IMAGE},
+riyadh:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#8b5cf6',c2:'#c4b5fd',image:window.TRAVO_SAUDI_GALLERY[0].image},
+jeddah:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#8b5cf6',c2:'#d8b4fe',image:window.TRAVO_SAUDI_GALLERY[1].image},
+alula:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#8b5cf6',c2:'#c084fc',image:window.TRAVO_SAUDI_GALLERY[2].image},
 dubai:{countryAr:'الإمارات',countryEn:'UAE',flag:'🇦🇪',c1:'#22c1c3',c2:'#d8b26a',image:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=86'},
 abudhabi:{countryAr:'الإمارات',countryEn:'UAE',flag:'🇦🇪',c1:'#167b73',c2:'#c9a56a'},
 doha:{countryAr:'قطر',countryEn:'Qatar',flag:'🇶🇦',c1:'#8a1538',c2:'#d6b8c2'},
@@ -26,11 +32,12 @@ kualalumpur:{countryAr:'ماليزيا',countryEn:'Malaysia',flag:'🇲🇾',c1:
 bali:{countryAr:'إندونيسيا',countryEn:'Indonesia',flag:'🇮🇩',c1:'#31866f',c2:'#c98a52'},
 newyork:{countryAr:'الولايات المتحدة',countryEn:'United States',flag:'🇺🇸',c1:'#384d71',c2:'#b84750'}
 };
+window.TRAVO_RESET_BRAND_THEME=function(){const root=document.documentElement;root.style.setProperty('--p','#8b5cf6');root.style.setProperty('--p2','#c084fc')};
 window.TRAVO_APPLY_DESTINATION_THEME=function(cityKey,opts={}){
  const t=window.TRAVO_DESTINATION_THEMES?.[cityKey]; if(!t)return null;
- const root=document.documentElement; root.style.setProperty('--p',t.c1);root.style.setProperty('--p2',t.c2);
+ const root=document.documentElement;root.style.setProperty('--p',t.c1);root.style.setProperty('--p2',t.c2);
  const visual=t.image?`url('${t.image}')`:`linear-gradient(135deg,${t.c1},${t.c2})`;
  if(opts.target==='discover')root.style.setProperty('--discover-image',visual);else root.style.setProperty('--trip-hero',visual);
  return t;
 };
-(()=>{const t=window.TRAVO_DESTINATION_THEMES.riyadh;document.documentElement.style.setProperty('--p',t.c1);document.documentElement.style.setProperty('--p2',t.c2)})();
+window.TRAVO_RESET_BRAND_THEME();
