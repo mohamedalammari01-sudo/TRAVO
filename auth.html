@@ -14,24 +14,24 @@
 <section class="auth-visual"><div class="auth-copy"><p class="eyebrow">SAUDI-BORN TRAVEL TECH 🇸🇦</p><h1 data-auth="hero">سجّل مرة.<br>وخلك مع TRAVO طول الرحلة.</h1><p data-auth="heroSub">بياناتك تحفظ رحلاتك، اختياراتك، خططك اليومية وباقتك في مكان واحد.</p></div></section>
 <section class="panel auth-panel"><div class="auth-panel-inner">
 <div id="registrationStep">
-<div class="auth-badge" id="waBadge"><i></i><span data-auth="waChecking">جاري فحص خدمة واتساب…</span></div>
-<p class="eyebrow">CREATE ACCOUNT</p><h2 data-auth="title">أنشئ حسابك</h2><p class="muted" data-auth="subtitle">ندخل بياناتك الأساسية ثم نرسل رمز تحقق OTP على واتساب.</p>
+<div class="auth-badge" id="emailBadge"><i></i><span data-auth="emailChecking">جاري فحص خدمة البريد…</span></div>
+<p class="eyebrow">CREATE ACCOUNT</p><h2 data-auth="title">أنشئ حسابك</h2><p class="muted" data-auth="subtitle">ندخل بياناتك الأساسية ثم نرسل رمز تحقق OTP إلى بريدك الإلكتروني.</p>
 <div class="auth-grid">
 <label class="auth-field"><span data-auth="name">الاسم</span><input id="regName" autocomplete="name" placeholder="محمد"></label>
 <label class="auth-field"><span data-auth="email">البريد الإلكتروني</span><input id="regEmail" type="email" autocomplete="email" placeholder="name@example.com"></label>
 <label class="auth-field"><span data-auth="phone">رقم الجوال</span><input id="regPhone" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx"></label>
 <label class="auth-field"><span data-auth="location">موقعك / مدينتك</span><input id="regLocation" autocomplete="address-level2" placeholder="الرياض"></label>
 </div>
-<p class="auth-hint" data-auth="privacy">نستخدم رقمك للتحقق والحساب فقط. رمز التحقق صالح لمدة 5 دقائق.</p>
+<p class="auth-hint" data-auth="privacy">نستخدم بريدك للتحقق من الحساب، ونحفظ رقم الجوال ضمن بيانات حسابك. رمز التحقق صالح لمدة 5 دقائق.</p>
 <div id="regState" class="auth-state" data-auth="readyState">عبّئ البيانات ثم أرسل رمز التحقق.</div>
-<div class="auth-actions"><button id="sendOtpBtn" class="primary" data-auth="sendOtp">إرسال رمز واتساب</button></div>
+<div class="auth-actions"><button id="sendOtpBtn" class="primary" data-auth="sendOtp">إرسال رمز التحقق إلى البريد</button></div>
 </div>
 
 <div id="otpStep" class="hidden otp-wrap">
-<p class="eyebrow">WHATSAPP OTP</p><h2 data-auth="otpTitle">أدخل رمز التحقق</h2><p class="muted"><span data-auth="otpSub">أرسلنا رمزًا مكوّنًا من 6 أرقام إلى واتساب.</span> <b id="maskedPhone"></b></p>
+<p class="eyebrow">EMAIL OTP</p><h2 data-auth="otpTitle">أدخل رمز التحقق</h2><p class="muted"><span data-auth="otpSub">أرسلنا رمزًا مكوّنًا من 6 أرقام إلى بريدك الإلكتروني.</span> <b id="maskedEmail"></b></p>
 <label class="auth-field wide"><span data-auth="otp">رمز التحقق</span><input id="otpCode" class="otp-input" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000"></label>
 <div id="otpState" class="auth-state" data-auth="otpReady">أدخل الرمز لإكمال إنشاء الحساب.</div>
-<div class="auth-small"><span id="otpTimer">05:00</span><button id="changePhoneBtn" data-auth="change">تعديل البيانات</button></div>
+<div class="auth-small"><span id="otpTimer">05:00</span><button id="changeDetailsBtn" data-auth="change">تعديل البيانات</button></div>
 <div class="auth-actions"><button id="verifyOtpBtn" class="primary" data-auth="verify">تأكيد والدخول إلى TRAVO</button><button id="resendOtpBtn" class="ghost" data-auth="resend">إعادة إرسال الرمز</button></div>
 </div>
 </div></section>
