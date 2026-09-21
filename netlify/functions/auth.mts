@@ -6,7 +6,7 @@ type ProfileInput = { name?: string; email?: string; phone?: string; location?: 
 type Body = {
   action?: "request_otp" | "verify_otp" | "logout";
   profile?: ProfileInput;
-  phone?: string;
+  email?: string;
   otp?: string;
   token?: string;
 };
@@ -29,8 +29,12 @@ function normalizePhone(value = "") {
   return d;
 }
 
+function normalizeEmail(value = "") {
+  return value.trim().toLowerCase().slice(0, 160);
+}
+
 function validEmail(value = "") {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function authSecret() {
@@ -39,66 +43,82 @@ function authSecret() {
   return secret;
 }
 
-function otpDigest(phone: string, otp: string) {
-  return hash(`${authSecret()}:${phone}:${otp}`);
+function otpDigest(email: string, otp: string) {
+  return hash(`${authSecret()}:${email}:${otp}`);
 }
 
-function whatsappConfig() {
+function emailConfig() {
   return {
-    token: Netlify.env.get("WHATSAPP_ACCESS_TOKEN") || "",
-    phoneNumberId: Netlify.env.get("WHATSAPP_PHONE_NUMBER_ID") || "",
-    templateName: Netlify.env.get("WHATSAPP_OTP_TEMPLATE") || "",
-    graphVersion: Netlify.env.get("WHATSAPP_GRAPH_VERSION") || "v25.0",
-    languageCode: Netlify.env.get("WHATSAPP_OTP_LANGUAGE") || "ar",
+    apiKey: Netlify.env.get("BREVO_API_KEY") || "",
+    senderEmail: Netlify.env.get("BREVO_SENDER_EMAIL") || "",
+    senderName: Netlify.env.get("BREVO_SENDER_NAME") || "TRAVO",
   };
 }
 
-async function sendWhatsAppOtp(phone: string, otp: string) {
-  const cfg = whatsappConfig();
-  if (!cfg.token || !cfg.phoneNumberId || !cfg.templateName) {
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
+  }[ch] || ch));
+}
+
+async function sendEmailOtp(email: string, name: string, otp: string) {
+  const cfg = emailConfig();
+  if (!cfg.apiKey || !cfg.senderEmail) {
     return { configured: false, sent: false };
   }
 
-  const response = await fetch(
-    `https://graph.facebook.com/${cfg.graphVersion}/${cfg.phoneNumberId}/messages`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${cfg.token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        messaging_product: "whatsapp",
-        recipient_type: "individual",
-        to: phone,
-        type: "template",
-        template: {
-          name: cfg.templateName,
-          language: { code: cfg.languageCode },
-          components: [
-            {
-              type: "body",
-              parameters: [{ type: "text", text: otp }],
-            },
-            {
-              type: "button",
-              sub_type: "url",
-              index: "0",
-              parameters: [{ type: "text", text: otp }],
-            },
-          ],
-        },
-      }),
+  const safeName = escapeHtml(name || "TRAVO traveler");
+  const html = `<!doctype html>
+<html lang="ar" dir="rtl">
+  <body style="margin:0;background:#f7f4ff;font-family:Arial,Tahoma,sans-serif;color:#211a2f">
+    <div style="max-width:560px;margin:0 auto;padding:32px 18px">
+      <div style="background:#ffffff;border-radius:24px;padding:32px;box-shadow:0 12px 36px rgba(87,61,125,.10)">
+        <div style="font-size:24px;font-weight:800;letter-spacing:.08em;color:#7257a6">TRAVO</div>
+        <h1 style="font-size:24px;margin:22px 0 8px">رمز التحقق الخاص بك</h1>
+        <p style="font-size:16px;line-height:1.8;margin:0 0 20px">مرحبًا ${safeName}، استخدم الرمز التالي لإكمال تسجيل الدخول إلى TRAVO.</p>
+        <div style="font-size:38px;font-weight:800;letter-spacing:10px;text-align:center;background:#f3edff;border-radius:18px;padding:20px;margin:18px 0">${otp}</div>
+        <p style="font-size:14px;line-height:1.8;color:#6f6879;margin:0">الرمز صالح لمدة 5 دقائق. إذا لم تطلب هذا الرمز فتجاهل الرسالة.</p>
+        <hr style="border:0;border-top:1px solid #eee8f7;margin:26px 0">
+        <p dir="ltr" style="font-size:13px;line-height:1.7;color:#8a8392;margin:0">Your TRAVO verification code is <b>${otp}</b>. It expires in 5 minutes.</p>
+      </div>
+    </div>
+  </body>
+</html>`;
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "api-key": cfg.apiKey,
+      "content-type": "application/json",
     },
-  );
+    body: JSON.stringify({
+      sender: { name: cfg.senderName, email: cfg.senderEmail },
+      to: [{ email, name }],
+      subject: "TRAVO — رمز التحقق",
+      htmlContent: html,
+      textContent: `TRAVO verification code: ${otp}. This code expires in 5 minutes.`,
+      tags: ["travo-otp"],
+    }),
+  });
 
   if (!response.ok) {
     const detail = await response.text();
-    console.error("TRAVO WhatsApp OTP error", response.status, detail.slice(0, 800));
+    console.error("TRAVO email OTP error", response.status, detail.slice(0, 800));
     return { configured: true, sent: false };
   }
 
   return { configured: true, sent: true };
+}
+
+function maskEmail(email: string) {
+  const [local, domain] = email.split("@");
+  const visible = local.length <= 2 ? local[0] || "" : local.slice(0, 2);
+  return `${visible}••••@${domain}`;
 }
 
 async function sessionUser(token?: string) {
@@ -112,9 +132,9 @@ async function sessionUser(token?: string) {
 
 export default async (req: Request, _context: Context) => {
   if (req.method === "GET") {
-    const cfg = whatsappConfig();
-    const configured = Boolean(cfg.token && cfg.phoneNumberId && cfg.templateName);
-    return Response.json({ ready: true, whatsappOtpConfigured: configured });
+    const cfg = emailConfig();
+    const configured = Boolean(cfg.apiKey && cfg.senderEmail);
+    return Response.json({ ready: true, emailOtpConfigured: configured });
   }
 
   if (req.method !== "POST") {
@@ -127,7 +147,7 @@ export default async (req: Request, _context: Context) => {
     if (body.action === "request_otp") {
       const p = body.profile || {};
       const name = (p.name || "").trim().slice(0, 100);
-      const email = (p.email || "").trim().toLowerCase().slice(0, 160);
+      const email = normalizeEmail(p.email);
       const location = (p.location || "").trim().slice(0, 160);
 
       if (name.length < 2 || !validEmail(email)) {
@@ -136,7 +156,7 @@ export default async (req: Request, _context: Context) => {
 
       const phone = normalizePhone(p.phone);
       const pending = store("travo-auth");
-      const key = `otp/${hash(phone)}`;
+      const key = `otp-email/${hash(email)}`;
       const now = Date.now();
       const previous = (await pending.get(key, { type: "json" })) as any;
 
@@ -144,11 +164,12 @@ export default async (req: Request, _context: Context) => {
         return Response.json({ error: "WAIT_BEFORE_RESEND" }, { status: 429 });
       }
 
-      const rateKey = `rate/${hash(phone)}`;
+      const rateKey = `rate-email/${hash(email)}`;
       let rate = (await pending.get(rateKey, { type: "json" })) as any;
       if (!rate || now - Number(rate.windowStartedAt || 0) >= 60 * 60 * 1000) {
         rate = { windowStartedAt: now, sentCount: 0 };
       }
+
       if (Number(rate.sentCount || 0) >= 6) {
         const retryAfterSeconds = Math.max(
           1,
@@ -161,14 +182,14 @@ export default async (req: Request, _context: Context) => {
       }
 
       const otp = String(randomInt(100000, 1000000));
-      const delivery = await sendWhatsAppOtp(phone, otp);
+      const delivery = await sendEmailOtp(email, name, otp);
 
       if (!delivery.configured) {
         return Response.json(
           {
             ok: false,
-            error: "WHATSAPP_NOT_CONFIGURED",
-            whatsappOtpConfigured: false,
+            error: "EMAIL_NOT_CONFIGURED",
+            emailOtpConfigured: false,
           },
           { status: 503 },
         );
@@ -178,8 +199,8 @@ export default async (req: Request, _context: Context) => {
         return Response.json(
           {
             ok: false,
-            error: "WHATSAPP_SEND_FAILED",
-            whatsappOtpConfigured: true,
+            error: "EMAIL_SEND_FAILED",
+            emailOtpConfigured: true,
           },
           { status: 502 },
         );
@@ -190,7 +211,7 @@ export default async (req: Request, _context: Context) => {
         name,
         email,
         location,
-        otpHash: otpDigest(phone, otp),
+        otpHash: otpDigest(email, otp),
         expiresAt: now + 5 * 60 * 1000,
         attempts: 0,
         lastSentAt: now,
@@ -202,20 +223,24 @@ export default async (req: Request, _context: Context) => {
 
       return Response.json({
         ok: true,
-        phoneMasked: `+${phone.slice(0, 3)}••••${phone.slice(-3)}`,
+        emailMasked: maskEmail(email),
         expiresInSeconds: 300,
       });
     }
 
     if (body.action === "verify_otp") {
-      const phone = normalizePhone(body.phone);
+      const email = normalizeEmail(body.email);
       const otp = (body.otp || "").replace(/\D/g, "");
+
+      if (!validEmail(email)) {
+        return Response.json({ error: "INVALID_EMAIL" }, { status: 400 });
+      }
       if (!/^\d{6}$/.test(otp)) {
         return Response.json({ error: "INVALID_OTP" }, { status: 400 });
       }
 
       const pending = store("travo-auth");
-      const key = `otp/${hash(phone)}`;
+      const key = `otp-email/${hash(email)}`;
       const record = (await pending.get(key, { type: "json" })) as any;
 
       if (!record || Date.now() > Number(record.expiresAt || 0)) {
@@ -225,7 +250,7 @@ export default async (req: Request, _context: Context) => {
         return Response.json({ error: "TOO_MANY_ATTEMPTS" }, { status: 429 });
       }
 
-      if (record.otpHash !== otpDigest(phone, otp)) {
+      if (record.otpHash !== otpDigest(email, otp)) {
         record.attempts = Number(record.attempts || 0) + 1;
         await pending.setJSON(key, record);
         return Response.json(
@@ -238,8 +263,8 @@ export default async (req: Request, _context: Context) => {
       }
 
       const users = store("travo-users");
-      const phoneKey = `phone/${hash(phone)}`;
-      const existingId = await users.get(phoneKey);
+      const emailKey = `email/${hash(email)}`;
+      const existingId = await users.get(emailKey);
       const now = new Date();
       const id = existingId || `TR-${randomInt(100000, 999999)}`;
       const existing = (await users.get(`user/${id}`, { type: "json" })) as any;
@@ -250,8 +275,9 @@ export default async (req: Request, _context: Context) => {
         id,
         name: record.name,
         email: record.email,
-        phone: `+${phone}`,
+        phone: `+${record.phone}`,
         location: record.location || "",
+        emailVerified: true,
         plan: existing?.plan || "7-Day Trial",
         status: existing?.status || "trial",
         trialStart: existing?.trialStart || now.toISOString(),
@@ -262,7 +288,7 @@ export default async (req: Request, _context: Context) => {
       };
 
       await users.setJSON(`user/${id}`, user);
-      await users.set(phoneKey, id);
+      await users.set(emailKey, id);
       await pending.delete(key);
 
       const rawToken = randomBytes(32).toString("base64url");
