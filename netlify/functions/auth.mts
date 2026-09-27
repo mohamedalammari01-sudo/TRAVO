@@ -49,9 +49,9 @@ function otpDigest(email: string, otp: string) {
 
 function emailConfig() {
   return {
-    apiKey: Netlify.env.get("BREVO_API_KEY") || "",
-    senderEmail: Netlify.env.get("BREVO_SENDER_EMAIL") || "",
-    senderName: Netlify.env.get("BREVO_SENDER_NAME") || "TRAVO",
+    apiKey: Netlify.env.get("RESEND_API_KEY") || "",
+    senderEmail: Netlify.env.get("RESEND_FROM_EMAIL") || "",
+    senderName: Netlify.env.get("RESEND_SENDER_NAME") || "TRAVO",
   };
 }
 
@@ -89,26 +89,24 @@ async function sendEmailOtp(email: string, name: string, otp: string) {
   </body>
 </html>`;
 
-  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+  const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      accept: "application/json",
-      "api-key": cfg.apiKey,
-      "content-type": "application/json",
+      Authorization: `Bearer ${cfg.apiKey}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      sender: { name: cfg.senderName, email: cfg.senderEmail },
-      to: [{ email, name }],
+      from: `${cfg.senderName} <${cfg.senderEmail}>`,
+      to: [email],
       subject: "TRAVO — رمز التحقق",
-      htmlContent: html,
-      textContent: `TRAVO verification code: ${otp}. This code expires in 5 minutes.`,
-      tags: ["travo-otp"],
+      html,
+      text: `TRAVO verification code: ${otp}. This code expires in 5 minutes.`,
     }),
   });
 
   if (!response.ok) {
     const detail = await response.text();
-    console.error("TRAVO email OTP error", response.status, detail.slice(0, 800));
+    console.error("TRAVO Resend OTP error", response.status, detail.slice(0, 800));
     return { configured: true, sent: false };
   }
 
