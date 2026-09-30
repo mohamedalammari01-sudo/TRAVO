@@ -1,1 +1,67 @@
-{"updatedAt":"2026-09-28T19:56:00+03:00","sourceName":"UTD Exhibitions — جديد المعارض","sourceUrl":"https://utdexhibitions.com/","cities":{"riyadh":[{"id":"utd-riyadh-rabwa-dates-2026","status":"Last Chance","category":"Dates Season","kind":"experience","titleAr":"موسم تمور الربوة 2026","titleEn":"Al Rabwa Dates Season 2026","start":"2026-08-15","end":"2026-09-28","locationAr":"حي الربوة — الرياض","locationEn":"Al Rabwa — Riyadh","sourceName":"UTD Exhibitions","sourceUrl":"https://utdexhibitions.com/"},{"id":"utd-riyadh-giga-projects-2026","status":"New","category":"Projects Conference","kind":"conference","titleAr":"قمة تشكيل المشاريع العملاقة 2026","titleEn":"Shaping Mega Projects 2026","whyAr":"تنطلق اليوم قمة متخصصة تجمع الجهات المالكة والمطورين والمقاولين والاستشاريين وصناع القرار في منظومة المشاريع العملاقة ورؤية 2030.","whyEn":"Opening today, this summit connects project owners, developers, contractors, consultants and decision-makers across Saudi Arabia's mega-project ecosystem.","detailsAr":"28–30 سبتمبر 2026 في The Venue by ROSHN Group بالرياض؛ الموقع الرسمي للمنظم MEED يدرج الحضور مجانًا، ويبدأ تسجيل اليوم الأول الساعة 8 صباحًا.","detailsEn":"28–30 September 2026 at The Venue by ROSHN Group in Riyadh; the official MEED organiser page lists attendance as free, with day-one registration opening at 8am.","start":"2026-09-28","end":"2026-09-30","price":"Free","locationAr":"ذا فينيو من مجموعة روشن — الرياض","locationEn":"The Venue by ROSHN Group — Riyadh","sourceName":"UTD Exhibitions / MEED Events","sourceUrl":"https://events.meed.com/event/saudimegaprojects/","bookingUrl":"https://events.meed.com/event/saudimegaprojects/","mapUrl":"https://www.google.com/maps/search/?api=1&query=The+Venue+by+ROSHN+Group+Riyadh"},{"id":"utd-riyadh-connect-2026","status":"Soon","category":"Conference","kind":"conference","titleAr":"كونكت 2026","titleEn":"CONNECT 2026","start":"2026-09-29","end":"2026-09-29","locationAr":"فندق حياة ريجنسي العليا — الرياض","locationEn":"Hyatt Regency Riyadh Olaya","sourceName":"UTD Exhibitions","sourceUrl":"https://utdexhibitions.com/"}],"jeddah":[{"id":"utd-jeddah-wef-meeting-2026","status":"Now","category":"Economic Forum","kind":"conference","titleAr":"الاجتماع الدولي للمنتدى الاقتصادي العالمي","titleEn":"World Economic Forum International Meeting","start":"2026-09-01","end":"2026-11-30","locationAr":"جدة","locationEn":"Jeddah","sourceName":"UTD Exhibitions","sourceUrl":"https://utdexhibitions.com/"},{"id":"utd-jeddah-saudi-food-2026","status":"Tonight","category":"Food Exhibition","kind":"conference","titleAr":"المعرض السعودي للأغذية","titleEn":"The Saudi Food Show 2026","whyAr":"المعرض مستمر هذا المساء في جدة سوبردوم حتى إغلاق اليوم عند 8م، ويعود غدًا لليوم الأخير.","whyEn":"The show continues this evening at Jeddah Superdome until today's 8pm close, then returns tomorrow for its final day.","detailsAr":"27–29 سبتمبر 2026. اليوم 28 سبتمبر من 1م إلى 8م؛ اليوم الأخير 29 سبتمبر من 1م إلى 7م.","detailsEn":"27–29 September 2026. Today, 28 September, runs 1pm–8pm; the final day, 29 September, runs 1pm–7pm.","start":"2026-09-27","end":"2026-09-29","locationAr":"جدة سوبردوم — جدة","locationEn":"Jeddah Superdome — Jeddah","sourceName":"UTD Exhibitions / The Saudi Food Show","sourceUrl":"https://www.thesaudifoodshow.com/","bookingUrl":"https://visit.thesaudifoodshow.com/","mapUrl":"https://www.google.com/maps/search/?api=1&query=Jeddah+Superdome"}]}}
+{
+  "updatedAt": "2026-09-30T20:04:00+03:00",
+  "sourceName": "UTD Exhibitions — جديد المعارض",
+  "sourceUrl": "https://utdexhibitions.com/",
+  "cities": {
+    "riyadh": [
+      {
+        "id": "utd-riyadh-giga-projects-2026",
+        "status": "Last Chance",
+        "category": "Projects Conference",
+        "kind": "conference",
+        "titleAr": "قمة تشكيل المشاريع العملاقة 2026",
+        "titleEn": "Shaping Mega Projects 2026",
+        "whyAr": "اليوم 30 سبتمبر هو اليوم الأخير لقمة متخصصة تجمع الجهات المالكة والمطورين والمقاولين والاستشاريين وصناع القرار في منظومة المشاريع العملاقة ورؤية 2030.",
+        "whyEn": "Today, 30 September, is the final day of this summit connecting project owners, developers, contractors, consultants and decision-makers across Saudi Arabia's mega-project ecosystem.",
+        "detailsAr": "28–30 سبتمبر 2026 في The Venue by ROSHN Group بالرياض؛ برنامج MEED الرسمي يؤكد اليوم الثالث والأخير، والحضور مدرج مجانًا.",
+        "detailsEn": "28–30 September 2026 at The Venue by ROSHN Group in Riyadh; MEED's official programme confirms day three is the final day, with attendance listed as free.",
+        "start": "2026-09-28",
+        "end": "2026-09-30",
+        "price": "Free",
+        "locationAr": "ذا فينيو من مجموعة روشن — الرياض",
+        "locationEn": "The Venue by ROSHN Group — Riyadh",
+        "sourceName": "UTD Exhibitions / MEED Events",
+        "sourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+        "bookingUrl": "https://events.meed.com/event/saudimegaprojects/",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Venue+by+ROSHN+Group+Riyadh"
+      },
+      {
+        "id": "riyadh-falcons-hunting-exhibition-2026",
+        "status": "Soon",
+        "category": "Exhibition",
+        "kind": "experience",
+        "titleAr": "معرض الصقور والصيد السعودي الدولي",
+        "titleEn": "International Saudi Falcons and Hunting Exhibition 2026",
+        "whyAr": "ينطلق غدًا في ملهم ويجمع الصقارة والموروث والصيد والرحلات والأنشطة العائلية.",
+        "whyEn": "Opening tomorrow in Malham, bringing together falconry, heritage, hunting, outdoor activities and family experiences.",
+        "detailsAr": "1–10 أكتوبر 2026 في مركز الرياض للمعارض والمؤتمرات بملهم؛ يوميًا من 2م إلى 11م، والدخول والفعاليات المصاحبة مجانًا بحسب الموقع الرسمي.",
+        "detailsEn": "1–10 October 2026 at Riyadh Exhibition & Convention Center in Malham; daily 2pm–11pm, with free entry and accompanying activities according to the official website.",
+        "start": "2026-10-01",
+        "end": "2026-10-10",
+        "price": "Free",
+        "locationAr": "مركز الرياض للمعارض والمؤتمرات — ملهم",
+        "locationEn": "Riyadh Exhibition & Convention Center — Malham",
+        "sourceName": "International Saudi Falcons and Hunting Exhibition — Official",
+        "sourceUrl": "https://fhe.sfc.org.sa/about/",
+        "bookingUrl": "https://fhe.sfc.org.sa/",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Riyadh+Exhibition+Convention+Center+Malham"
+      }
+    ],
+    "jeddah": [
+      {
+        "id": "utd-jeddah-wef-meeting-2026",
+        "status": "Now",
+        "category": "Economic Forum",
+        "kind": "conference",
+        "titleAr": "الاجتماع الدولي للمنتدى الاقتصادي العالمي",
+        "titleEn": "World Economic Forum International Meeting",
+        "start": "2026-09-01",
+        "end": "2026-11-30",
+        "locationAr": "جدة",
+        "locationEn": "Jeddah",
+        "sourceName": "UTD Exhibitions",
+        "sourceUrl": "https://utdexhibitions.com/"
+      }
+    ]
+  }
+}
