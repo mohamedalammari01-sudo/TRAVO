@@ -1,33 +1,12 @@
 {
-  "updatedAt": "2026-09-30T20:04:00+03:00",
+  "updatedAt": "2026-10-02T08:03:52+03:00",
   "sourceName": "UTD Exhibitions — جديد المعارض",
   "sourceUrl": "https://utdexhibitions.com/",
   "cities": {
     "riyadh": [
       {
-        "id": "utd-riyadh-giga-projects-2026",
-        "status": "Last Chance",
-        "category": "Projects Conference",
-        "kind": "conference",
-        "titleAr": "قمة تشكيل المشاريع العملاقة 2026",
-        "titleEn": "Shaping Mega Projects 2026",
-        "whyAr": "اليوم 30 سبتمبر هو اليوم الأخير للقمة المتخصصة بالمشاريع العملاقة ورؤية 2030.",
-        "whyEn": "Today, 30 September, is the final day of the Vision 2030 mega-projects summit.",
-        "detailsAr": "28–30 سبتمبر 2026 في The Venue by ROSHN Group بالرياض؛ برنامج MEED الرسمي يؤكد اليوم الثالث والأخير، والحضور مدرج مجانًا.",
-        "detailsEn": "28–30 September 2026 at The Venue by ROSHN Group in Riyadh; MEED's official programme confirms the third and final day, with attendance listed as free.",
-        "start": "2026-09-28",
-        "end": "2026-09-30",
-        "price": "Free",
-        "locationAr": "ذا فينيو من مجموعة روشن — الرياض",
-        "locationEn": "The Venue by ROSHN Group — Riyadh",
-        "sourceName": "UTD Exhibitions / MEED Events",
-        "sourceUrl": "https://events.meed.com/event/saudimegaprojects/",
-        "bookingUrl": "https://events.meed.com/event/saudimegaprojects/",
-        "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Venue+by+ROSHN+Group+Riyadh"
-      },
-      {
         "id": "riyadh-falcons-hunting-exhibition-2026",
-        "status": "Soon",
+        "status": "Now",
         "category": "Exhibition",
         "kind": "experience",
         "titleAr": "معرض الصقور والصيد السعودي الدولي",
