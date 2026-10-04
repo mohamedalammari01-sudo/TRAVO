@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T08:03:52+03:00",
+  "updatedAt": "2026-10-04T07:56:00+03:00",
   "sourceName": "UTD Exhibitions — جديد المعارض",
   "sourceUrl": "https://utdexhibitions.com/",
   "cities": {
@@ -11,8 +11,8 @@
         "kind": "experience",
         "titleAr": "معرض الصقور والصيد السعودي الدولي",
         "titleEn": "International Saudi Falcons and Hunting Exhibition 2026",
-        "whyAr": "ينطلق غدًا في ملهم ويجمع الصقارة والموروث والصيد والرحلات والأنشطة العائلية.",
-        "whyEn": "Opening tomorrow in Malham, bringing together falconry, heritage, hunting, outdoor activities and family experiences.",
+        "whyAr": "مستمر الآن في ملهم ويجمع الصقارة والموروث والصيد والرحلات والأنشطة العائلية.",
+        "whyEn": "Now running in Malham, bringing together falconry, heritage, hunting, outdoor activities and family experiences.",
         "detailsAr": "1–10 أكتوبر 2026 في مركز الرياض للمعارض والمؤتمرات بملهم؛ يوميًا من 2م إلى 11م، والدخول والفعاليات المصاحبة مجانًا بحسب الموقع الرسمي.",
         "detailsEn": "1–10 October 2026 at Riyadh Exhibition & Convention Center in Malham; daily 2pm–11pm, with free entry and accompanying activities according to the official website.",
         "start": "2026-10-01",
@@ -23,7 +23,29 @@
         "sourceName": "International Saudi Falcons and Hunting Exhibition — Official",
         "sourceUrl": "https://fhe.sfc.org.sa/about/",
         "bookingUrl": "https://fhe.sfc.org.sa/",
-        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Riyadh+Exhibition+Convention+Center+Malham"
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Riyadh+Exhibition+Convention+Center+Malham",
+        "lat": 25.25,
+        "lng": 46.39
+      },
+      {
+        "id": "utd-riyadh-middle-east-poultry-expo-2026",
+        "status": "New",
+        "category": "Poultry Exhibition",
+        "kind": "conference",
+        "titleAr": "معرض الشرق الأوسط للدواجن 2026",
+        "titleEn": "Middle East Poultry Expo 2026",
+        "whyAr": "يبدأ اليوم في الرياض كمنصة متخصصة تجمع سلسلة قيمة صناعة الدواجن.",
+        "whyEn": "Opening today in Riyadh as a specialist platform for the poultry industry value chain.",
+        "detailsAr": "4–6 أكتوبر 2026 في مركز الرياض الدولي للمؤتمرات والمعارض؛ اليوم الأول 4م–10م، ويومي 5 و6 أكتوبر 3م–10م بحسب الموقع الرسمي.",
+        "detailsEn": "4–6 October 2026 at Riyadh International Convention & Exhibition Center; day one runs 4pm–10pm and 5–6 October run 3pm–10pm according to the official website.",
+        "start": "2026-10-04",
+        "end": "2026-10-06",
+        "locationAr": "مركز الرياض الدولي للمؤتمرات والمعارض — الرياض",
+        "locationEn": "Riyadh International Convention & Exhibition Center — Riyadh",
+        "sourceName": "Middle East Poultry Expo — Official",
+        "sourceUrl": "https://www.mep-expo.com/",
+        "bookingUrl": "https://www.mep-expo.com/",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Riyadh+International+Convention+Exhibition+Center"
       }
     ],
     "jeddah": [
