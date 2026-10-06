@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="theme-color" content="#5f8f63" />
-<title>TRAVO — رحلتي الذكية</title>
+<title>TRAVO — خطط رحلتك داخل السعودية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -12,10 +12,9 @@
 <link rel="stylesheet" href="trip.css" />
 </head>
 <body>
-<script src="auth-guard.js"></script>
 <div class="trip-shell">
   <aside class="trip-side glass">
-    <a class="brand trip-brand" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span data-i="tagline">رحلتك من التذكرة إلى آخر يوم</span></div></a>
+    <a class="brand trip-brand" href="index.html"><div class="logo">T</div><div><b>TRAVO</b><span data-i="tagline">خطط رحلتك داخل السعودية</span></div></a>
     <div class="trip-steps" id="stepsNav">
       <button class="step-dot active" data-step="0"><b>1</b><span data-entry-i="startStep">البداية</span></button>
       <button class="step-dot" data-step="1"><b>2</b><span data-i="step1">التذكرة</span></button>
@@ -32,7 +31,6 @@
       <div class="top-actions">
         <a class="ghost link-btn" href="discover.html" data-i="discover">اكتشف</a>
         <a class="ghost link-btn" href="ai.html">TRAVO AI</a>
-        <a class="ghost link-btn" href="profile.html">بياناتي</a>
         <a class="ghost link-btn" href="index.html" data-i="back">العودة للرئيسية</a>
         <button id="tripLang" class="ghost">EN</button>
       </div>
@@ -41,9 +39,9 @@
     <section class="trip-hero" id="tripHero">
       <div class="trip-hero-shade"></div>
       <div class="trip-hero-copy">
-        <p class="eyebrow">TRAVO SMART TRIP</p>
-        <h1 data-entry-i="hero">خطط رحلتك بذكاء.<br>وخلّ TRAVO يرتب التفاصيل.</h1>
-        <p data-entry-i="heroSub">ابدأ باختيار أسلوب التخطيط، وبعدها عبّئ بيانات الرحلة أو ارفع تذاكر الطيران ليقرأها TRAVO تلقائيًا.</p>
+        <p class="eyebrow">TRAVO • SAUDI DOMESTIC TRIPS 🇸🇦</p>
+        <h1 data-entry-i="hero">خطط رحلتك داخل السعودية.<br>وخلّ TRAVO يرتب التفاصيل.</h1>
+        <p data-entry-i="heroSub">اختر وجهة سعودية واهتماماتك، ثم ابدأ جدولًا عمليًا يناسب وقتك وأسلوب رحلتك.</p>
       </div>
     </section>
 
@@ -56,7 +54,7 @@
       </div></div>
       <div class="entry-methods">
         <button id="startManualBtn" class="entry-method"><span>⌨</span><div><b data-entry-i="manualTitle">تعبئة بيانات الرحلة</b><small data-entry-i="manualSub">المغادرة والعودة ووقتهما، والفندق اختياري.</small></div><i>←</i></button>
-        <button id="startTicketBtn" class="entry-method featured"><span>✈</span><div><b data-entry-i="ticketMethodTitle">رفع تذاكر الطيران</b><small data-entry-i="ticketMethodSub">صوّر أو ارفع التذكرة وTRAVO يقرأ بياناتها تلقائيًا.</small></div><i>←</i></button>
+        <button id="startTicketBtn" class="entry-method featured"><span>✈</span><div><b data-entry-i="ticketMethodTitle">تذكرة طيران داخلية</b><small data-entry-i="ticketMethodSub">اختياري: صوّر أو ارفع تذكرة رحلتك الداخلية لقراءة التفاصيل تلقائيًا.</small></div><i>←</i></button>
       </div>
     </section>
 
@@ -71,13 +69,13 @@
     <section class="wizard panel hidden" data-pane="2">
       <div class="wizard-head"><div><p class="eyebrow">TRIP DETAILS</p><h2 data-i="detailsTitle">راجع تفاصيل رحلتك</h2><p class="muted" data-i="detailsSub">في الإدخال اليدوي نحتاج فقط المغادرة والعودة. الفندق اختياري، والوصول يظهر تلقائيًا إذا قرأناه من التذكرة.</p></div><span class="status-pill ready" data-i="editable">قابل للتعديل</span></div>
       <datalist id="airportOptions"></datalist>
-      <div class="flight-card"><div><span data-i="from">من</span><input id="origin" list="airportOptions" autocomplete="off" placeholder="RUH أو الرياض"><small class="airport-help" data-i="airportHelp">ابدأ بالمدينة أو رمز المطار وستظهر اقتراحات تلقائيًا.</small></div><div class="flight-line"><span>✈</span></div><div><span data-i="to">إلى</span><input id="destination" list="airportOptions" autocomplete="off" placeholder="DXB أو دبي"><small class="airport-help" data-i="airportHelp">ابدأ بالمدينة أو رمز المطار وستظهر اقتراحات تلقائيًا.</small></div></div>
+      <div class="flight-card"><div><span data-i="from">من</span><input id="origin" list="airportOptions" autocomplete="off" placeholder="الرياض أو RUH"><small class="airport-help" data-i="airportHelp">اختر مدينة أو وجهة داخل السعودية.</small></div><div class="flight-line"><span>✈</span></div><div><span data-i="to">إلى</span><input id="destination" list="airportOptions" autocomplete="off" placeholder="العلا أو ULH"><small class="airport-help" data-i="airportHelp">اختر مدينة أو وجهة داخل السعودية.</small></div></div>
       <div class="details-grid">
         <label><span data-i="departDate">تاريخ المغادرة</span><input id="departDate" type="date"></label>
         <label><span data-i="departTime">وقت المغادرة</span><input id="departTime" type="time"></label>
         <label><span data-i="returnDate">تاريخ العودة</span><input id="returnDate" type="date"></label>
         <label><span data-i="returnTime">وقت العودة</span><input id="returnTime" type="time"></label>
-        <label><span><span data-i="flightNo">رقم الرحلة</span> <em data-i="optional">اختياري</em></span><input id="flightNo" placeholder="SV / EK / QR..."></label>
+        <label><span><span data-i="flightNo">رقم الرحلة</span> <em data-i="optional">اختياري</em></span><input id="flightNo" placeholder="SV / XY / F3..."></label>
         <label class="wide-field"><span><span data-i="hotel">الفندق / السكن</span> <em data-i="optional">اختياري</em></span><input id="hotel" data-ph="hotelPh" placeholder="اسم الفندق أو المنطقة — اختياري"></label>
       </div>
       <div id="detectedArrival" class="detected-arrival hidden"><div><p class="eyebrow">FROM TICKET</p><h3 data-i="arrivalDetected">بيانات الوصول المقروءة من التذكرة</h3></div><label><span data-i="arrivalDate">تاريخ الوصول</span><input id="arrivalDate" type="date" readonly></label><label><span data-i="arrivalTime">وقت الوصول</span><input id="arrivalTime" type="time" readonly></label></div>
@@ -103,7 +101,7 @@
     </section>
   </main>
 </div>
-<nav class="bottom-nav glass trip-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a href="discover.html">✦<small data-i="discover">اكتشف</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="profile.html">◎<small>بياناتي</small></a></nav>
+<nav class="bottom-nav glass trip-bottom"><a href="index.html">⌂<small>الرئيسية</small></a><a href="discover.html">✦<small data-i="discover">اكتشف</small></a><a class="active" href="trip.html">✈<small data-i="myTrip">رحلتي</small></a><a href="ai.html">✧<small>AI</small></a><a href="discover.html?view=places">◎<small>وجهات</small></a></nav>
 <script src="airports.js"></script><script src="destination-themes.js"></script><script src="trip.js"></script><script src="trip-entry.js"></script><script src="trip-apps.js"></script>
 </body>
 </html>

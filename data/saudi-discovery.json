@@ -1,0 +1,89 @@
+{
+  "updatedAt": "2026-10-06T09:00:00+03:00",
+  "cities": {
+    "riyadh": {
+      "events": [
+        {"titleAr":"تقويم فعاليات السعودية","titleEn":"Saudi Events Calendar","summaryAr":"ابدأ من التقويم الرسمي لمتابعة المواسم والفعاليات في الرياض وبقية مناطق المملكة قبل ترتيب زيارتك.","summaryEn":"Start with the official calendar to check seasons and events before planning your visit.","areaAr":"الرياض والسعودية","areaEn":"Riyadh & Saudi Arabia","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/saudi-calendar"},
+        {"titleAr":"فعاليات المركز الوطني للصقور","titleEn":"Saudi Falcons Club Events","summaryAr":"برنامج موسمي لمحبي التراث والصقارة؛ راجع الصفحة الرسمية لمعرفة الفعالية المتاحة والتفاصيل الحالية.","summaryEn":"A seasonal programme for heritage and falconry fans; check the official page for current availability.","areaAr":"الرياض","areaEn":"Riyadh","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/seasons/falcons-club"}
+      ],
+      "activities": [
+        {"titleAr":"جولة تراثية في الدرعية","titleEn":"Diriyah Heritage Walk","summaryAr":"خصص وقتًا للمشي بين الدرعية ومعالمها التاريخية، ثم رتّب تجربة طعام أو قهوة قريبة في نفس المنطقة.","summaryEn":"Set aside time to walk through Diriyah and its heritage landmarks, then plan a nearby meal or coffee stop.","areaAr":"الدرعية","areaEn":"Diriyah","sourceName":"خريطة الموقع","mapQuery":"Diriyah Riyadh"},
+        {"titleAr":"مسار وادي حنيفة","titleEn":"Wadi Hanifah Route","summaryAr":"خيار مناسب للهواء الطلق والمشي الهادئ؛ اختر وقتًا مناسبًا للطقس وأكمل يومك في غرب الرياض.","summaryEn":"A relaxed outdoor option; pick a weather-friendly time and pair it with west Riyadh stops.","areaAr":"وادي حنيفة","areaEn":"Wadi Hanifah","sourceName":"خريطة الموقع","mapQuery":"Wadi Hanifah Riyadh"}
+      ],
+      "places": [
+        {"titleAr":"حي طريف التاريخي","titleEn":"At-Turaif Historic District","summaryAr":"معلم رئيسي لفهم بدايات الدولة السعودية والعمارة النجدية؛ أضفه كزيارة ثقافية أساسية.","summaryEn":"A key cultural landmark for Saudi history and Najdi architecture.","areaAr":"الدرعية","areaEn":"Diriyah","sourceName":"خريطة الموقع","mapQuery":"At Turaif Historic District Diriyah"},
+        {"titleAr":"المتحف الوطني السعودي","titleEn":"National Museum of Saudi Arabia","summaryAr":"محطة ثقافية سهلة الدمج مع مركز الملك عبدالعزيز التاريخي في جدول يوم واحد.","summaryEn":"A cultural stop that pairs naturally with King Abdulaziz Historical Centre.","areaAr":"الرياض","areaEn":"Riyadh","sourceName":"خريطة الموقع","mapQuery":"National Museum of Saudi Arabia Riyadh"}
+      ]
+    },
+    "jeddah": {
+      "events": [
+        {"titleAr":"تقويم فعاليات السعودية","titleEn":"Saudi Events Calendar","summaryAr":"راجع التقويم الرسمي قبل الزيارة لمعرفة ما يتزامن مع عطلتك في جدة ومنطقة البحر الأحمر.","summaryEn":"Check the official calendar before visiting to see what aligns with your Jeddah trip.","areaAr":"جدة","areaEn":"Jeddah","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/saudi-calendar"},
+        {"titleAr":"دليل جدة من روح السعودية","titleEn":"Jeddah Travel Guide","summaryAr":"وجهة سريعة للبحث عن التجارب والفعاليات الموسمية في جدة عبر المصدر السياحي الرسمي.","summaryEn":"A quick official starting point for seasonal experiences and Jeddah updates.","areaAr":"جدة","areaEn":"Jeddah","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/see-do/destinations/jeddah"}
+      ],
+      "activities": [
+        {"titleAr":"جولة في جدة التاريخية (البلد)","titleEn":"Al-Balad Walking Tour","summaryAr":"امشِ بين الرواشين والأسواق والمقاهي، وخذ وقتك لاستكشاف الحِرف والأكل المحلي في المنطقة نفسها.","summaryEn":"Walk through rawasheen, markets and cafés while exploring local crafts and food.","areaAr":"البلد","areaEn":"Al-Balad","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/jeddah/attractions/summer-night-adventures-in-al-balad","mapQuery":"Al Balad Jeddah"},
+        {"titleAr":"واجهة جدة البحرية","titleEn":"Jeddah Waterfront","summaryAr":"مناسبة للمشي والجلوس على البحر والأنشطة العائلية؛ اجعلها فترة عصر أو غروب في جدولك.","summaryEn":"Ideal for a seaside walk and family time; schedule it for late afternoon or sunset.","areaAr":"واجهة جدة","areaEn":"Jeddah Waterfront","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/jeddah/attractions/jeddah-waterfront","mapQuery":"Jeddah Waterfront"}
+      ],
+      "places": [
+        {"titleAr":"حي جميل","titleEn":"Hayy Jameel","summaryAr":"وجهة فنية وثقافية مناسبة لجدول يهتم بالمعارض والمقاهي والمشهد الإبداعي في جدة.","summaryEn":"An arts-and-culture stop for a day built around galleries, cafés and Jeddah's creative scene.","areaAr":"جدة","areaEn":"Jeddah","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/jeddah/attractions/hayy-jameel","mapQuery":"Hayy Jameel Jeddah"},
+        {"titleAr":"سوق جدة التاريخية","titleEn":"Al-Balad Market","summaryAr":"تجربة تجمع الأسواق التراثية والعمارة القديمة والمقاهي في قلب جدة التاريخية.","summaryEn":"A heritage-market experience at the heart of historic Jeddah.","areaAr":"البلد","areaEn":"Al-Balad","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/jeddah/attractions/al-balad-market","mapQuery":"Al Balad Market Jeddah"}
+      ]
+    },
+    "alula": {
+      "events": [
+        {"titleAr":"فعاليات وتجارب العلا","titleEn":"AlUla Events & Experiences","summaryAr":"تتغير برامج العلا حسب الموسم؛ افتح التقويم الرسمي قبل الحجز لمعرفة التجربة والموعد المتاحين.","summaryEn":"AlUla's programme changes by season; open the official calendar before booking.","areaAr":"العلا","areaEn":"AlUla","sourceName":"Experience AlUla","sourceUrl":"https://www.experiencealula.com/en/whats-on"},
+        {"titleAr":"موسم العلا","titleEn":"AlUla Season","summaryAr":"وجهة شتوية تضم فنونًا وموسيقى وتجارب طهي ومغامرات صحراوية؛ تحقق من البرنامج الرسمي وقت السفر.","summaryEn":"A winter destination for arts, music, food and desert adventure; check the official programme for your dates.","areaAr":"العلا","areaEn":"AlUla","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/seasons/alula-season"}
+      ],
+      "activities": [
+        {"titleAr":"تأمل النجوم في غراميل","titleEn":"Gharameel Stargazing","summaryAr":"تجربة ليلية تناسب من يريد الهدوء والطبيعة؛ احجزها من مزود معتمد وتحقق من الطقس قبل الانطلاق.","summaryEn":"A quiet night-nature experience; book through an approved provider and check conditions first.","areaAr":"العلا","areaEn":"AlUla","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/campaigns/dalila","mapQuery":"Gharameel AlUla"},
+        {"titleAr":"مغامرات العلا الرياضية","titleEn":"AlUla Outdoor Adventures","summaryAr":"اختَر بين المسارات والتجارب الرياضية والأنشطة الخارجية بحسب الموسم ومستوى اللياقة.","summaryEn":"Choose trails and outdoor activities by season and fitness level.","areaAr":"العلا","areaEn":"AlUla","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/alula/stories/alula-sport-events"}
+      ],
+      "places": [
+        {"titleAr":"الحِجر","titleEn":"Hegra","summaryAr":"موقع ثقافي وتاريخي أساسي في العلا؛ خصص له وقتًا كافيًا بدل دمجه مع محطات بعيدة في اليوم نفسه.","summaryEn":"A foundational cultural stop in AlUla; give it enough time rather than pairing it with distant stops.","areaAr":"العلا","areaEn":"AlUla","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/see-do/destinations/alula","mapQuery":"Hegra AlUla"},
+        {"titleAr":"صخرة الفيل والبلدة القديمة","titleEn":"Elephant Rock & Old Town","summaryAr":"رتّب صخرة الفيل مع الغروب، ثم أكمل المساء في البلدة القديمة أو سوقها التراثي.","summaryEn":"Pair Elephant Rock with sunset, then continue the evening in Old Town or its market.","areaAr":"العلا","areaEn":"AlUla","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/destinations/alula/attractions/old-town-market-street","mapQuery":"Elephant Rock AlUla"}
+      ]
+    },
+    "taif": {
+      "events": [
+        {"titleAr":"مواسم الطائف","titleEn":"Taif Seasons","summaryAr":"فعالية موسمية في مرتفعات الطائف تجمع الطعام المحلي والحرف والعروض والأنشطة العائلية؛ تحقق من مواعيد الموسم قبل الذهاب.","summaryEn":"A seasonal highland programme with local food, crafts, shows and family activities; check current dates before going.","areaAr":"الهدا والكر","areaEn":"Al Hada & Al Kurr","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/taif/events/taif-seasons"},
+        {"titleAr":"تقويم فعاليات السعودية","titleEn":"Saudi Events Calendar","summaryAr":"صفحة رسمية سريعة لمراجعة ما يتزامن مع زيارتك للطائف والمنطقة الغربية.","summaryEn":"A quick official reference for events that align with your Taif visit.","areaAr":"الطائف","areaEn":"Taif","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/saudi-calendar"}
+      ],
+      "activities": [
+        {"titleAr":"مزارع الورد والفاكهة","titleEn":"Rose & Fruit Farm Experiences","summaryAr":"تجربة مناسبة للعائلات والأصدقاء، خاصة في المواسم؛ اسأل المزرعة عن الحجز والإتاحة قبل الزيارة.","summaryEn":"A family-and-friends experience, particularly in season; confirm availability before visiting.","areaAr":"الطائف","areaEn":"Taif","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/taif/stories/top-places-in-taif-for-families"},
+        {"titleAr":"جولة جبال الهدا","titleEn":"Al Hada Mountain Drive","summaryAr":"طريق جبلي بإطلالات واسعة يصلح لزيارة نهارية أو غروب هادئ؛ انتبه للطقس والقيادة في المرتفعات.","summaryEn":"A scenic mountain drive for daytime or sunset; consider weather and highland driving.","areaAr":"الهدا","areaEn":"Al Hada","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/taif/attractions/alhada-mountain","mapQuery":"Al Hada Mountain Taif"}
+      ],
+      "places": [
+        {"titleAr":"قصر الكعكي","titleEn":"Al Kaaki Palace","summaryAr":"محطة تراثية داخل المنطقة التاريخية بالطائف لمحبي العمارة والقصص المحلية.","summaryEn":"A heritage stop in historic Taif for architecture and local stories.","areaAr":"الطائف","areaEn":"Taif","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/taif/attractions/al-kaaki-palace-in-taif","mapQuery":"Al Kaaki Palace Taif"},
+        {"titleAr":"سيتي ووك الطائف","titleEn":"Taif City Walk","summaryAr":"خيار عصري للتسوق والمطاعم والفعاليات الموسمية؛ تحقق من ساعات العمل والبرنامج قبل الزيارة.","summaryEn":"A contemporary stop for dining, shopping and seasonal programming; verify hours and schedule first.","areaAr":"الطائف","areaEn":"Taif","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/taif/attractions/taif-city-walk","mapQuery":"Taif City Walk"}
+      ]
+    },
+    "abha": {
+      "events": [
+        {"titleAr":"موسم عسير","titleEn":"Aseer Season","summaryAr":"ابدأ من دليل عسير الرسمي لمعرفة التجارب والفعاليات الموسمية وأفضل توقيت للزيارة.","summaryEn":"Start from the official Aseer guide for seasonal experiences and trip timing.","areaAr":"عسير","areaEn":"Aseer","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/aseer"},
+        {"titleAr":"تقويم فعاليات السعودية","titleEn":"Saudi Events Calendar","summaryAr":"راجع التقويم قبل الرحلة للتأكد من الفعالية التي تتزامن مع أيامك في الجنوب.","summaryEn":"Check the calendar before your trip for events that align with your southern Saudi dates.","areaAr":"عسير","areaEn":"Aseer","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/saudi-calendar"}
+      ],
+      "activities": [
+        {"titleAr":"استكشاف جبال عسير","titleEn":"Explore Aseer Mountains","summaryAr":"رتّب يومًا للطبيعة والإطلالات والمشي الخفيف حسب الطقس؛ لا تكدّس وجهات جبلية بعيدة في اليوم نفسه.","summaryEn":"Build a nature-and-viewpoints day around the weather; avoid packing distant mountain stops into one day.","areaAr":"أبها وعسير","areaEn":"Abha & Aseer","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/aseer"},
+        {"titleAr":"جولة ثقافية جنوبية","titleEn":"Southern Culture Day","summaryAr":"امزج قرية تراثية أو متحفًا محليًا مع جلسة قهوة أو أكل شعبي في نفس المنطقة.","summaryEn":"Pair a heritage village or local museum with coffee or traditional food nearby.","areaAr":"عسير","areaEn":"Aseer","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/aseer"}
+      ],
+      "places": [
+        {"titleAr":"رجال ألمع","titleEn":"Rijal Almaa","summaryAr":"قرية تراثية بطابع معماري مميز، وتصلح كمحطة رئيسية لمن يريد الثقافة والتصوير.","summaryEn":"A heritage village with distinctive architecture, ideal for culture and photography.","areaAr":"عسير","areaEn":"Aseer","sourceName":"خريطة الموقع","mapQuery":"Rijal Almaa Saudi Arabia"},
+        {"titleAr":"جبال السودة","titleEn":"Al Soudah Mountains","summaryAr":"إطلالات وطقس ألطف في المرتفعات؛ خصص لها يومًا مرنًا يناسب الضباب والطقس.","summaryEn":"Highland views and milder weather; keep the day flexible around cloud and weather conditions.","areaAr":"أبها","areaEn":"Abha","sourceName":"خريطة الموقع","mapQuery":"Al Soudah Abha"}
+      ]
+    },
+    "khobar": {
+      "events": [
+        {"titleAr":"موسم الخبر","titleEn":"Al Khobar Season","summaryAr":"تجربة موسمية على الساحل؛ راجع صفحة الموسم لمعرفة الفعاليات المتاحة في تاريخ زيارتك.","summaryEn":"A seasonal waterfront programme; check the season page for what is available on your dates.","areaAr":"الخبر","areaEn":"Al Khobar","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/seasons/al-khobar-season"},
+        {"titleAr":"تقويم فعاليات السعودية","titleEn":"Saudi Events Calendar","summaryAr":"مرجع واحد لمتابعة الفعاليات التي تتزامن مع رحلتك إلى المنطقة الشرقية.","summaryEn":"One official reference for events that align with an Eastern Province trip.","areaAr":"المنطقة الشرقية","areaEn":"Eastern Province","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/saudi-calendar"}
+      ],
+      "activities": [
+        {"titleAr":"ممشى كورنيش الخبر","titleEn":"Al Khobar Corniche Walk","summaryAr":"مناسب لمشوار عصري على البحر، خصوصًا عند الغروب؛ أضف قهوة أو عشاءً قريبًا بعده.","summaryEn":"A seaside outing, especially at sunset; pair it with nearby coffee or dinner.","areaAr":"الخبر","areaEn":"Al Khobar","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/eastern-province/attractions/khobar-seafront","mapQuery":"Al Khobar Corniche"},
+        {"titleAr":"يوم ثقافي في إثراء","titleEn":"Ithra Culture Day","summaryAr":"خصص وقتًا للمعارض والمكتبة والبرامج الثقافية، ثم تحقق من جدول الفعاليات المتغير قبل الزيارة.","summaryEn":"Allow time for exhibits, the library and cultural programmes; confirm the changing schedule first.","areaAr":"الظهران","areaEn":"Dhahran","sourceName":"خريطة الموقع","mapQuery":"Ithra Dhahran"}
+      ],
+      "places": [
+        {"titleAr":"باي فرونت الخبر","titleEn":"Al Khobar Bayfront","summaryAr":"وجهة واجهة بحرية تجمع المشي والمنظر والمطاعم، مناسبة للعائلات والأصدقاء.","summaryEn":"A waterfront destination for walking, views and dining, suited to families and friends.","areaAr":"الخبر","areaEn":"Al Khobar","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/eastern-province/attractions/bay-front","mapQuery":"Al Khobar Bayfront"},
+        {"titleAr":"القرية الشعبية بالدمام","titleEn":"Heritage Village Dammam","summaryAr":"تجربة تجمع تراث مناطق المملكة والأكلات الشعبية في مكان واحد قريب من الخبر والدمام.","summaryEn":"A one-stop heritage and traditional-food experience near Al Khobar and Dammam.","areaAr":"الدمام","areaEn":"Dammam","sourceName":"روح السعودية","sourceUrl":"https://www.visitsaudi.com/ar/eastern-province/attractions/heritage-village-in-dammam","mapQuery":"Heritage Village Dammam"}
+      ]
+    }
+  }
+}

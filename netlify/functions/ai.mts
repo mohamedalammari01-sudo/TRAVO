@@ -26,6 +26,16 @@ function safeHistory(items?: HistoryItem[]) {
     .map((x) => ({ role: x.role, content: x.content.slice(0, 5000) }));
 }
 
+const saudiDestinationTerms = [
+  "الرياض", "riyadh", "جدة", "jeddah", "العلا", "alula", "al ula", "الطائف", "taif", "أبها", "abha",
+  "الخبر", "khobar", "dammam", "الدمام", "الدرعية", "diriyah", "حائل", "hail", "تبوك", "tabuk", "أملج", "umluj"
+];
+
+function isSaudiDestination(value?: string) {
+  const normalized = String(value || "").trim().toLowerCase();
+  return saudiDestinationTerms.some((term) => normalized.includes(term));
+}
+
 function collectSources(value: unknown) {
   const found = new Map<string, { title?: string; url: string }>();
   const visit = (node: any) => {
@@ -74,8 +84,11 @@ export default async (req: Request, _context: Context) => {
     if (body.action === "generateTrip") {
       const trip = body.trip || {};
       if (!trip.destination) return Response.json({ error: "DESTINATION_REQUIRED" }, { status: 400 });
+      if (!isSaudiDestination(trip.destination)) {
+        return Response.json({ error: "SAUDI_DESTINATION_REQUIRED", message: "Choose a Saudi domestic destination." }, { status: 400 });
+      }
       const lang = body.language === "en" ? "English" : "Arabic";
-      const prompt = `Build a complete, practical travel itinerary in ${lang}. The main objective is MINIMUM WASTED TRAVEL TIME while still matching the user's planning style.
+      const prompt = `Build a complete, practical DOMESTIC SAUDI ARABIA itinerary in ${lang}. The main objective is MINIMUM WASTED TRAVEL TIME while still matching the user's planning style.
 
 Rules:
 1. Treat every day as one geographic cluster whenever practical: one neighborhood/district plus adjacent areas. Do not bounce across opposite sides of a city in the same day.
@@ -83,7 +96,7 @@ Rules:
 3. If the user chose nearby, aggressively minimize movement. If dynamic, keep the plan easy to re-order around the user's live location. If trending, prioritize popular experiences but still cluster them geographically.
 4. Respect departure/return dates and times, ticket-derived arrival time, hotel if supplied, trip type, interests, pace and budget.
 5. TRAVO injects verified restaurant and specialty-coffee choices separately, so DO NOT invent restaurant/cafe names. Instead reserve realistic meal/coffee windows in the same daily cluster.
-6. Do not invent live event dates, prices, opening hours, sold-out claims or current trend claims. Use durable attractions/neighborhood suggestions or category-level wording when live facts are not supplied.
+6. Keep every recommendation inside Saudi Arabia. Do not invent live event dates, prices, opening hours, sold-out claims or current trend claims. Use durable Saudi attractions, neighborhoods or category-level wording when live facts are not supplied.
 7. Arrival/departure days must be lighter and close to the hotel/airport corridor when sensible.
 8. Create the whole day from morning through night, including sensible rest/buffer time.
 
@@ -94,7 +107,7 @@ Trip data: ${JSON.stringify(trip)}`;
       const completion = await client.chat.completions.create({
         model: "gpt-5.6-terra",
         messages: [
-          { role: "system", content: "You are TRAVO's route-aware trip planning engine. Optimize days by geographic clusters and realistic human pacing. Never fabricate live facts." },
+          { role: "system", content: "You are TRAVO's route-aware domestic Saudi Arabia trip planning engine. Optimise days by geographic clusters and realistic human pacing. Never fabricate live facts." },
           { role: "user", content: prompt }
         ],
         max_completion_tokens: 5000
@@ -108,16 +121,14 @@ Trip data: ${JSON.stringify(trip)}`;
     const history = safeHistory(body.history);
     const isArabic = body.language !== "en";
     const instructions = isArabic
-      ? `أنت TRAVO AI، مساعد شخصي متقدم للحياة اليومية وليس للسفر فقط. تجاوب في السفر، العمل، التقنية، الدراسة، الكتابة، العلاقات اليومية، التنظيم، المنتجات، الأفكار، الثقافة العامة، الأخبار والمعلومات العامة، وباقي أسئلة الحياة ضمن حدود السلامة.
-أسلوبك دافئ ومهتم وعملي، لكن بدون مبالغة عاطفية أو مجاملات فارغة. افهم لهجة العميل وتكلم بطريقته بشكل طبيعي.
-لا تتوقف عند عبارة «لا أعرف». إذا كانت المعلومة حالية أو غير مؤكدة، استخدم بحث الويب تلقائيًا. إذا بقي جزء غير مؤكد، أعط أفضل جواب مدعوم ووضح الجزء غير المؤكد باختصار. إذا كان السؤال ناقصًا لكن يمكن فهمه بشكل معقول، افترض الاحتمال الأقرب وابدأ بالمساعدة بدل كثرة الأسئلة. إذا احتجت توضيحًا ضروريًا، اسأل سؤالًا واحدًا واضحًا.
-لا تختلق حقائق أو مصادر أو أسعار أو مواعيد. في الطب والقانون والمال والمواضيع عالية المخاطر، كن مفيدًا لكن حذرًا وميّز بين المعلومة العامة والتشخيص/القرار المهني.
-إذا سأل عن شيء حديث، ابحث أولًا. إذا كان السؤال بسيطًا ولا يحتاج بحثًا، جاوب مباشرة. اجعل إجابتك واضحة ومناسبة لطول السؤال.`
-      : `You are TRAVO AI, an advanced personal assistant for everyday life, not only travel. Help with travel, work, technology, study, writing, day-to-day relationships, organization, products, ideas, culture, news and general knowledge within safety limits.
-Be warm, considerate and practical without being overly emotional or flattering. Match the user's tone naturally.
-Do not stop at “I don't know.” If information is current or uncertain, use web search automatically. If some uncertainty remains, provide the best supported answer and briefly state what is uncertain. If the request is reasonably interpretable, make a sensible assumption and help instead of asking many questions. Ask one clear follow-up only when essential.
-Never fabricate facts, sources, prices or dates. For medical, legal and financial high-stakes topics, be useful but careful and distinguish general information from professional diagnosis/advice.
-Search first for recent facts; answer directly when search is unnecessary. Keep the response proportionate to the question.`;
+      ? `أنت TRAVO AI، مساعد متخصص حصريًا في السياحة الداخلية داخل المملكة العربية السعودية.
+ساعد الزائر في اختيار الوجهات السعودية، الفعاليات والمواسم، الأنشطة والتجارب، المواقع والمعالم، المسارات، توقيت الزيارة، والتنقل داخل المملكة.
+إذا كان السؤال خارج السياحة الداخلية السعودية، وضّح بلطف أن TRAVO مخصص حاليًا للسياحة السعودية ثم اقترح سؤالًا مناسبًا عن وجهة أو تجربة داخل المملكة.
+افهم لهجة العميل وتكلم بطريقة دافئة وعملية. عند الحاجة إلى معلومة حديثة مثل فعالية أو توقيت أو سعر أو ساعات تشغيل، ابحث أولًا واذكر المصادر المتاحة. لا تخترع حقائق أو مصادر أو أسعار أو مواعيد. اجعل الإجابة واضحة ومختصرة ومفيدة.`
+      : `You are TRAVO AI, an assistant dedicated exclusively to domestic tourism within Saudi Arabia.
+Help visitors choose Saudi destinations, events and seasons, activities and experiences, landmarks, routes, visit timing and travel within the Kingdom.
+If a request falls outside domestic Saudi tourism, politely explain that TRAVO currently focuses on Saudi tourism and suggest a relevant Saudi destination or experience question.
+Be warm and practical. For current information such as events, schedules, prices or opening hours, search first and share available sources. Never invent facts, sources, prices or dates. Keep answers clear, concise and useful.`;
 
     const context = [
       body.city ? `Current city/destination context: ${body.city}` : "",

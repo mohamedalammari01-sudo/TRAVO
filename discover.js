@@ -1,50 +1,135 @@
 let lang=localStorage.getItem('travo-lang')||'ar';
-let trends={cities:{},updatedAt:null},guides={cities:{},updatedAt:null},tripadvisor={cities:{},updatedAt:null};
-let city=localStorage.getItem('travo-city')||'riyadh',view='events';
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const themes={riyadh:'https://images.unsplash.com/photo-1674822858255-fcc093a1ef43?auto=format&fit=crop&w=1800&q=85',jeddah:'https://book.txsaudi.com/Images2/eXchange/3cd49b18-7500-4f31-881a-06cccb9d842a.jpg',alula:'https://images.unsplash.com/photo-1738006996209-40401cbd3664?auto=format&fit=crop&w=1800&q=85',dubai:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=85',london:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1800&q=85',paris:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1800&q=85',tokyo:'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1800&q=85'};
-const labels={
- events:{ar:['EVENTS','الفعاليات','فعاليات حالية وقادمة؛ TRAVO يعرض لك الموعد والسعر والمكان والتفاصيل هنا.'],en:['EVENTS','Events','Current and upcoming events with date, price, place and details inside TRAVO.']},
- conferences:{ar:['CONFERENCES','المؤتمرات والمعارض','مؤتمرات ومعارض أعمال ومهنية مع تفاصيلها في نفس الصفحة.'],en:['CONFERENCES','Conferences & exhibitions','Business conferences and exhibitions with full details in one place.']},
- activities:{ar:['ACTIVITIES','الأنشطة','أنشطة وأشياء تقدر تسويها أثناء وجودك في المدينة.'],en:['ACTIVITIES','Activities','Things to do while you are in the city.']},
- entertainment:{ar:['ENTERTAINMENT','الترفيه','عروض، كوميديا وترفيه حي.'],en:['ENTERTAINMENT','Entertainment','Shows, comedy and live entertainment.']},
- concerts:{ar:['CONCERTS','الحفلات','حفلات موسيقية وعروض مباشرة.'],en:['CONCERTS','Concerts','Music concerts and live performances.']},
- experiences:{ar:['EXPERIENCES','التجارب','تجارب موسمية وثقافية ومميزة.'],en:['EXPERIENCES','Experiences','Seasonal, cultural and distinctive experiences.']},
- tripRestaurants:{ar:['TRIPADVISOR • 2026','أفضل المطاعم','اختيارات Tripadvisor المحدثة خلال 2026 حسب المدينة، مع التقييم وعدد المراجعات عندما يكونان متاحين.'],en:['TRIPADVISOR • 2026','Top restaurants','Current Tripadvisor selections in 2026 for this city, including ratings and review counts when available.']},
- tripCafes:{ar:['TRIPADVISOR • 2026','أفضل المقاهي','مقاهي ظاهرة في نتائج Tripadvisor المحدثة خلال 2026، وليست تسمية لجائزة سنوية إلا إذا ذُكرت جائزة صراحة.'],en:['TRIPADVISOR • 2026','Top cafes','Cafes appearing in current Tripadvisor 2026 results; this is not an annual award unless an award is explicitly stated.']}
+let catalog={cities:{},updatedAt:null};
+const params=new URLSearchParams(location.search);
+const allowedViews=['events','activities','places'];
+let view=allowedViews.includes(params.get('view'))?params.get('view'):'events';
+let city=params.get('city')||localStorage.getItem('travo-city')||'riyadh';
+
+const $=selector=>document.querySelector(selector);
+const $$=selector=>[...document.querySelectorAll(selector)];
+const dictionary={
+  ar:{
+    home:'الرئيسية',discover:'اكتشف',trip:'خطط رحلتك',ai:'مساعد TRAVO',aiShort:'المساعد',destinations:'وجهات',brand:'اكتشف السعودية',
+    prompt:'اختر وش تبغى تكتشف.',lead:'فعاليات ومواسم وأنشطة ومواقع تستحق الزيارة داخل المملكة فقط.',cityPlaceholder:'اختر مدينة أو وجهة سعودية',choose:'اختيار الوجهة',
+    question:'وش ودك تشوف في {city}؟',categorySub:'رتّب استكشافك على حسب التجربة التي تهمك.',events:'فعاليات ومواسم',eventsSub:'ماذا تتابع قبل زيارة وجهتك',activities:'أنشطة وتجارب',activitiesSub:'أفكار عملية ليومك',places:'مواقع ومعالم',placesSub:'أماكن طبيعية وتراثية تستحق الزيارة',
+    viewEvents:['EVENTS & SEASONS','الفعاليات والمواسم','اقرأ الفكرة بسرعة ثم افتح المصدر الرسمي للتحقق من التفاصيل والحجز.'],
+    viewActivities:['ACTIVITIES','الأنشطة والتجارب','أفكار عملية لتعيش الوجهة، مع مصدر رسمي أو رابط موقع يساعدك في التخطيط.'],
+    viewPlaces:['PLACES & LANDMARKS','المواقع والمعالم','أماكن تستحق أن تكون في جدولك؛ استخدم رابط الخريطة لتخطيط المسار.'],
+    source:'المصدر',location:'الموقع',openSource:'فتح المصدر',openMap:'فتح الخريطة',updated:'دليل مراجع: ',emptyTitle:'ما أضفنا محتوى لهذه الوجهة بعد.',emptyText:'اختر وجهة سعودية أخرى أو عُد لاحقًا.',domestic:'دليل السياحة الداخلية',area:'المنطقة'
+  },
+  en:{
+    home:'Home',discover:'Discover',trip:'Plan a trip',ai:'TRAVO Assistant',aiShort:'Assistant',destinations:'Destinations',brand:'Discover Saudi',
+    prompt:'Choose what you want to explore.',lead:'Events, activities and places worth visiting—inside Saudi Arabia only.',cityPlaceholder:'Choose a Saudi city or destination',choose:'Choose destination',
+    question:'What do you want to explore in {city}?',categorySub:'Organise your discovery by the experience that interests you.',events:'Events & seasons',eventsSub:'What to check before your visit',activities:'Activities & experiences',activitiesSub:'Practical ideas for your day',places:'Places & landmarks',placesSub:'Natural and heritage places worth visiting',
+    viewEvents:['EVENTS & SEASONS','Events & seasons','Read the idea quickly, then use the official source to confirm details and booking.'],
+    viewActivities:['ACTIVITIES','Activities & experiences','Practical ways to experience the destination, with an official source or map link for planning.'],
+    viewPlaces:['PLACES & LANDMARKS','Places & landmarks','Places worth adding to your itinerary; use the map link to plan your route.'],
+    source:'Source',location:'Location',openSource:'Open source',openMap:'Open map',updated:'Reviewed guide: ',emptyTitle:'We have not added content for this destination yet.',emptyText:'Choose another Saudi destination or return later.',domestic:'Domestic tourism guide',area:'Area'
+  }
 };
-const status={Now:{ar:'🔥 الآن',en:'🔥 Now'},Tonight:{ar:'🌙 الليلة',en:'🌙 Tonight'},New:{ar:'🆕 جديد',en:'🆕 New'},Soon:{ar:'🔮 قريبًا',en:'🔮 Soon'},'Last Chance':{ar:'⏳ آخر فرصة',en:'⏳ Last chance'}};
-function airport(k){return (window.TRAVO_AIRPORTS||[]).find(x=>x.cityKey===k)}
-function cityName(k){const a=airport(k);return lang==='ar'?(a?.cityAr||k):(a?.cityEn||k)}
-function fillCities(){const dl=$('#discoverCities');dl.innerHTML=(window.TRAVO_AIRPORTS||[]).map(a=>`<option value="${lang==='ar'?a.cityAr:a.cityEn} — ${a.code}">${lang==='ar'?a.countryAr:a.countryEn}</option>`).join('')}
-function newestDate(){return [trends.updatedAt,guides.updatedAt,tripadvisor.updatedAt].filter(Boolean).sort((a,b)=>new Date(b)-new Date(a))[0]||null}
-function dateUpdated(){const d=newestDate();if(!d)return lang==='ar'?'بانتظار التحديث':'Awaiting update';try{return new Intl.DateTimeFormat(lang==='ar'?'ar-SA':'en-GB',{dateStyle:'medium',timeStyle:'short'}).format(new Date(d))}catch{return d}}
-function todayISO(){const d=new Date(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${d.getFullYear()}-${m}-${day}`}
-function validDate(v){return /^\d{4}-\d{2}-\d{2}$/.test(String(v||''))}
-function isExpired(x){return validDate(x?.end)&&x.end<todayISO()}
-function liveStatus(x){const today=todayISO();if(validDate(x?.end)&&x.end===today)return'Last Chance';if(validDate(x?.start)&&x.start<=today&&(!validDate(x?.end)||x.end>=today))return x.status==='Tonight'?'Tonight':'Now';return x.status||'Soon'}
-function mapUrl(text){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(text)}`}
-function kindOf(x){if(x.kind)return String(x.kind).toLowerCase();const raw=`${x.category||''} ${x.titleAr||''} ${x.titleEn||''}`.toLowerCase();if(/conference|convention|expo|exhibition|معرض|مؤتمر|gisec|fashion week/.test(raw))return'conference';if(/concert|music|live|حفلة|حفل|موسيقى|غناء/.test(raw))return'concert';if(/comedy|stand.?up|entertainment|ترفيه|كوميديا|عرض/.test(raw))return'entertainment';if(/experience|activity|sports|adventure|شاطئ|تجربة|نشاط|رياض/.test(raw))return'experience';return'event'}
-function match(x){const k=kindOf(x);if(view==='events')return true;if(view==='conferences')return k==='conference';if(view==='activities')return ['activity','experience','event'].includes(k)&&!['conference','concert','entertainment'].includes(k);if(view==='entertainment')return k==='entertainment';if(view==='concerts')return k==='concert';if(view==='experiences')return ['experience','activity'].includes(k);return false}
-function moneyLabel(x){return x.price&&String(x.price).trim()?x.price:(lang==='ar'?'السعر غير معلن':'Price not announced')}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-const genericImageMarkers=['1539650116574','1591604466107','1674822858255','1738006996209','1512453979798','1502602898657','1540959733332','1500530855697','1622274421175','3cd49b18-7500-4f31-881a-06cccb9d842a'];
-function eventSpecificImage(x){if(x.officialImage)return x.officialImage;const img=String(x.image||''),credit=String(x.imageCredit||x.imageSourceName||'');if(!img)return'';if(/صورة وجهة|destination image|destination visual/i.test(credit))return'';if(genericImageMarkers.some(k=>img.includes(k)))return'';return img}
-const posterPalettes=[['#6d28d9','#c084fc','#22113c'],['#4338ca','#8b5cf6','#15153b'],['#7e22ce','#ec4899','#2a1030'],['#4f46e5','#22d3ee','#111936'],['#9333ea','#f59e0b','#29122f'],['#581c87','#a78bfa','#170b28'],['#5b21b6','#f472b6','#23102e'],['#3730a3','#818cf8','#11152e']];
-function hashText(v){let h=0;for(const ch of String(v||''))h=((h<<5)-h+ch.charCodeAt(0))|0;return Math.abs(h)}
-function posterCover(x,title,when){const p=posterPalettes[hashText(x.id||title)%posterPalettes.length];const type=kindOf(x).toUpperCase();return `<div class="live-cover event-poster" style="--poster1:${p[0]};--poster2:${p[1]};--poster3:${p[2]}"><span class="poster-orb orb-one"></span><span class="poster-orb orb-two"></span><span class="poster-grid"></span><div class="poster-copy"><small>${esc(type)} • TRAVO</small><b>${esc(title||'Event')}</b><span>${esc(when)}</span></div><span class="live-status">${status[liveStatus(x)]?.[lang]||liveStatus(x)}</span><small class="image-credit">${lang==='ar'?'تصميم TRAVO للفعالية':'TRAVO event visual'}</small></div>`}
-function eventCard(x){const title=lang==='ar'?(x.titleAr||x.titleEn):(x.titleEn||x.titleAr),why=lang==='ar'?(x.whyAr||x.whyEn):(x.whyEn||x.whyAr),loc=lang==='ar'?(x.locationAr||x.locationEn):(x.locationEn||x.locationAr);const when=x.start?`${x.start}${x.end&&x.end!==x.start?' → '+x.end:''}`:(lang==='ar'?'الموعد غير معلن':'Date not announced');const image=eventSpecificImage(x),booking=x.ticketUrl||x.bookingUrl||x.sourceUrl,imageCredit=x.imageCredit||x.imageSourceName||'';const cover=image?`<div class="live-cover" style="background-image:url('${esc(image)}')"><span class="live-status">${status[liveStatus(x)]?.[lang]||liveStatus(x)}</span>${imageCredit?`<small class="image-credit">${esc(imageCredit)}</small>`:''}</div>`:posterCover(x,title,when);return `<article class="live-card rich-event-card">${cover}<div class="live-body"><div class="live-meta"><span>${esc(kindOf(x).toUpperCase())}</span><span>${x.sourceName?`✓ ${esc(x.sourceName)}`:'TRAVO'}</span></div><h3>${esc(title||'')}</h3><p>${esc(why||'')}</p><div class="event-facts"><div><small>${lang==='ar'?'التاريخ':'Date'}</small><b>◷ ${esc(when)}</b></div><div><small>${lang==='ar'?'السعر':'Price'}</small><b>◈ ${esc(moneyLabel(x))}</b></div><div><small>${lang==='ar'?'المكان':'Location'}</small><b>📍 ${esc(loc||cityName(city))}</b></div></div>${x.detailsAr||x.detailsEn?`<p class="event-extra">${esc(lang==='ar'?(x.detailsAr||x.detailsEn):(x.detailsEn||x.detailsAr))}</p>`:''}<div class="card-actions">${loc?`<a class="ghost mini-action" target="_blank" rel="noopener" href="${esc(x.mapUrl||mapUrl(loc+' '+cityName(city)))}">📍 ${lang==='ar'?'رابط الموقع':'Location'}</a>`:''}${booking?`<a class="primary mini-action" target="_blank" rel="noopener" href="${esc(booking)}">${lang==='ar'?'الحجز / المصدر':'Tickets / source'} ↗</a>`:''}</div></div></article>`}
-function tripCard(v,sourceUrl,index,type){const rating=v.rating!=null?`★ ${Number(v.rating).toFixed(1)}`:'—',reviews=v.reviews!=null?Number(v.reviews).toLocaleString():'—',rank=v.rank||index+1;return `<article class="venue-card tripadvisor-card"><div class="trip-rank">#${rank}</div><div class="venue-card-head"><div><span class="venue-area">Tripadvisor • 2026</span><h3>${esc(v.name)}</h3></div><span class="rating">${rating}</span></div><p>${esc(v.type||'')}</p><div class="event-facts compact"><div><small>${lang==='ar'?'المراجعات':'Reviews'}</small><b>${reviews}</b></div><div><small>${lang==='ar'?'الفئة':'Category'}</small><b>${type==='cafes'?(lang==='ar'?'مقهى':'Cafe'):(lang==='ar'?'مطعم':'Restaurant')}</b></div></div><div class="card-actions"><a class="ghost mini-action" target="_blank" rel="noopener" href="${mapUrl(v.name+' '+cityName(city))}">📍 ${lang==='ar'?'الموقع':'Location'}</a>${sourceUrl?`<a class="primary mini-action" target="_blank" rel="noopener" href="${esc(sourceUrl)}">Tripadvisor ↗</a>`:''}</div></article>`}
-function render(){const cfg=labels[view]?.[lang]||labels.events[lang];$('#viewKicker').textContent=cfg[0];$('#viewTitle').textContent=cfg[1];$('#viewDescription').textContent=cfg[2];$('#cityTitle').textContent=cityName(city);$('#categoryQuestion').textContent=lang==='ar'?`وش ودك تشوف في ${cityName(city)}؟`:`What do you want to explore in ${cityName(city)}?`;$('#updatedLabel').textContent=(lang==='ar'?'آخر تحديث: ':'Updated: ')+dateUpdated();let html='';if(view==='tripRestaurants'||view==='tripCafes'){const d=tripadvisor.cities?.[city]||{},type=view==='tripRestaurants'?'restaurants':'cafes',arr=d[type]||[],source=d[type==='restaurants'?'restaurantsSource':'cafesSource'];html=arr.map((v,i)=>tripCard(v,source,i,type)).join('')}else{html=(trends.cities?.[city]||[]).filter(x=>!isExpired(x)).filter(match).sort((a,b)=>String(a.start||'9999').localeCompare(String(b.start||'9999'))).map(eventCard).join('')}$('#discoverResults').innerHTML=html;$('#emptyState').classList.toggle('hidden',Boolean(html));const isTrip=view==='tripRestaurants'||view==='tripCafes';$('#emptyTitle').textContent=isTrip?(lang==='ar'?'ما عندنا قائمة Tripadvisor مؤكدة لهذه المدينة حتى الآن.':'No verified Tripadvisor list for this city yet.'):(lang==='ar'?'لا توجد فعاليات مؤكدة وحالية في هذا القسم الآن.':'No verified current items in this section right now.');$('#emptyText').textContent=isTrip?(lang==='ar'?'نحدّث القوائم باستمرار، وما نعرض ترتيب أو تقييم غير متحقق منه.':'Lists are refreshed regularly and TRAVO does not invent rankings or ratings.'):(lang==='ar'?'الفعاليات التي انتهى تاريخها تُخفى تلقائيًا من TRAVO.':'Events are automatically hidden after their end date.')}
-function setCity(k){city=k||'riyadh';localStorage.setItem('travo-city',city);const a=airport(city);$('#discoverCity').value=a?(lang==='ar'?a.cityAr:a.cityEn):city;if(window.TRAVO_APPLY_DESTINATION_THEME)window.TRAVO_APPLY_DESTINATION_THEME(city,{target:'discover'});else document.documentElement.style.setProperty('--discover-image',`url('${themes[city]||themes.riyadh}')`);render()}
-function setLang(){document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';localStorage.setItem('travo-lang',lang);$('#discoverLang').textContent=lang==='ar'?'EN':'عربي';fillCities();render()}
-$('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';setLang()};
-$('#changeCityBtn').onclick=()=>{const a=window.TRAVO_FIND_CITY?.($('#discoverCity').value);if(a)setCity(a.cityKey)};
-$('#discoverCity').addEventListener('keydown',e=>{if(e.key==='Enter')$('#changeCityBtn').click()});
-$$('#categoryGrid button').forEach(b=>b.onclick=()=>{view=b.dataset.view;$$('#categoryGrid button').forEach(x=>x.classList.toggle('active',x===b));$('#discoverResults').scrollIntoView({behavior:'smooth',block:'start'});render()});
-Promise.all([
- fetch('/data/trends.json',{cache:'no-store'}).then(r=>r.ok?r.json():{cities:{}}),
- fetch('/data/city-guides.json',{cache:'no-store'}).then(r=>r.ok?r.json():{cities:{}}),
- fetch('/data/tripadvisor-2026.json',{cache:'no-store'}).then(r=>r.ok?r.json():{cities:{}})
-]).then(([t,g,ta])=>{trends=t;guides=g;tripadvisor=ta;$('#dataFreshness').textContent=(lang==='ar'?'تحديثات شبه يومية • ':'Twice-daily updates • ')+dateUpdated();setCity(city)}).catch(()=>{setCity(city)});
-setLang();
+
+const t=key=>dictionary[lang][key]||key;
+const destination=(key=city)=>window.TRAVO_AIRPORTS?.find(item=>item.cityKey===key);
+const cityName=(key=city)=>{const item=destination(key);return lang==='ar'?(item?.cityAr||key):(item?.cityEn||key)};
+const mapUrl=query=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+function fillCities(){
+  $('#discoverCities').innerHTML=(window.TRAVO_AIRPORTS||[])
+    .filter(item=>catalog.cities?.[item.cityKey])
+    .map(item=>`<option value="${lang==='ar'?item.cityAr:item.cityEn}">${lang==='ar'?item.cityEn:item.cityAr}</option>`)
+    .join('');
+}
+
+function updatedLabel(){
+  if(!catalog.updatedAt)return t('domestic');
+  try{return t('updated')+new Intl.DateTimeFormat(lang==='ar'?'ar-SA':'en-GB',{dateStyle:'medium'}).format(new Date(catalog.updatedAt))}catch{return t('updated')+catalog.updatedAt}
+}
+
+function viewCopy(){
+  if(view==='activities')return dictionary[lang].viewActivities;
+  if(view==='places')return dictionary[lang].viewPlaces;
+  return dictionary[lang].viewEvents;
+}
+
+function itemIcon(){return view==='events'?'🎟':view==='activities'?'⚡':'📍'}
+
+function guideCard(item){
+  const title=lang==='ar'?(item.titleAr||item.titleEn):(item.titleEn||item.titleAr);
+  const summary=lang==='ar'?(item.summaryAr||item.summaryEn):(item.summaryEn||item.summaryAr);
+  const area=lang==='ar'?(item.areaAr||item.areaEn):(item.areaEn||item.areaAr);
+  const source=item.sourceUrl?`<a class="primary mini-action" target="_blank" rel="noopener" href="${escapeHtml(item.sourceUrl)}">${t('openSource')} ↗</a>`:'';
+  const map=item.mapQuery?`<a class="ghost mini-action" target="_blank" rel="noopener" href="${mapUrl(item.mapQuery)}">📍 ${t('openMap')}</a>`:'';
+  return `<article class="live-card guide-card"><div class="guide-symbol" aria-hidden="true">${itemIcon()}</div><div class="live-body"><div class="live-meta"><span>${escapeHtml(t('area'))}</span><span>${escapeHtml(item.sourceName||'TRAVO')}</span></div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(summary)}</p><div class="event-facts compact"><div><small>${escapeHtml(t('location'))}</small><b>📍 ${escapeHtml(area||cityName())}</b></div><div><small>${escapeHtml(t('source'))}</small><b>${escapeHtml(item.sourceName||'TRAVO')}</b></div></div><div class="card-actions">${map}${source}</div></div></article>`;
+}
+
+function setActiveCategory(){
+  $$('#categoryGrid button').forEach(button=>button.classList.toggle('active',button.dataset.view===view));
+}
+
+function render(){
+  const [kicker,title,description]=viewCopy();
+  $('#brandLabel').textContent=t('brand');
+  $('#cityTitle').textContent=cityName();
+  $('#discoverPrompt').textContent=t('prompt');
+  $('#discoverLead').textContent=t('lead');
+  $('#discoverCity').placeholder=t('cityPlaceholder');
+  $('#changeCityBtn').textContent=t('choose');
+  $('#categoryQuestion').textContent=t('question').replace('{city}',cityName());
+  $('#categorySub').textContent=t('categorySub');
+  $('#updatedLabel').textContent=updatedLabel();
+  $('#dataFreshness').textContent=t('domestic');
+  $('#viewKicker').textContent=kicker;
+  $('#viewTitle').textContent=title;
+  $('#viewDescription').textContent=description;
+  const items=catalog.cities?.[city]?.[view]||[];
+  $('#discoverResults').innerHTML=items.map(guideCard).join('');
+  $('#emptyState').classList.toggle('hidden',Boolean(items.length));
+  $('#emptyTitle').textContent=t('emptyTitle');
+  $('#emptyText').textContent=t('emptyText');
+  setActiveCategory();
+}
+
+function updateStaticText(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  localStorage.setItem('travo-lang',lang);
+  $$('[data-d]').forEach(element=>{const copy=t(element.dataset.d);if(copy)element.textContent=copy});
+  $('#discoverLang').textContent=lang==='ar'?'EN':'عربي';
+  fillCities();
+  render();
+}
+
+function setCity(key){
+  const selected=destination(key);
+  city=selected&&catalog.cities?.[selected.cityKey]?selected.cityKey:'riyadh';
+  localStorage.setItem('travo-city',city);
+  const item=destination(city);
+  $('#discoverCity').value=item?(lang==='ar'?item.cityAr:item.cityEn):'';
+  window.TRAVO_APPLY_DESTINATION_THEME?.(city,{target:'discover'});
+  render();
+}
+
+$('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';updateStaticText();setCity(city)};
+$('#changeCityBtn').onclick=()=>{const selected=window.TRAVO_FIND_CITY?.($('#discoverCity').value);if(selected&&catalog.cities?.[selected.cityKey])setCity(selected.cityKey)};
+$('#discoverCity').addEventListener('keydown',event=>{if(event.key==='Enter')$('#changeCityBtn').click()});
+$$('#categoryGrid button').forEach(button=>button.onclick=()=>{
+  view=button.dataset.view;
+  const url=new URL(location.href);url.searchParams.set('view',view);history.replaceState({},'',url);
+  render();
+  $('#discoverResults').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+fetch('/data/saudi-discovery.json',{cache:'no-store'})
+  .then(response=>response.ok?response.json():Promise.reject(new Error('CATALOG_UNAVAILABLE')))
+  .then(data=>{
+    catalog=data||{cities:{}};
+    const requested=window.TRAVO_FIND_CITY?.(city);
+    city=requested&&catalog.cities?.[requested.cityKey]?requested.cityKey:(catalog.cities?.[city]?city:'riyadh');
+    updateStaticText();
+    setCity(city);
+  })
+  .catch(()=>{
+    catalog={cities:{}};
+    updateStaticText();
+  });
