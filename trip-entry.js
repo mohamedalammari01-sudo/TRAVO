@@ -2,6 +2,8 @@ const entryStyle=document.createElement('link');
 entryStyle.rel='stylesheet';entryStyle.href='trip-entry.css';document.head.appendChild(entryStyle);
 const smartStyle=document.createElement('link');
 smartStyle.rel='stylesheet';smartStyle.href='trip-smart.css';document.head.appendChild(smartStyle);
+const timelineStyle=document.createElement('link');
+timelineStyle.rel='stylesheet';timelineStyle.href='trip-enhancements.css';document.head.appendChild(timelineStyle);
 
 const ENTRY={
   ar:{

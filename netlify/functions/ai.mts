@@ -6,7 +6,7 @@ type TripData = {
   origin?: string; originCode?: string; destination?: string; destinationCode?: string; destinationKey?: string;
   departureDate?: string; departureTime?: string; arrivalDate?: string; arrivalTime?: string;
   returnDate?: string; returnTime?: string; flightNumber?: string; hotel?: string;
-  tripType?: string; interests?: string[]; pace?: string; budget?: string; planStyle?: string;
+  tripType?: string; interests?: string[]; pace?: string; budget?: string; wakeTime?: string; sleepTime?: string; planStyle?: string;
 };
 type Body = {
   action?: "chat" | "scanTicket" | "generateTrip";
@@ -94,11 +94,12 @@ Rules:
 1. Treat every day as one geographic cluster whenever practical: one neighborhood/district plus adjacent areas. Do not bounce across opposite sides of a city in the same day.
 2. Pick a clear daily area/cluster. Morning activity, lunch window, afternoon activity, coffee window and dinner/evening should naturally fit that cluster.
 3. If the user chose nearby, aggressively minimize movement. If dynamic, keep the plan easy to re-order around the user's live location. If trending, prioritize popular experiences but still cluster them geographically.
-4. Respect departure/return dates and times, ticket-derived arrival time, hotel if supplied, trip type, interests, pace and budget.
+4. Respect departure/return dates and times, ticket-derived arrival time, hotel if supplied, trip type, interests, pace, budget, preferred wake-up time and bedtime.
 5. TRAVO injects verified restaurant and specialty-coffee choices separately, so DO NOT invent restaurant/cafe names. Instead reserve realistic meal/coffee windows in the same daily cluster.
 6. Keep every recommendation inside Saudi Arabia. Do not invent live event dates, prices, opening hours, sold-out claims or current trend claims. Use durable Saudi attractions, neighborhoods or category-level wording when live facts are not supplied.
 7. Arrival/departure days must be lighter and close to the hotel/airport corridor when sensible.
-8. Create the whole day from morning through night, including sensible rest/buffer time.
+8. Create the whole day from wake-up through bedtime, including a gentle start, realistic transfer/buffer time, a return-to-stay window and rest. The interface will add the exact time blocks around your plan.
+9. Every morning, afternoon and evening value must be concrete and useful: name a durable Saudi landmark, district, natural area or activity when you are confident, then include the suggested duration or practical next step and explain how it fits one of the chosen interests. If you are not confident of a specific name, use a clear area-level recommendation rather than inventing a venue.
 
 Return ONLY valid JSON exactly shaped like:
 {"summary":"...","days":[{"day":1,"date":"YYYY-MM-DD","title":"...","area":"district/neighborhood for this day","morning":"...","afternoon":"...","evening":"...","routeNote":"short explanation of why these stops are grouped together","note":"..."}]}
