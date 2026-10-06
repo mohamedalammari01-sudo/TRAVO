@@ -4,6 +4,7 @@ const params=new URLSearchParams(location.search);
 const allowedViews=['events','concerts','activities','places'];
 let view=allowedViews.includes(params.get('view'))?params.get('view'):'events';
 let city=params.get('city')||localStorage.getItem('travo-city')||'riyadh';
+let directoryRegion='all';
 
 const $=selector=>document.querySelector(selector);
 const $$=selector=>[...document.querySelectorAll(selector)];
@@ -16,7 +17,8 @@ const dictionary={
     viewConcerts:['LIVE CONCERTS','حفلات الرياض المباشرة','بطاقات من المصدر الرسمي تشمل الصورة والموعد والمكان والسعر الظاهر وقت التحديث. أكّد التوفر والسعر عند فتح الحجز.'],
     viewActivities:['ACTIVITIES','الأنشطة والتجارب','أفكار عملية لتعيش الوجهة، مع مصدر رسمي أو رابط موقع يساعدك في التخطيط.'],
     viewPlaces:['PLACES & LANDMARKS','المواقع والمعالم','أماكن تستحق أن تكون في جدولك؛ استخدم رابط الخريطة لتخطيط المسار.'],
-    source:'المصدر',location:'الموقع',openSource:'فتح المصدر',openMap:'فتح الخريطة',bookNow:'الحجز والتفاصيل',updated:'دليل مراجع: ',emptyTitle:'ما أضفنا محتوى لهذه الوجهة بعد.',emptyText:'اختر وجهة سعودية أخرى أو عُد لاحقًا.',domestic:'دليل السياحة الداخلية',area:'المنطقة',price:'السعر',date:'الموعد',time:'الوقت',duration:'المدة',availability:'التوفر'
+    source:'المصدر',location:'الموقع',openSource:'فتح المصدر',openMap:'فتح الخريطة',bookNow:'الحجز والتفاصيل',updated:'دليل مراجع: ',emptyTitle:'ما أضفنا محتوى لهذه الوجهة بعد.',emptyText:'اختر وجهة سعودية أخرى أو عُد لاحقًا.',domestic:'دليل السياحة الداخلية',area:'المنطقة',price:'السعر',date:'الموعد',time:'الوقت',duration:'المدة',availability:'التوفر',
+    directoryKicker:'دليل وجهات السعودية',directoryTitle:'استكشف السعودية حسب المنطقة',directorySub:'مدن ومحافظات وقرى ومواقع يقصدها الزوار للرحلات القصيرة والطويلة داخل المملكة.',allRegions:'كل المناطق',destinationCount:'{count} وجهة',openGuide:'فتح الدليل'
   },
   en:{
     home:'Home',discover:'Discover',trip:'Plan a trip',ai:'TRAVO Assistant',aiShort:'Assistant',destinations:'Destinations',brand:'Discover Saudi',
@@ -26,7 +28,8 @@ const dictionary={
     viewConcerts:['LIVE CONCERTS','Live concerts in Riyadh','Cards use the official listing image, date, venue and displayed ticket price. Confirm availability and price on the booking page.'],
     viewActivities:['ACTIVITIES','Activities & experiences','Practical ways to experience the destination, with an official source or map link for planning.'],
     viewPlaces:['PLACES & LANDMARKS','Places & landmarks','Places worth adding to your itinerary; use the map link to plan your route.'],
-    source:'Source',location:'Location',openSource:'Open source',openMap:'Open map',bookNow:'Book & details',updated:'Reviewed guide: ',emptyTitle:'We have not added content for this destination yet.',emptyText:'Choose another Saudi destination or return later.',domestic:'Domestic tourism guide',area:'Area',price:'Price',date:'Date',time:'Time',duration:'Duration',availability:'Availability'
+    source:'Source',location:'Location',openSource:'Open source',openMap:'Open map',bookNow:'Book & details',updated:'Reviewed guide: ',emptyTitle:'We have not added content for this destination yet.',emptyText:'Choose another Saudi destination or return later.',domestic:'Domestic tourism guide',area:'Area',price:'Price',date:'Date',time:'Time',duration:'Duration',availability:'Availability',
+    directoryKicker:'SAUDI DESTINATION DIRECTORY',directoryTitle:'Explore Saudi by region',directorySub:'Cities, governorates, villages and landmarks that visitors choose for short and longer trips across Saudi Arabia.',allRegions:'All regions',destinationCount:'{count} destinations',openGuide:'Open guide'
   }
 };
 
@@ -39,8 +42,43 @@ const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;'
 function fillCities(){
   $('#discoverCities').innerHTML=(window.TRAVO_AIRPORTS||[])
     .filter(item=>catalog.cities?.[item.cityKey])
+    .sort((a,b)=>(lang==='ar'?a.cityAr:a.cityEn).localeCompare(lang==='ar'?b.cityAr:b.cityEn,lang==='ar'?'ar':'en'))
     .map(item=>`<option value="${lang==='ar'?item.cityAr:item.cityEn}">${lang==='ar'?item.cityEn:item.cityAr}</option>`)
     .join('');
+}
+
+function directoryDestinations(){
+  return (window.TRAVO_AIRPORTS||[])
+    .filter(item=>catalog.cities?.[item.cityKey]&&item.isSaudiDestination!==false)
+    .sort((a,b)=>(lang==='ar'?a.cityAr:a.cityEn).localeCompare(lang==='ar'?b.cityAr:b.cityEn,lang==='ar'?'ar':'en'));
+}
+
+function renderDestinationDirectory(){
+  const filters=$('#regionFilters'),results=$('#destinationDirectoryResults');
+  if(!filters||!results)return;
+  const all=directoryDestinations();
+  const regions=(window.TRAVO_SAUDI_REGIONS||[]).filter(region=>all.some(item=>item.regionKey===region.key));
+  if(directoryRegion!=='all'&&!regions.some(region=>region.key===directoryRegion))directoryRegion='all';
+  const selected=directoryRegion==='all'?all:all.filter(item=>item.regionKey===directoryRegion);
+  $('#directoryKicker').textContent=t('directoryKicker');
+  $('#directoryTitle').textContent=t('directoryTitle');
+  $('#directorySub').textContent=t('directorySub');
+  $('#destinationCount').textContent=t('destinationCount').replace('{count}',new Intl.NumberFormat(lang==='ar'?'ar-SA':'en').format(all.length));
+  const filterList=[{key:'all',nameAr:t('allRegions'),nameEn:t('allRegions'),icon:'✦'},...regions];
+  filters.innerHTML=filterList.map(region=>{
+    const name=lang==='ar'?(region.nameAr||region.nameEn):(region.nameEn||region.nameAr);
+    const count=region.key==='all'?all.length:all.filter(item=>item.regionKey===region.key).length;
+    return `<button type="button" class="region-filter${directoryRegion===region.key?' active':''}" data-region="${escapeHtml(region.key)}"><span>${escapeHtml(region.icon||'📍')}</span>${escapeHtml(name)} <small>${count}</small></button>`;
+  }).join('');
+  results.innerHTML=selected.map(item=>{
+    const name=lang==='ar'?(item.cityAr||item.cityEn):(item.cityEn||item.cityAr);
+    const region=lang==='ar'?(item.regionAr||item.regionEn):(item.regionEn||item.regionAr);
+    const type=lang==='ar'?(item.typeAr||'وجهة'):(item.typeEn||'Destination');
+    const summary=lang==='ar'?(item.summaryAr||item.highlightsAr):(item.summaryEn||item.highlightsEn);
+    const highlights=lang==='ar'?(item.highlightsAr||''):(item.highlightsEn||'');
+    const href=`discover.html?city=${encodeURIComponent(item.cityKey)}&view=places`;
+    return `<a class="destination-directory-card" href="${href}"><div class="destination-directory-meta"><span>${escapeHtml(region||'السعودية')}</span><b>${escapeHtml(type)}</b></div><h3>${escapeHtml(name)}</h3><p>${escapeHtml(summary||'')}</p>${highlights?`<small>✦ ${escapeHtml(highlights)}</small>`:''}<span class="destination-directory-open">${escapeHtml(t('openGuide'))} ←</span></a>`;
+  }).join('');
 }
 
 function updatedLabel(){
@@ -116,6 +154,7 @@ function updateStaticText(){
   $('#discoverLang').textContent=lang==='ar'?'EN':'عربي';
   fillCities();
   render();
+  renderDestinationDirectory();
 }
 
 function setCity(key){
@@ -124,6 +163,7 @@ function setCity(key){
   localStorage.setItem('travo-city',city);
   const item=destination(city);
   $('#discoverCity').value=item?(lang==='ar'?item.cityAr:item.cityEn):'';
+  const url=new URL(location.href);url.searchParams.set('city',city);url.searchParams.set('view',view);history.replaceState({},'',url);
   window.TRAVO_APPLY_DESTINATION_THEME?.(city,{target:'discover'});
   render();
 }
@@ -131,6 +171,12 @@ function setCity(key){
 $('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';updateStaticText();setCity(city)};
 $('#changeCityBtn').onclick=()=>{const selected=window.TRAVO_FIND_CITY?.($('#discoverCity').value);if(selected&&catalog.cities?.[selected.cityKey])setCity(selected.cityKey)};
 $('#discoverCity').addEventListener('keydown',event=>{if(event.key==='Enter')$('#changeCityBtn').click()});
+$('#regionFilters').onclick=event=>{
+  const button=event.target.closest('[data-region]');
+  if(!button)return;
+  directoryRegion=button.dataset.region||'all';
+  renderDestinationDirectory();
+};
 $$('#categoryGrid button').forEach(button=>button.onclick=()=>{
   view=button.dataset.view;
   const url=new URL(location.href);url.searchParams.set('view',view);history.replaceState({},'',url);
@@ -141,13 +187,13 @@ $$('#categoryGrid button').forEach(button=>button.onclick=()=>{
 fetch('/data/saudi-discovery.json',{cache:'no-store'})
   .then(response=>response.ok?response.json():Promise.reject(new Error('CATALOG_UNAVAILABLE')))
   .then(data=>{
-    catalog=data||{cities:{}};
+    catalog=window.TRAVO_ENSURE_SAUDI_CATALOG?.(data||{cities:{}})||data||{cities:{}};
     const requested=window.TRAVO_FIND_CITY?.(city);
     city=requested&&catalog.cities?.[requested.cityKey]?requested.cityKey:(catalog.cities?.[city]?city:'riyadh');
     updateStaticText();
     setCity(city);
   })
   .catch(()=>{
-    catalog={cities:{}};
+    catalog=window.TRAVO_ENSURE_SAUDI_CATALOG?.({cities:{}})||{cities:{}};
     updateStaticText();
   });

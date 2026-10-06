@@ -71,7 +71,7 @@ Promise.all([
   fetch('/data/saudi-discovery.json',{cache:'no-store'}).then(r=>r.ok?r.json():{cities:{}})
 ]).then(([g,d])=>{
   guideData=g||{cities:{}};
-  discoveryData=d||{cities:{}};
+  discoveryData=window.TRAVO_ENSURE_SAUDI_CATALOG?.(d||{cities:{}})||d||{cities:{}};
   try{const saved=JSON.parse(localStorage.getItem('travo-trip-draft')||'null');if(currentStep===4&&saved?.itinerary&&saved?.payload&&typeof renderItinerary==='function')renderItinerary(saved.itinerary,saved.payload,false)}catch{}
 }).catch(()=>{});
 applyLang();
