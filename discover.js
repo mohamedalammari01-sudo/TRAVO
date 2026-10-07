@@ -69,6 +69,9 @@ function setDestinationVisual(cityKey){
     .catch(()=>{});
 }
 
+/* Start the destination cover before the catalogue request completes. */
+setDestinationVisual(city);
+
 function fillCities(){
   $('#discoverCities').innerHTML=(window.TRAVO_AIRPORTS||[])
     .filter(item=>catalog.cities?.[item.cityKey])
