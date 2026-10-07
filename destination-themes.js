@@ -90,7 +90,7 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
   if(fixed)return fixed;
   const item=destinationFor(cityKey);
   if(!item)return null;
-  const cached=safeStorage.get(`travo:destination-photo:v2:${cityKey}`);
+  const cached=safeStorage.get(`travo:destination-photo:v3:${cityKey}`);
   if(cached?.image)return cached;
   const query=[item.cityEn||item.cityAr,'Saudi Arabia'].filter(Boolean).join(' ');
   const endpoint=new URL('https://commons.wikimedia.org/w/api.php');
@@ -111,7 +111,7 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
       sourceName:'Wikimedia Commons',
       sourceUrl:commonsPageUrl(page.title)
     };
-    safeStorage.set(`travo:destination-photo:v2:${cityKey}`,photo);
+    safeStorage.set(`travo:destination-photo:v3:${cityKey}`,photo);
     return photo;
   }catch{return null}
 };
