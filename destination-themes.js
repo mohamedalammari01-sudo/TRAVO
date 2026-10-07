@@ -138,6 +138,7 @@ Object.assign(window.TRAVO_DESTINATION_MEDIA,{
   taif:{image:'https://book.txsaudi.com/Images2/eXchange/bdfa37d7-6802-402b-be17-5745220c44ca.jpg',sourceName:'مزارع ورد الطائف',sourceAttribution:'Visit Saudi',sourceUrl:'https://www.visitsaudi.com/ar/taif'},
   'al-ahsa':{image:'https://www.visitsaudi.com/content/dam/wvs/stories/qaysariah-souq.jpg',sourceName:'سوق القيصرية',sourceAttribution:'Visit Saudi',sourceUrl:'https://www.visitsaudi.com/ar/see-do/destinations/al-ahsa'},
   diriyah:{image:'https://static.mubasher.info/File.Story_Image/cccd1e29410d4ddeac7f2807e7db25fc/640.jpg',sourceName:'حي الطريف',sourceAttribution:'مباشر',sourceUrl:'https://www.mubasher.info/news/4561352/%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3-%D9%82%D8%B5%D8%A9-%D9%88%D8%B7%D9%86-%D8%A7%D9%86%D8%B7%D9%84%D9%82%D8%AA-%D9%85%D9%84%D8%A7%D9%85%D8%AD%D9%87-%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%89-%D9%85%D9%86-%D8%A7%D9%84%D8%AF%D8%B1%D8%B9%D9%8A%D8%A9-%D9%85%D9%86%D8%B0-3-%D9%82%D8%B1%D9%88%D9%86'},
+  duba:{image:'https://pbs.twimg.com/media/E7AYx_VWUAALB_o.jpg?format=jpg&name=large',sourceName:'كورنيش ضباء',sourceAttribution:'إمارة منطقة تبوك',sourceUrl:'https://x.com/TabukPrincipal/status/1418661137864962053'},
   'al-kharj':{image:'https://kharj.abi-ksa.com/images/services/Al-Kharj-Tower.jpg',sourceName:'برج الخرج',sourceAttribution:'بوابة الخرج السياحية',sourceUrl:'https://kharj.abi-ksa.com/Kharj_tourism.aspx'}
 });
 ['riyadh','jeddah','alula','diriyah','hofuf','qatif','tarout'].forEach(key=>delete window.TRAVO_DESTINATION_MEDIA[key]);
