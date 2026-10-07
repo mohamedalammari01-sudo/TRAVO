@@ -42,6 +42,33 @@ const cityName=(key=city)=>{const item=destination(key);return lang==='ar'?(item
 const mapUrl=query=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
+function setDestinationImageCredit(media){
+  const credit=$('#discoverImageCredit');
+  if(!credit)return;
+  if(!media?.image||!media?.sourceName){
+    credit.hidden=true;
+    credit.removeAttribute('href');
+    credit.textContent='';
+    return;
+  }
+  credit.hidden=false;
+  credit.href=media.sourceUrl||media.image;
+  credit.textContent=`${lang==='ar'?'الصورة':'Photo'}: ${media.sourceName} ↗`;
+}
+
+function setDestinationVisual(cityKey){
+  const initial=window.TRAVO_APPLY_DESTINATION_THEME?.(cityKey,{target:'discover'});
+  setDestinationImageCredit(initial);
+  const expectedCity=cityKey;
+  Promise.resolve(window.TRAVO_GET_DESTINATION_PHOTO?.(cityKey))
+    .then(media=>{
+      if(city!==expectedCity||!media?.image)return;
+      const applied=window.TRAVO_APPLY_DESTINATION_IMAGE?.(cityKey,media,{target:'discover'});
+      setDestinationImageCredit(applied);
+    })
+    .catch(()=>{});
+}
+
 function fillCities(){
   $('#discoverCities').innerHTML=(window.TRAVO_AIRPORTS||[])
     .filter(item=>catalog.cities?.[item.cityKey])
@@ -210,8 +237,8 @@ function setCity(key,{cityPage=true}={}){
   const item=destination(city);
   $('#discoverCity').value=item?(lang==='ar'?item.cityAr:item.cityEn):'';
   updateLocationUrl();
-  window.TRAVO_APPLY_DESTINATION_THEME?.(city,{target:'discover'});
   render();
+  setDestinationVisual(city);
 }
 
 $('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';updateStaticText();setCity(city,{cityPage:cityPageMode})};
