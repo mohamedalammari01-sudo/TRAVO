@@ -5,6 +5,7 @@ const allowedViews=['events','concerts','activities','places','historical'];
 let view=allowedViews.includes(params.get('view'))?params.get('view'):'events';
 let city=params.get('city')||localStorage.getItem('travo-city')||'riyadh';
 let directoryRegion='all';
+let cityPageMode=params.has('city');
 
 const $=selector=>document.querySelector(selector);
 const $$=selector=>[...document.querySelectorAll(selector)];
@@ -13,25 +14,25 @@ const dictionary={
     home:'الرئيسية',discover:'اكتشف',trip:'خطط رحلتك',ai:'مساعد TRAVO',aiShort:'المساعد',destinations:'وجهات',brand:'اكتشف السعودية',
     prompt:'اختر وش تبغى تكتشف.',lead:'فعاليات ومواسم وأنشطة ومواقع وأماكن تاريخية تستحق الزيارة داخل المملكة فقط.',cityPlaceholder:'اختر مدينة أو وجهة سعودية',choose:'اختيار الوجهة',
     question:'وش ودك تشوف في {city}؟',categorySub:'رتّب استكشافك على حسب التجربة التي تهمك.',events:'فعاليات ومواسم',eventsSub:'ماذا تتابع قبل زيارة وجهتك',concerts:'حفلات مباشرة',concertsSub:'موعد ومكان وسعر التذكرة',activities:'أنشطة وتجارب',activitiesSub:'أفكار عملية ليومك',places:'مواقع ومعالم',placesSub:'أماكن طبيعية وتراثية تستحق الزيارة',historical:'أماكن تاريخية',historicalSub:'مواقع موثقة وقصص من تاريخ المملكة',
-    viewEvents:['EVENTS & SEASONS','الفعاليات والمواسم','اقرأ الفكرة بسرعة ثم افتح المصدر الرسمي للتحقق من التفاصيل والحجز.'],
-    viewConcerts:['LIVE CONCERTS','حفلات الرياض المباشرة','بطاقات من المصدر الرسمي تشمل الصورة والموعد والمكان والسعر الظاهر وقت التحديث. أكّد التوفر والسعر عند فتح الحجز.'],
-    viewActivities:['ACTIVITIES','الأنشطة والتجارب','أفكار عملية لتعيش الوجهة، مع مصدر رسمي أو رابط موقع يساعدك في التخطيط.'],
-    viewPlaces:['PLACES & LANDMARKS','المواقع والمعالم','أماكن تستحق أن تكون في جدولك؛ استخدم رابط الخريطة لتخطيط المسار.'],
-    viewHistorical:['HISTORICAL PLACES','الأماكن التاريخية','مواقع تاريخية موثقة مع المصدر والخريطة؛ تحقّق من ساعات الزيارة ومتطلبات الدخول قبل التوجه.'],
-    source:'المصدر',location:'الموقع',openSource:'فتح المصدر',openMap:'فتح الخريطة',bookNow:'الحجز والتفاصيل',updated:'دليل مراجع: ',emptyTitle:'ما أضفنا محتوى لهذه الوجهة بعد.',emptyText:'اختر وجهة سعودية أخرى أو عُد لاحقًا.',domestic:'دليل السياحة الداخلية',area:'المنطقة',price:'السعر',date:'الموعد',time:'الوقت',duration:'المدة',availability:'التوفر',
-    directoryKicker:'دليل وجهات السعودية',directoryTitle:'استكشف السعودية حسب المنطقة',directorySub:'مدن ومحافظات وقرى ومواقع يقصدها الزوار للرحلات القصيرة والطويلة داخل المملكة.',allRegions:'كل المناطق',destinationCount:'{count} وجهة',openGuide:'فتح الدليل'
+    viewEvents:['EVENTS & SEASONS','الفعاليات والمواسم في {city}','اقرأ الفكرة بسرعة ثم افتح المصدر الرسمي للتحقق من التفاصيل والحجز.'],
+    viewConcerts:['LIVE CONCERTS','الحفلات المباشرة في {city}','بطاقات من المصدر الرسمي تخص المدينة المختارة وتشمل الصورة والموعد والمكان والسعر الظاهر وقت التحديث. أكّد التوفر والسعر عند فتح الحجز.'],
+    viewActivities:['ACTIVITIES','الأنشطة والتجارب في {city}','أفكار عملية لتعيش الوجهة، مع مصدر رسمي أو رابط موقع يساعدك في التخطيط.'],
+    viewPlaces:['PLACES & LANDMARKS','المواقع والمعالم في {city}','أماكن تستحق أن تكون في جدولك؛ استخدم رابط الخريطة لتخطيط المسار.'],
+    viewHistorical:['HISTORICAL PLACES','الأماكن التاريخية في {city}','مواقع تاريخية موثقة مع المصدر والخريطة؛ تحقّق من ساعات الزيارة ومتطلبات الدخول قبل التوجه.'],
+    source:'المصدر',location:'الموقع',openSource:'فتح المصدر',openMap:'فتح الخريطة',bookNow:'الحجز والتفاصيل',updated:'دليل مراجع: ',emptyTitle:'ما أضفنا محتوى لهذه الوجهة بعد.',emptyText:'اختر وجهة سعودية أخرى أو عُد لاحقًا.',emptyEventsTitle:'لا توجد فعاليات موثقة في {city} حاليًا.',emptyConcertsTitle:'لا توجد حفلات موثقة في {city} حاليًا.',emptyCityTitle:'لا توجد نتائج موثقة لـ {city} في هذا القسم بعد.',emptyCityText:'نضيف فقط المحتوى المتاح من مصادر تخص المدينة المختارة.',domestic:'دليل السياحة الداخلية',area:'المنطقة',price:'السعر',date:'الموعد',time:'الوقت',duration:'المدة',availability:'التوفر',
+    directoryKicker:'دليل وجهات السعودية',directoryTitle:'استكشف السعودية حسب المنطقة',directorySub:'مدن ومحافظات وقرى ومواقع يقصدها الزوار للرحلات القصيرة والطويلة داخل المملكة.',allRegions:'كل المناطق',destinationCount:'{count} وجهة',openGuide:'فتح الدليل',exploreAnother:'استكشف وجهة أخرى',cityGuideKicker:'دليل الوجهة',cityGuideTitle:'اكتشف {city}',cityGuidePlaces:'معالم ومواقع',cityGuideHistorical:'أماكن تاريخية',cityGuideEvents:'فعاليات ومواسم',cityGuideConcerts:'حفلات موثقة'
   },
   en:{
     home:'Home',discover:'Discover',trip:'Plan a trip',ai:'TRAVO Assistant',aiShort:'Assistant',destinations:'Destinations',brand:'Discover Saudi',
     prompt:'Choose what you want to explore.',lead:'Events, activities, places and historical sites worth visiting—inside Saudi Arabia only.',cityPlaceholder:'Choose a Saudi city or destination',choose:'Choose destination',
     question:'What do you want to explore in {city}?',categorySub:'Organise your discovery by the experience that interests you.',events:'Events & seasons',eventsSub:'What to check before your visit',concerts:'Live concerts',concertsSub:'Ticket price, venue and timing',activities:'Activities & experiences',activitiesSub:'Practical ideas for your day',places:'Places & landmarks',placesSub:'Natural and heritage places worth visiting',historical:'Historical places',historicalSub:'Verified sites and stories from Saudi history',
-    viewEvents:['EVENTS & SEASONS','Events & seasons','Read the idea quickly, then use the official source to confirm details and booking.'],
-    viewConcerts:['LIVE CONCERTS','Live concerts in Riyadh','Cards use the official listing image, date, venue and displayed ticket price. Confirm availability and price on the booking page.'],
-    viewActivities:['ACTIVITIES','Activities & experiences','Practical ways to experience the destination, with an official source or map link for planning.'],
-    viewPlaces:['PLACES & LANDMARKS','Places & landmarks','Places worth adding to your itinerary; use the map link to plan your route.'],
-    viewHistorical:['HISTORICAL PLACES','Historical places','Verified historical sites with a source and map; confirm opening hours and access requirements before visiting.'],
-    source:'Source',location:'Location',openSource:'Open source',openMap:'Open map',bookNow:'Book & details',updated:'Reviewed guide: ',emptyTitle:'We have not added content for this destination yet.',emptyText:'Choose another Saudi destination or return later.',domestic:'Domestic tourism guide',area:'Area',price:'Price',date:'Date',time:'Time',duration:'Duration',availability:'Availability',
-    directoryKicker:'SAUDI DESTINATION DIRECTORY',directoryTitle:'Explore Saudi by region',directorySub:'Cities, governorates, villages and landmarks that visitors choose for short and longer trips across Saudi Arabia.',allRegions:'All regions',destinationCount:'{count} destinations',openGuide:'Open guide'
+    viewEvents:['EVENTS & SEASONS','Events & seasons in {city}','Read the idea quickly, then use the official source to confirm details and booking.'],
+    viewConcerts:['LIVE CONCERTS','Live concerts in {city}','Cards use the official listing for the selected city, including image, date, venue and displayed ticket price. Confirm availability and price on the booking page.'],
+    viewActivities:['ACTIVITIES','Activities & experiences in {city}','Practical ways to experience the destination, with an official source or map link for planning.'],
+    viewPlaces:['PLACES & LANDMARKS','Places & landmarks in {city}','Places worth adding to your itinerary; use the map link to plan your route.'],
+    viewHistorical:['HISTORICAL PLACES','Historical places in {city}','Verified historical sites with a source and map; confirm opening hours and access requirements before visiting.'],
+    source:'Source',location:'Location',openSource:'Open source',openMap:'Open map',bookNow:'Book & details',updated:'Reviewed guide: ',emptyTitle:'We have not added content for this destination yet.',emptyText:'Choose another Saudi destination or return later.',emptyEventsTitle:'No verified events are listed for {city} right now.',emptyConcertsTitle:'No verified concerts are listed for {city} right now.',emptyCityTitle:'No verified results have been added to this section for {city} yet.',emptyCityText:'We only show content available from sources for the selected city.',domestic:'Domestic tourism guide',area:'Area',price:'Price',date:'Date',time:'Time',duration:'Duration',availability:'Availability',
+    directoryKicker:'SAUDI DESTINATION DIRECTORY',directoryTitle:'Explore Saudi by region',directorySub:'Cities, governorates, villages and landmarks that visitors choose for short and longer trips across Saudi Arabia.',allRegions:'All regions',destinationCount:'{count} destinations',openGuide:'Open guide',exploreAnother:'Explore another destination',cityGuideKicker:'CITY GUIDE',cityGuideTitle:'Discover {city}',cityGuidePlaces:'places & landmarks',cityGuideHistorical:'historical places',cityGuideEvents:'events & seasons',cityGuideConcerts:'verified concerts'
   }
 };
 
@@ -89,11 +90,48 @@ function updatedLabel(){
 }
 
 function viewCopy(){
-  if(view==='concerts')return dictionary[lang].viewConcerts;
-  if(view==='activities')return dictionary[lang].viewActivities;
-  if(view==='places')return dictionary[lang].viewPlaces;
-  if(view==='historical')return dictionary[lang].viewHistorical;
-  return dictionary[lang].viewEvents;
+  const copy=view==='concerts'?dictionary[lang].viewConcerts:view==='activities'?dictionary[lang].viewActivities:view==='places'?dictionary[lang].viewPlaces:view==='historical'?dictionary[lang].viewHistorical:dictionary[lang].viewEvents;
+  return copy.map(value=>String(value).replaceAll('{city}',cityName()));
+}
+
+function cityItems(contentView=view){
+  const items=catalog.cities?.[city]?.[contentView]||[];
+  return items.filter(item=>!item.cityKey||item.cityKey===city);
+}
+
+function emptyCopy(){
+  const titleKey=view==='events'?'emptyEventsTitle':view==='concerts'?'emptyConcertsTitle':'emptyCityTitle';
+  return [t(titleKey).replace('{city}',cityName()),view==='events'||view==='concerts'?t('emptyCityText'):t('emptyText')];
+}
+
+function renderCityFocus(){
+  const item=destination(city);
+  if(!item)return;
+  const summary=lang==='ar'?(item.summaryAr||item.highlightsAr):(item.summaryEn||item.highlightsEn);
+  const highlights=String(lang==='ar'?(item.highlightsAr||''):(item.highlightsEn||'')).split(lang==='ar'?'،':',').map(value=>value.trim()).filter(Boolean);
+  const stats=[
+    [cityItems('places').length,t('cityGuidePlaces')],
+    [cityItems('historical').length,t('cityGuideHistorical')],
+    [cityItems('events').length,t('cityGuideEvents')],
+    [cityItems('concerts').length,t('cityGuideConcerts')]
+  ].filter(([count])=>count);
+  $('#cityFocusKicker').textContent=t('cityGuideKicker');
+  $('#cityFocusTitle').textContent=t('cityGuideTitle').replace('{city}',cityName());
+  $('#cityFocusSummary').textContent=summary||'';
+  $('#cityFocusHighlights').innerHTML=[...highlights.map(value=>`<span class="city-focus-chip">${escapeHtml(value)}</span>`),...stats.map(([count,label])=>`<span class="city-focus-stat">${escapeHtml(String(count))} ${escapeHtml(label)}</span>`)].join('');
+}
+
+function syncCityPageMode(){
+  $('#destinationDirectory').classList.toggle('hidden',cityPageMode);
+  $('#cityFocus').classList.toggle('hidden',!cityPageMode);
+  $('#showDirectoryBtn').classList.toggle('hidden',!cityPageMode);
+}
+
+function updateLocationUrl(){
+  const url=new URL(location.href);
+  if(cityPageMode)url.searchParams.set('city',city);else url.searchParams.delete('city');
+  url.searchParams.set('view',view);
+  history.replaceState({},'',url);
 }
 
 function itemIcon(){return view==='events'?'🎟':view==='concerts'?'🎶':view==='activities'?'⚡':view==='historical'?'🏛️':'📍'}
@@ -141,11 +179,15 @@ function render(){
   $('#viewKicker').textContent=kicker;
   $('#viewTitle').textContent=title;
   $('#viewDescription').textContent=description;
-  const items=catalog.cities?.[city]?.[view]||[];
+  const items=cityItems();
   $('#discoverResults').innerHTML=items.map(guideCard).join('');
   $('#emptyState').classList.toggle('hidden',Boolean(items.length));
-  $('#emptyTitle').textContent=t('emptyTitle');
-  $('#emptyText').textContent=t('emptyText');
+  const [emptyTitle,emptyText]=emptyCopy();
+  $('#emptyTitle').textContent=emptyTitle;
+  $('#emptyText').textContent=emptyText;
+  $('#showDirectoryBtn').textContent=t('exploreAnother');
+  renderCityFocus();
+  syncCityPageMode();
   setActiveCategory();
 }
 
@@ -160,20 +202,22 @@ function updateStaticText(){
   renderDestinationDirectory();
 }
 
-function setCity(key){
+function setCity(key,{cityPage=true}={}){
   const selected=destination(key);
   city=selected&&catalog.cities?.[selected.cityKey]?selected.cityKey:'riyadh';
+  cityPageMode=cityPage;
   localStorage.setItem('travo-city',city);
   const item=destination(city);
   $('#discoverCity').value=item?(lang==='ar'?item.cityAr:item.cityEn):'';
-  const url=new URL(location.href);url.searchParams.set('city',city);url.searchParams.set('view',view);history.replaceState({},'',url);
+  updateLocationUrl();
   window.TRAVO_APPLY_DESTINATION_THEME?.(city,{target:'discover'});
   render();
 }
 
-$('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';updateStaticText();setCity(city)};
+$('#discoverLang').onclick=()=>{lang=lang==='ar'?'en':'ar';updateStaticText();setCity(city,{cityPage:cityPageMode})};
 $('#changeCityBtn').onclick=()=>{const selected=window.TRAVO_FIND_CITY?.($('#discoverCity').value);if(selected&&catalog.cities?.[selected.cityKey])setCity(selected.cityKey)};
 $('#discoverCity').addEventListener('keydown',event=>{if(event.key==='Enter')$('#changeCityBtn').click()});
+$('#showDirectoryBtn').onclick=()=>{cityPageMode=false;updateLocationUrl();render();$('#destinationDirectory').scrollIntoView({behavior:'smooth',block:'start'})};
 $('#regionFilters').onclick=event=>{
   const button=event.target.closest('[data-region]');
   if(!button)return;
@@ -182,7 +226,7 @@ $('#regionFilters').onclick=event=>{
 };
 $$('#categoryGrid button').forEach(button=>button.onclick=()=>{
   view=button.dataset.view;
-  const url=new URL(location.href);url.searchParams.set('view',view);history.replaceState({},'',url);
+  updateLocationUrl();
   render();
   $('#discoverResults').scrollIntoView({behavior:'smooth',block:'start'});
 });
@@ -194,7 +238,7 @@ fetch('/data/saudi-discovery.json',{cache:'no-store'})
     const requested=window.TRAVO_FIND_CITY?.(city);
     city=requested&&catalog.cities?.[requested.cityKey]?requested.cityKey:(catalog.cities?.[city]?city:'riyadh');
     updateStaticText();
-    setCity(city);
+    setCity(city,{cityPage:cityPageMode});
   })
   .catch(()=>{
     catalog=window.TRAVO_ENSURE_SAUDI_CATALOG?.({cities:{}})||{cities:{}};
