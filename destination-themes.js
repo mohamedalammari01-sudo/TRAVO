@@ -175,7 +175,32 @@ window.TRAVO_REGION_THEMES={
 
 const mediaFor=cityKey=>window.TRAVO_DESTINATION_MEDIA?.[cityKey]||null;
 const cssImage=media=>media?.image?`url('${String(media.image).replaceAll("'","%27")}')`:null;
-const safeStorage={get(key){try{return JSON.parse(sessionStorage.getItem(key)||'null')}catch{return null}},set(key,value){try{sessionStorage.setItem(key,JSON.stringify(value))}catch{}}};
+const safeStorage={
+  get(key){
+    let raw=null;
+    try{raw=localStorage.getItem(key)}catch{}
+    if(!raw)try{raw=sessionStorage.getItem(key)}catch{}
+    try{return JSON.parse(raw||'null')}catch{return null}
+  },
+  set(key,value){
+    try{localStorage.setItem(key,JSON.stringify(value))}catch{}
+    try{sessionStorage.setItem(key,JSON.stringify(value))}catch{}
+  }
+};
+const destinationPhotoJobs=new Map();
+const destinationImageWarmers=new Map();
+const destinationPhotoCacheKey=(cityKey,version='v5')=>`travo:destination-photo:${version}:${cityKey}`;
+function warmImage(url){
+  if(!url||typeof Image==='undefined'||destinationImageWarmers.has(url))return;
+  const image=new Image();
+  image.decoding='async';
+  image.fetchPriority='high';
+  const release=()=>destinationImageWarmers.delete(url);
+  image.onload=release;
+  image.onerror=release;
+  destinationImageWarmers.set(url,image);
+  image.src=url;
+}
 const compact=value=>String(value||'').toLocaleLowerCase().replace(/[\s\-_'’`،,.()]/g,'').replace(/[اأإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
 const firstHighlight=(item,lang)=>String(lang==='ar'?item?.highlightsAr:item?.highlightsEn||'').split(lang==='ar'?'،':',')[0]?.trim();
 
@@ -227,31 +252,42 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
   if(fixed)return fixed;
   const item=destinationFor(cityKey);
   if(!item)return null;
-  const cached=safeStorage.get(`travo:destination-photo:v4:${cityKey}`);
-  if(cached?.image)return cached;
+  const cacheKey=destinationPhotoCacheKey(cityKey);
+  const cached=safeStorage.get(cacheKey)||safeStorage.get(destinationPhotoCacheKey(cityKey,'v4'));
+  if(cached?.image){
+    safeStorage.set(cacheKey,cached);
+    warmImage(cached.image);
+    return cached;
+  }
+  if(destinationPhotoJobs.has(cityKey))return destinationPhotoJobs.get(cityKey);
   const query=photoQuery(item);
   const endpoint=new URL('https://commons.wikimedia.org/w/api.php');
   endpoint.search=new URLSearchParams({
     action:'query',format:'json',formatversion:'2',generator:'search',gsrsearch:query,
-    gsrnamespace:'6',gsrlimit:'12',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'1800',origin:'*'
+    gsrnamespace:'6',gsrlimit:'8',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'1280',origin:'*'
   }).toString();
-  try{
-    const response=await fetch(endpoint,{headers:{Accept:'application/json'}});
-    if(!response.ok)return null;
-    const pages=(await response.json())?.query?.pages||[];
-    const page=pages
-      .filter(candidate=>candidate?.imageinfo?.[0]?.thumburl&&isDestinationFile(candidate,item))
-      .sort((a,b)=>destinationPhotoScore(b,item)-destinationPhotoScore(a,item))[0];
-    if(!page)return null;
-    const photo={
-      image:page.imageinfo[0].thumburl,
-      sourceName:landmarkFor(item)?.ar||item.cityAr||item.cityEn,
-      sourceAttribution:'Wikimedia Commons',
-      sourceUrl:commonsPageUrl(page.title)
-    };
-    safeStorage.set(`travo:destination-photo:v4:${cityKey}`,photo);
-    return photo;
-  }catch{return null}
+  const job=(async()=>{
+    try{
+      const response=await fetch(endpoint,{headers:{Accept:'application/json'}});
+      if(!response.ok)return null;
+      const pages=(await response.json())?.query?.pages||[];
+      const page=pages
+        .filter(candidate=>candidate?.imageinfo?.[0]?.thumburl&&isDestinationFile(candidate,item))
+        .sort((a,b)=>destinationPhotoScore(b,item)-destinationPhotoScore(a,item))[0];
+      if(!page)return null;
+      const photo={
+        image:page.imageinfo[0].thumburl,
+        sourceName:landmarkFor(item)?.ar||item.cityAr||item.cityEn,
+        sourceAttribution:'Wikimedia Commons',
+        sourceUrl:commonsPageUrl(page.title)
+      };
+      safeStorage.set(cacheKey,photo);
+      warmImage(photo.image);
+      return photo;
+    }catch{return null}
+  })();
+  destinationPhotoJobs.set(cityKey,job);
+  try{return await job}finally{destinationPhotoJobs.delete(cityKey)}
 };
 
 window.TRAVO_APPLY_DESTINATION_IMAGE=function(cityKey,media,opts={}){
@@ -261,7 +297,10 @@ window.TRAVO_APPLY_DESTINATION_IMAGE=function(cityKey,media,opts={}){
   const theme=direct||(regional?{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',...regional}:null);
   if(!theme)return null;
   const root=document.documentElement;
-  const visual=cssImage(media)||`linear-gradient(135deg,${theme.c1},${theme.c2})`;
+  const fallback=`linear-gradient(135deg,${theme.c1},${theme.c2})`;
+  const image=cssImage(media);
+  if(media?.image)warmImage(media.image);
+  const visual=image?`${image},${fallback}`:fallback;
   if(opts.target==='discover')root.style.setProperty('--discover-image',visual);
   else root.style.setProperty('--trip-hero',visual);
   return {...theme,...(media||{})};
