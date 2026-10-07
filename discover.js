@@ -53,7 +53,7 @@ function setDestinationImageCredit(media){
   }
   credit.hidden=false;
   credit.href=media.sourceUrl||media.image;
-  credit.textContent=`${lang==='ar'?'الصورة':'Photo'}: ${media.sourceName} ↗`;
+  credit.textContent=`${lang==='ar'?'معلم الغلاف':'Cover landmark'}: ${media.sourceName}${media.sourceAttribution?` · ${media.sourceAttribution}`:''} ↗`;
 }
 
 function setDestinationVisual(cityKey){
