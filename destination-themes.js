@@ -68,6 +68,13 @@ function isDestinationFile(page,item){
   const label=compact(`${page.title||''} ${page.imageinfo?.[0]?.extmetadata?.ImageDescription?.value||''}`);
   return photoSearchTerms(item).some(term=>label.includes(term));
 }
+function destinationPhotoScore(page,item){
+  const title=String(page.title||'');
+  let score=photoSearchTerms(item).filter(term=>compact(title).includes(term)).length*25;
+  if(/hotel|resort|logo|flag|map|airport|school|stadium|mall/i.test(title))score-=80;
+  if(/mountain|road|sunset|view|valley|beach|island|oasis|castle|heritage|old town|village|desert|cave|waterfall|coast|forest|rock/i.test(title))score+=35;
+  return score;
+}
 function commonsPageUrl(title){
   return `https://commons.wikimedia.org/wiki/${encodeURIComponent(String(title||'').replaceAll(' ','_'))}`;
 }
@@ -83,7 +90,7 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
   if(fixed)return fixed;
   const item=destinationFor(cityKey);
   if(!item)return null;
-  const cached=safeStorage.get(`travo:destination-photo:${cityKey}`);
+  const cached=safeStorage.get(`travo:destination-photo:v2:${cityKey}`);
   if(cached?.image)return cached;
   const query=[item.cityEn||item.cityAr,'Saudi Arabia'].filter(Boolean).join(' ');
   const endpoint=new URL('https://commons.wikimedia.org/w/api.php');
@@ -95,14 +102,16 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
     const response=await fetch(endpoint,{headers:{Accept:'application/json'}});
     if(!response.ok)return null;
     const pages=(await response.json())?.query?.pages||[];
-    const page=pages.find(candidate=>candidate?.imageinfo?.[0]?.thumburl&&isDestinationFile(candidate,item));
+    const page=pages
+      .filter(candidate=>candidate?.imageinfo?.[0]?.thumburl&&isDestinationFile(candidate,item))
+      .sort((a,b)=>destinationPhotoScore(b,item)-destinationPhotoScore(a,item))[0];
     if(!page)return null;
     const photo={
       image:page.imageinfo[0].thumburl,
       sourceName:'Wikimedia Commons',
       sourceUrl:commonsPageUrl(page.title)
     };
-    safeStorage.set(`travo:destination-photo:${cityKey}`,photo);
+    safeStorage.set(`travo:destination-photo:v2:${cityKey}`,photo);
     return photo;
   }catch{return null}
 };
