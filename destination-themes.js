@@ -5,6 +5,118 @@ window.TRAVO_SAUDI_GALLERY=[
   {key:'saudi-nature',labelAr:'طبيعة السعودية',labelEn:'Saudi nature',image:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1800&q=88',sourceName:'Unsplash',sourceUrl:'https://unsplash.com/'}
 ];
 
+/* The hero for each destination is searched by its most recognisable landmark. */
+window.TRAVO_DESTINATION_LANDMARKS={
+  riyadh:{ar:'برج المملكة',en:'Kingdom Centre',query:'Kingdom Centre Riyadh Saudi Arabia'},
+  jeddah:{ar:'جدة التاريخية (البلد)',en:'Historic Jeddah Al Balad',query:'Historic Jeddah Al Balad Saudi Arabia'},
+  alula:{ar:'الحِجر',en:'Hegra AlUla',query:'Hegra AlUla Saudi Arabia'},
+  taif:{ar:'مزارع ورد الطائف',en:'Taif Rose Farms',query:'Taif Rose Farms Saudi Arabia'},
+  abha:{ar:'السودة',en:'Al Soudah',query:'Al Soudah Abha Saudi Arabia'},
+  khobar:{ar:'كورنيش الخبر',en:'Khobar Corniche',query:'Khobar Corniche Saudi Arabia'},
+  dammam:{ar:'جزيرة المرجان',en:'Marjan Island Dammam',query:'Marjan Island Dammam Saudi Arabia'},
+  diriyah:{ar:'حي الطريف',en:'At-Turaif District',query:'At-Turaif Diriyah Saudi Arabia'},
+  hail:{ar:'قلعة أعيرف',en:'Aarif Fort',query:'Aarif Fort Hail Saudi Arabia'},
+  tabuk:{ar:'قلعة تبوك',en:'Tabuk Castle',query:'Tabuk Castle Saudi Arabia'},
+  umluj:{ar:'شواطئ أملج',en:'Umluj Beaches',query:'Umluj Beaches Saudi Arabia'},
+  'al-kharj':{ar:'برج الخرج',en:'Al Kharj Tower',query:'Al Kharj Water Tower Saudi Arabia',terms:['Al-Kharj Tower','Al Kharj Water Tower']},
+  'al-majmaah':{ar:'حوطة سدير التراثية',en:'Hawtat Sudair Heritage',query:'Hawtat Sudair Al Majmaah Saudi Arabia'},
+  'al-ghat':{ar:'بلدة الغاط التراثية',en:'Al Ghat Heritage Village',query:'Al Ghat Heritage Village Saudi Arabia'},
+  ushaiqer:{ar:'قرية أشيقر التراثية',en:'Ushaiger Heritage Village',query:'Ushaiger Heritage Village Saudi Arabia'},
+  shaqra:{ar:'بلدة شقراء القديمة',en:'Shaqra Old Town',query:'Shaqra Old Town Saudi Arabia'},
+  thadiq:{ar:'نخيل ثادق',en:'Thadiq Palm Farms',query:'Thadiq Palm Farms Saudi Arabia'},
+  'al-zulfi':{ar:'نفود الثويرات',en:'Thuwayrat Dunes',query:'Thuwayrat Dunes Al Zulfi Saudi Arabia'},
+  huraymila:{ar:'وادي حنيفة',en:'Wadi Hanifah Huraymila',query:'Wadi Hanifah Huraymila Saudi Arabia'},
+  'edge-of-the-world':{ar:'جبل فهرين',en:'Jebel Fihrayn',query:'Jebel Fihrayn Edge of the World Saudi Arabia'},
+  'al-faw':{ar:'مدينة الفاو القديمة',en:'Qaryat Al Faw',query:'Qaryat Al Faw Saudi Arabia'},
+  'rawdat-khuraim':{ar:'روضة خريم',en:'Rawdat Khuraim',query:'Rawdat Khuraim Saudi Arabia'},
+  makkah:{ar:'المسجد الحرام',en:'Masjid al-Haram',query:'Masjid al-Haram Makkah Saudi Arabia'},
+  'al-hada':{ar:'طريق الهدا',en:'Al Hada Mountain Road',query:'Al Hada Mountain Road Taif Saudi Arabia'},
+  'al-shafa':{ar:'جبال الشفا',en:'Al Shafa Mountains',query:'Al Shafa Mountains Taif Saudi Arabia'},
+  'al-lith':{ar:'شواطئ الليث',en:'Al Lith Beaches',query:'Al Lith Beaches Saudi Arabia'},
+  rabigh:{ar:'شاطئ رابغ',en:'Rabigh Beach',query:'Rabigh Beach Saudi Arabia'},
+  kaec:{ar:'مرسى البيلسان',en:'Bay La Sun Marina',query:'Bay La Sun Marina KAEC Saudi Arabia'},
+  'al-qunfudhah':{ar:'شاطئ القنفذة',en:'Al Qunfudhah Beach',query:'Al Qunfudhah Beach Saudi Arabia'},
+  turbah:{ar:'وادي تربة',en:'Turbah Valley',query:'Turbah Saudi Arabia valley'},
+  madinah:{ar:'المسجد النبوي',en:'Prophet Mosque Madinah',query:'Prophet Mosque Madinah Saudi Arabia'},
+  yanbu:{ar:'ينبع البحر',en:'Yanbu Al Bahr',query:'Yanbu Al Bahr Saudi Arabia'},
+  khaybar:{ar:'حصون خيبر',en:'Khaybar Fort',query:'Khaybar Fort Saudi Arabia'},
+  badr:{ar:'موقع بدر التاريخي',en:'Historic Badr',query:'Historic Badr Madinah Saudi Arabia'},
+  'wadi-al-faraa':{ar:'وادي الفرع',en:'Wadi Al Faraa Farms',query:'Wadi Al Faraa Madinah Saudi Arabia'},
+  dhahran:{ar:'مركز إثراء',en:'Ithra Dhahran',query:'Ithra Dhahran Saudi Arabia'},
+  'al-ahsa':{ar:'سوق القيصرية',en:'Al Qaisariya Souq',query:'Al Qaisariya Souq Al Ahsa Saudi Arabia'},
+  hofuf:{ar:'قصر إبراهيم',en:'Ibrahim Palace Hofuf',query:'Ibrahim Palace Al Hofuf Saudi Arabia'},
+  qatif:{ar:'قلعة تاروت',en:'Tarout Castle',query:'Tarout Castle Qatif Saudi Arabia'},
+  tarout:{ar:'قلعة تاروت',en:'Tarout Castle',query:'Tarout Castle Saudi Arabia'},
+  jubail:{ar:'كورنيش الفناتير',en:'Fanateer Corniche',query:'Fanateer Corniche Jubail Saudi Arabia'},
+  'ras-tanura':{ar:'كورنيش رأس تنورة',en:'Ras Tanura Corniche',query:'Ras Tanura Corniche Saudi Arabia'},
+  'al-uqair':{ar:'ميناء العقير',en:'Al Uqair Port',query:'Al Uqair Port Saudi Arabia'},
+  salwa:{ar:'شاطئ سلوى',en:'Salwa Beach',query:'Salwa Beach Saudi Arabia'},
+  arar:{ar:'وادي عرعر',en:'Wadi Arar',query:'Wadi Arar Saudi Arabia'},
+  rafha:{ar:'نفود رفحاء',en:'Rafha Dunes',query:'Rafha Dunes Saudi Arabia'},
+  turayf:{ar:'سهول طريف',en:'Turaif Plains',query:'Turaif Northern Borders Saudi Arabia'},
+  'al-uwayqilah':{ar:'نفود العويقيلة',en:'Al Uwayqilah Dunes',query:'Al Uwayqilah Saudi Arabia dunes'},
+  sakaka:{ar:'قلعة زعبل',en:'Zaabal Castle',query:'Zaabal Castle Sakaka Saudi Arabia'},
+  'dumat-al-jandal':{ar:'قلعة مارد',en:'Marid Castle',query:'Marid Castle Dumat Al Jandal Saudi Arabia'},
+  qurayyat:{ar:'مزارع زيتون القريات',en:'Al Qurayyat Olive Groves',query:'Al Qurayyat Olive Saudi Arabia'},
+  tabarjal:{ar:'مزارع طبرجل',en:'Tabarjal Farms',query:'Tabarjal Farms Saudi Arabia'},
+  rajajil:{ar:'أعمدة الرجاجيل',en:'Rajajil Columns',query:'Rajajil Columns Sakaka Saudi Arabia'},
+  najran:{ar:'موقع الأخدود',en:'Al Ukhdood',query:'Al Ukhdood Najran Saudi Arabia'},
+  habuna:{ar:'أودية حبونا',en:'Habuna Valleys',query:'Habuna Najran Saudi Arabia'},
+  'badr-al-janoub':{ar:'مرتفعات بدر الجنوب',en:'Badr Al Janoub Highlands',query:'Badr Al Janoub Saudi Arabia'},
+  sharurah:{ar:'كثبان شرورة',en:'Sharurah Dunes',query:'Sharurah Dunes Saudi Arabia'},
+  yadamah:{ar:'صحراء يدمة',en:'Yadamah Desert',query:'Yadamah Najran Saudi Arabia'},
+  thar:{ar:'كثبان ثار',en:'Thar Dunes Najran',query:'Thar Najran Saudi Arabia dunes'},
+  duba:{ar:'كورنيش ضباء',en:'Duba Corniche',query:'Duba Corniche Saudi Arabia'},
+  haql:{ar:'حطام سفينة حقل',en:'Haql Shipwreck',query:'Haql Shipwreck Saudi Arabia'},
+  'al-wajh':{ar:'البلدة القديمة بالوجه',en:'Al Wajh Old Town',query:'Al Wajh Old Town Saudi Arabia'},
+  sharma:{ar:'شاطئ شرما',en:'Sharma Beach',query:'Sharma Beach Tabuk Saudi Arabia'},
+  tayma:{ar:'بئر هداج',en:'Haddaj Well',query:'Haddaj Well Tayma Saudi Arabia'},
+  'al-bad':{ar:'مدائن شعيب',en:'Madain Shuaib',query:'Madain Shuaib Al Bad Saudi Arabia'},
+  'wadi-al-disah':{ar:'وادي الديسة',en:'Wadi Al Disah',query:'Wadi Al Disah Saudi Arabia'},
+  magna:{ar:'شاطئ مقنا',en:'Magna Beach',query:'Magna Beach Tabuk Saudi Arabia'},
+  jubbah:{ar:'نقوش جبة الصخرية',en:'Jubbah Rock Art',query:'Jubbah Rock Art Saudi Arabia'},
+  shuwaymis:{ar:'نقوش الشويمس الصخرية',en:'Shuwaymis Rock Art',query:'Shuwaymis Rock Art Saudi Arabia'},
+  fayd:{ar:'درب زبيدة',en:'Zubaydah Trail Fayd',query:'Fayd Zubaydah Trail Saudi Arabia'},
+  baqaa:{ar:'نفود بقعاء',en:'Baqaa Dunes',query:'Baqaa Hail Saudi Arabia dunes'},
+  'ajja-salma':{ar:'جبال أجا وسلمى',en:'Aja and Salma Mountains',query:'Aja Salma Mountains Hail Saudi Arabia'},
+  buraydah:{ar:'سوق تمور بريدة',en:'Buraydah Date Market',query:'Buraydah Date Market Saudi Arabia'},
+  unaizah:{ar:'بيت البسام',en:'Al Bassam Heritage House',query:'Al Bassam House Unaizah Saudi Arabia'},
+  'al-rass':{ar:'بلدة الرس التراثية',en:'Al Rass Heritage',query:'Al Rass Qassim Saudi Arabia'},
+  'al-bukayriyah':{ar:'سوق تمور البكيرية',en:'Al Bukayriyah Date Market',query:'Al Bukayriyah Saudi Arabia date market'},
+  'al-mithnab':{ar:'نخيل المذنب',en:'Al Mithnab Palm Groves',query:'Al Mithnab Saudi Arabia palms'},
+  'uyun-al-jiwa':{ar:'آبار عيون الجواء',en:'Uyun Al Jiwa Wells',query:'Uyun Al Jiwa Saudi Arabia wells'},
+  'al-badayea':{ar:'مزارع البدائع',en:'Al Badayea Farms',query:'Al Badayea Saudi Arabia farms'},
+  'al-shimasiyah':{ar:'مزارع الشماسية',en:'Al Shimasiyah Farms',query:'Al Shimasiyah Saudi Arabia farms'},
+  'khamis-mushait':{ar:'جادة خميس مشيط',en:'Khamis Mushait Boulevard',query:'Khamis Mushait Boulevard Saudi Arabia'},
+  'rijal-almaa':{ar:'قرية رجال ألمع',en:'Rijal Almaa Heritage Village',query:'Rijal Almaa Heritage Village Saudi Arabia'},
+  'al-soudah':{ar:'غابات السودة',en:'Al Soudah Park',query:'Al Soudah Park Saudi Arabia'},
+  'al-namas':{ar:'غابات النماص',en:'Al Namas Forest',query:'Al Namas Forest Saudi Arabia'},
+  tanomah:{ar:'غابات تنومة',en:'Tanomah Forest',query:'Tanomah Forest Saudi Arabia'},
+  balqarn:{ar:'مرتفعات بلقرن',en:'Balqarn Highlands',query:'Balqarn Saudi Arabia highlands'},
+  'muhayil-asir':{ar:'السوق الشعبي بمحايل عسير',en:'Muhayil Asir Heritage Market',query:'Muhayil Asir Saudi Arabia market'},
+  'al-habala':{ar:'القرية المعلقة',en:'Al Habala Hanging Village',query:'Al Habala Hanging Village Saudi Arabia'},
+  bishah:{ar:'واحة بيشة',en:'Bisha Palm Oasis',query:'Bisha Palm Oasis Saudi Arabia'},
+  'ahad-rafidah':{ar:'وادي أحد رفيدة',en:'Ahad Rafidah Valley',query:'Ahad Rafidah Saudi Arabia valley'},
+  'sarat-abidah':{ar:'مرتفعات سراة عبيدة',en:'Sarat Abidah Highlands',query:'Sarat Abidah Saudi Arabia'},
+  'al-baha':{ar:'غابة رغدان',en:'Raghadan Forest',query:'Raghadan Forest Al Baha Saudi Arabia'},
+  baljurashi:{ar:'سوق السبت ببلجرشي',en:'Baljurashi Saturday Market',query:'Baljurashi Saudi Arabia market'},
+  'al-mandaq':{ar:'غابة الخيرة',en:'Al Khayrah Forest',query:'Al Khayrah Forest Al Mandaq Saudi Arabia'},
+  'dhi-ain':{ar:'قرية ذي عين التراثية',en:'Dhee Ain Heritage Village',query:'Dhee Ain Heritage Village Saudi Arabia'},
+  'al-mikhwah':{ar:'قرية ذي عين',en:'Dhee Ain Village',query:'Dhee Ain Al Mikhwah Saudi Arabia'},
+  'shada-al-asfal':{ar:'جبل شدا',en:'Jabal Shada',query:'Jabal Shada Al Baha Saudi Arabia'},
+  'al-qura':{ar:'غابات القرى',en:'Al Qura Forest',query:'Al Qura Al Baha Saudi Arabia forest'},
+  raghdan:{ar:'غابة رغدان',en:'Raghadan Forest',query:'Raghadan Forest Saudi Arabia'},
+  jazan:{ar:'واجهة جازان البحرية',en:'Jazan Waterfront',query:'Jazan Waterfront Saudi Arabia'},
+  farasan:{ar:'جزر فرسان',en:'Farasan Islands',query:'Farasan Islands Saudi Arabia'},
+  fayfa:{ar:'مدرجات فيفاء الزراعية',en:'Fayfa Terraces',query:'Fayfa Terraces Saudi Arabia'},
+  'al-dayir':{ar:'مزارع بن الدائر',en:'Al Dayer Coffee Farms',query:'Al Dayer Coffee Farms Saudi Arabia'},
+  sabya:{ar:'وادي صبيا',en:'Sabya Valley',query:'Sabya Jazan Saudi Arabia'},
+  'abu-arish':{ar:'سوق أبو عريش الشعبي',en:'Abu Arish Heritage Market',query:'Abu Arish Saudi Arabia market'},
+  'al-aridah':{ar:'وادي العارضة',en:'Al Aridah Valley',query:'Al Aridah Jazan Saudi Arabia valley'},
+  samtah:{ar:'سوق صامطة',en:'Samtah Market',query:'Samtah Jazan Saudi Arabia market'},
+  'al-harth':{ar:'وادي لجب',en:'Wadi Lajab',query:'Wadi Lajab Jazan Saudi Arabia'}
+};
+
 /*
   Every image in this list is tied to the named destination. Do not put a
   regional image here: an unknown destination should use its own colour cover
@@ -21,6 +133,14 @@ window.TRAVO_DESTINATION_MEDIA={
   qatif:{image:'https://www.alriyadh.com/media/article/2024/04/03/img/6635360468.jpg',sourceName:'القطيف',sourceUrl:'https://www.alriyadh.com/2068594'},
   tarout:{image:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/d6/98/b6/overview-of-market-and.jpg?h=1400&s=1&w=1400',sourceName:'قلعة تاروت',sourceUrl:'https://www.tripadvisor.com/Attraction_Review-g14980406-d10538936-Reviews-Tarout_Castle-Al_Qatif_Eastern_Province.html'}
 };
+
+Object.assign(window.TRAVO_DESTINATION_MEDIA,{
+  taif:{image:'https://book.txsaudi.com/Images2/eXchange/bdfa37d7-6802-402b-be17-5745220c44ca.jpg',sourceName:'مزارع ورد الطائف',sourceAttribution:'Visit Saudi',sourceUrl:'https://www.visitsaudi.com/ar/taif'},
+  'al-ahsa':{image:'https://www.visitsaudi.com/content/dam/wvs/stories/qaysariah-souq.jpg',sourceName:'سوق القيصرية',sourceAttribution:'Visit Saudi',sourceUrl:'https://www.visitsaudi.com/ar/see-do/destinations/al-ahsa'},
+  diriyah:{image:'https://static.mubasher.info/File.Story_Image/cccd1e29410d4ddeac7f2807e7db25fc/640.jpg',sourceName:'حي الطريف',sourceAttribution:'مباشر',sourceUrl:'https://www.mubasher.info/news/4561352/%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3-%D9%82%D8%B5%D8%A9-%D9%88%D8%B7%D9%86-%D8%A7%D9%86%D8%B7%D9%84%D9%82%D8%AA-%D9%85%D9%84%D8%A7%D9%85%D8%AD%D9%87-%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%89-%D9%85%D9%86-%D8%A7%D9%84%D8%AF%D8%B1%D8%B9%D9%8A%D8%A9-%D9%85%D9%86%D8%B0-3-%D9%82%D8%B1%D9%88%D9%86'},
+  'al-kharj':{image:'https://kharj.abi-ksa.com/images/services/Al-Kharj-Tower.jpg',sourceName:'برج الخرج',sourceAttribution:'بوابة الخرج السياحية',sourceUrl:'https://kharj.abi-ksa.com/Kharj_tourism.aspx'}
+});
+['riyadh','jeddah','alula','diriyah','hofuf','qatif','tarout'].forEach(key=>delete window.TRAVO_DESTINATION_MEDIA[key]);
 
 window.TRAVO_DESTINATION_THEMES={
   riyadh:{countryAr:'السعودية',countryEn:'Saudi Arabia',flag:'🇸🇦',c1:'#8b5cf6',c2:'#c4b5fd'},
@@ -60,9 +180,20 @@ const compact=value=>String(value||'').toLocaleLowerCase().replace(/[\s\-_'’`�
 const firstHighlight=(item,lang)=>String(lang==='ar'?item?.highlightsAr:item?.highlightsEn||'').split(lang==='ar'?'،':',')[0]?.trim();
 
 function destinationFor(cityKey){return (window.TRAVO_AIRPORTS||[]).find(item=>item.cityKey===cityKey)}
+function landmarkFor(item){return window.TRAVO_DESTINATION_LANDMARKS?.[item?.cityKey]||null}
 function photoSearchTerms(item){
-  return [item?.cityAr,item?.cityEn,firstHighlight(item,'ar'),firstHighlight(item,'en')]
-    .map(compact).filter(term=>term.length>2);
+  const landmark=landmarkFor(item);
+  return [...new Set([
+    landmark?.ar,landmark?.en,...(landmark?.terms||[]),
+    item?.cityAr,item?.cityEn,firstHighlight(item,'ar'),firstHighlight(item,'en')
+  ].map(compact).filter(term=>term.length>2))];
+}
+function photoQuery(item){
+  const landmark=landmarkFor(item);
+  return [...new Set([
+    landmark?.query||landmark?.en||firstHighlight(item,'en')||item?.cityEn,
+    item?.cityEn,'Saudi Arabia'
+  ].filter(Boolean))].join(' ');
 }
 function isDestinationFile(page,item){
   const label=compact(`${page.title||''} ${page.imageinfo?.[0]?.extmetadata?.ImageDescription?.value||''}`);
@@ -70,7 +201,13 @@ function isDestinationFile(page,item){
 }
 function destinationPhotoScore(page,item){
   const title=String(page.title||'');
-  let score=photoSearchTerms(item).filter(term=>compact(title).includes(term)).length*25;
+  const landmark=landmarkFor(item);
+  const compactTitle=compact(title);
+  let score=photoSearchTerms(item).filter(term=>compactTitle.includes(term)).length*25;
+  if([landmark?.ar,landmark?.en].map(compact).filter(Boolean).some(term=>compactTitle.includes(term)))score+=60;
+  const photoDate=String(page.imageinfo?.[0]?.extmetadata?.DateTimeOriginal?.value||page.imageinfo?.[0]?.extmetadata?.DateTime?.value||title);
+  const year=Number((photoDate.match(/\b(20\d{2})\b/)||[])[1]||0);
+  if(year>=2018)score+=Math.min(28,year-2014);
   if(/hotel|resort|logo|flag|map|airport|school|stadium|mall/i.test(title))score-=80;
   if(/mountain|road|sunset|view|valley|beach|island|oasis|castle|heritage|old town|village|desert|cave|waterfall|coast|forest|rock/i.test(title))score+=35;
   return score;
@@ -90,9 +227,9 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
   if(fixed)return fixed;
   const item=destinationFor(cityKey);
   if(!item)return null;
-  const cached=safeStorage.get(`travo:destination-photo:v3:${cityKey}`);
+  const cached=safeStorage.get(`travo:destination-photo:v4:${cityKey}`);
   if(cached?.image)return cached;
-  const query=[item.cityEn||item.cityAr,'Saudi Arabia'].filter(Boolean).join(' ');
+  const query=photoQuery(item);
   const endpoint=new URL('https://commons.wikimedia.org/w/api.php');
   endpoint.search=new URLSearchParams({
     action:'query',format:'json',formatversion:'2',generator:'search',gsrsearch:query,
@@ -108,10 +245,11 @@ window.TRAVO_GET_DESTINATION_PHOTO=async function(cityKey){
     if(!page)return null;
     const photo={
       image:page.imageinfo[0].thumburl,
-      sourceName:'Wikimedia Commons',
+      sourceName:landmarkFor(item)?.ar||item.cityAr||item.cityEn,
+      sourceAttribution:'Wikimedia Commons',
       sourceUrl:commonsPageUrl(page.title)
     };
-    safeStorage.set(`travo:destination-photo:v3:${cityKey}`,photo);
+    safeStorage.set(`travo:destination-photo:v4:${cityKey}`,photo);
     return photo;
   }catch{return null}
 };
