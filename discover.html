@@ -35,10 +35,16 @@
         <h1><span id="cityTitle">الرياض</span><br><span id="discoverPrompt">اختر وش تبغى تكتشف.</span></h1>
         <p id="discoverLead">فعاليات ومواسم وأنشطة ومواقع وأماكن تاريخية تستحق الزيارة داخل المملكة فقط.</p>
         <div class="discover-city-search"><input id="discoverCity" list="discoverCities" placeholder="اختر مدينة أو وجهة سعودية"><datalist id="discoverCities"></datalist><button id="changeCityBtn" class="primary">اختيار الوجهة</button></div>
+        <button id="showDirectoryBtn" class="ghost city-directory-toggle hidden" type="button">استكشف وجهة أخرى</button>
       </div>
     </section>
 
-    <section class="destination-directory" aria-labelledby="directoryTitle">
+    <section id="cityFocus" class="city-focus hidden" aria-live="polite">
+      <div class="city-focus-copy"><p class="eyebrow" id="cityFocusKicker">CITY GUIDE</p><h2 id="cityFocusTitle">دليل الوجهة</h2><p id="cityFocusSummary"></p></div>
+      <div id="cityFocusHighlights" class="city-focus-highlights"></div>
+    </section>
+
+    <section id="destinationDirectory" class="destination-directory" aria-labelledby="directoryTitle">
       <div class="directory-head">
         <div><p class="eyebrow" id="directoryKicker">SAUDI DESTINATION DIRECTORY</p><h2 id="directoryTitle">استكشف السعودية حسب المنطقة</h2><p id="directorySub">مدن ومحافظات وقرى ومواقع يقصدها الزوار للرحلات القصيرة والطويلة داخل المملكة.</p></div>
         <span id="destinationCount" class="destination-count"></span>
